@@ -1,3 +1,4 @@
+<pre>
 Saves App
 
 Tabela de conteúdos
@@ -24,20 +25,22 @@ O "Saves App" foi desenvolvido com a finalidade de ser um facilitador de comunic
 Funcionalidades:
 
   Clientes:
+  
     Cadastro;
     Login;
     Recuperação de senhas;
-    Registro de suas solicitações :
+    Registro de suas solicitações:
        Inclusão de fotografias;
        Com a possibilidade de realização de varias solicitações, inclusive.
  
  Profissionais:
+ 
     Cadastro;
     Login;
     Recuperação de senhas;
     Registro de suas solicitações:
       Inclusão de fotografias;
-      Com a possibilidade de inclusão de varias servoços, inclusive.
+      Com a possibilidade de inclusão de varias serviços, inclusive.
 Layout:
   
   Mobile:
@@ -107,3 +110,4 @@ Contribuições:
    Ivan Aciolli;
    João Paulo;
    José Henrique.
+</pre>
