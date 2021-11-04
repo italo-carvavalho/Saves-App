@@ -1,10 +1,3 @@
- 
-
-
-
  <footer>
-       <h1>Meu Footer</h1>
+       <p>Todos direitos resevados</p>
 </footer>
-
-</body>
-</html>

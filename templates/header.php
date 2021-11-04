@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://fontawesome.com/lab94d0eba.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">    
     <title>Prototipo</title>
 </head>
 <body>
 
    <header>
-       <h1>Meu Header</h1>
+   <nav>
+    <div class="menu" >
+          <ul>
+              <li id="1"><a href="#"></a>Saves-App</li>
+              <li id="2"><a href="#"></a>Entrar</li>
+              <li id="3"><a href="#"></a>Cadastra</li>
+            </ul>
+
+    </div>
+   </nav>
    </header>
