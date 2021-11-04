@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://fontawesome.com/lab94d0eba.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>Prototipo</title>
-</head>
-<body>
+
+<?php 
+
+require_once("vendor/autoload.php");
+
+require_once("templates/header.php");   
+
+use App\Model\UserDao;
+
+$ob = new UserDao();
+
+echo $ob->u;
+
+?>
+
   <main class="container">
   <h2>Login</h2>
     <form action="">
@@ -44,5 +48,7 @@
         </div>
     </div>             
     </main>
-</body>
-</html>
+
+<?php require_once("templates/footer.php")  ?>
+
+   
