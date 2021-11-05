@@ -27,10 +27,11 @@ li {
 }
 
 body{
-    background: linear-gradient(45deg, rgb(192, 53, 10), #8e2de2);
+    background: linear-gradient(45deg, rgb(196, 213, 231), #1557ad,rgb(196, 213, 231));
+    /* background: linear-gradient(45deg, rgb(192, 53, 10), #8e2de2); */
     background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
+    min-height: 97vh;
+    /* min-width: 100vw; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,6 +50,7 @@ main h2{
     font-weight: 600;
     margin-bottom: 2rem;
     position: relative;
+    text-align: center;
 }
 
 main h2::before {
@@ -59,7 +61,7 @@ main h2::before {
     bottom: 3px;
     left: 0;
     border-radius: 8px;
-    background: linear-gradient(45deg, #8e2de2, #4a00a0);
+    /* background: linear-gradient(45deg, #8e2de2, #4a00a0); */
 }
 
 form{
@@ -69,6 +71,7 @@ form{
 
 .input-field {
     position: relative;
+    margin-top: 10px;
 }
 
 .input-field input {
@@ -84,7 +87,8 @@ form{
 form input[type="submit"] {
     margin-top: 2rem;
     padding: 0.5rem;
-    background: linear-gradient(to left, #b61fdb, #8e54e9);
+    /* background: linear-gradient(to left, #b61fdb, #8e54e9); */
+    background: linear-gradient(to left, #321fdb, #546fe9);
     cursor: pointer;
     font-size: 1rem;
     color: white;
@@ -107,7 +111,8 @@ footer {
   left:0;
   text-align:center;
   padding: 20px 0;
-    
+  background: linear-gradient(45deg,rgb(196, 213, 231), #1557ad,rgb(196, 213, 231));
+  height: 3%;
 }
 
 .footer {

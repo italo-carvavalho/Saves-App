@@ -8,7 +8,7 @@ require_once("templates/header.php");
 ?>
 
   <main class="container">
-  <h2>Login</h2>
+   <h2>Login</h2>
     <form action="">
         <div class="input-field">
             <input type="text" name="Usuario" id="Usuario" placeholder="Entre com seu Apelido">
