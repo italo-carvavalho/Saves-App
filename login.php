@@ -1,5 +1,5 @@
 <?php  
-require_once("../templates/header.php");
+require_once("templates/header.php");
 
 // require_once("vendor/autoload.php");
 // use App\Model\UserDao;
@@ -25,10 +25,16 @@ require_once("../templates/header.php");
     </form>
 
     <div class="footer">
-        <div class="z">
-            <a href="cadastro.php" style="text-decoration:none">
-                Cadastre-se
+        <div>
+            <a href="cadastrocli.php" style="text-decoration:none">
+                Cadastro do Cliente
             </a>
+        </div>
+        <div class="footer">
+        <div>
+            <a href="cadastropro.php" style="text-decoration:none">
+                Cadastro do Profissional 
+        </a>
         </div>
         <span>Ou Conecte Com sua Conta Social</span>      
         <div class="social-fields">
@@ -48,6 +54,6 @@ require_once("../templates/header.php");
     </div>             
     </main>
 
-<?php require_once("../templates/footer.php")  ?>
+<?php require_once("templates/footer.php")  ?>
 
    
