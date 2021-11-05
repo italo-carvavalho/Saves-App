@@ -17,7 +17,7 @@ require_once("globals.php");
 
    <header>
    <nav>
-    <div class="menu" >
+    <div class="header" >
           <ul>
               <li id="1"><a href="#"></a>Saves-App</li>
               <li id="2"><a href="#"></a>Entrar</li>
