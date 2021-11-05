@@ -19,9 +19,9 @@ require_once("globals.php");
    <nav>
     <div class="header" >
           <ul>
-              <li id="1"><a href="#"></a>Saves-App</li>
-              <li id="2"><a href="#"></a>Entrar</li>
-              <li id="3"><a href="#"></a>Cadastra</li>
+              <li id="savesapp"><a href="#">SAVESAPP</a></li>
+              <li class="login-button"><a href="#">Entrar</a></li>
+              <li class="login-button"><a href="#">Cadastrar</a></li>
             </ul>
 
     </div>
