@@ -99,11 +99,11 @@ Rodando a aplicação web (Frontend):
 				
 Tecnologias:
 
-   PHP 8.0.1;
+   PHP;
    HTML5;
    CSS3;
-   SQL;
-   JAVASCRIPT.
+   MySQL;
+   JAVASCRIPT;
 
 Contribuições:
 
@@ -112,5 +112,5 @@ Contribuições:
    Ítalo Carvalho;
    Ivan Aciolli;
    João Paulo;
-   José Henrique.
+   José Henrique;
 </pre>
