@@ -128,3 +128,45 @@ nav {
 .logo:hover {
     color: white;
 }
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+
+    background-color: #1A0859;
+    color: white;
+}
+.social-images{
+    width: 5vh;
+    margin: 2vh;
+    margin-bottom: 0;
+}
+.footer-ul li {
+    list-style: none;
+}
+.footer-ul a{
+    text-decoration: none;
+    color: white;
+}
+.footer-ul ul {
+    margin-top: 3vh;
+    margin-right: 4vh;
+    margin-left: 8vh;
+}
+.footer-social {
+    display: inline-block;
+}
+.footer-social li a{
+    list-style: none;
+    font-size: 4vh;
+    text-align: initial;
+    text-decoration: none;
+    color: white;
+}
+.footer-social img {
+    margin: 3vh;
+}
+#idioma {
+    position: relative;
+    top: -4vh;
+}

@@ -1,6 +1,6 @@
 <?php 
 require_once("templates/header.php");
-// require_once("templates/footer.php");
+require_once("templates/footer.php");
 ?>
 	<main>
 		<h1>Faça parte do SAVESAPP</h1>
