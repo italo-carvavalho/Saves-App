@@ -20,8 +20,8 @@ require_once("globals.php");
         <nav>
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
             <div>
-                <button class="button-nav">Entrar</button>
                 <button class="button-nav">Cadastro</button>
+                <button class="button-nav" id="nav-sign-in">Entrar</button>
             </div>
                 
         </nav>
