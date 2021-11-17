@@ -1,6 +1,7 @@
 <?php 
 
 require_once("globals.php");
+require_once("App/Conexao.php");
 
 ?>
 
@@ -19,8 +20,8 @@ require_once("globals.php");
         <nav>
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
             <ul class="navlist">
-                <li><a href="#">Entrar</a></li>
-                <li><a href="#">Cadastro</a></li>
+                <li><a href="<?= $BASE_URL ?>login.php">Entrar</a></li>
+                <li><a href="<?= $BASE_URL ?>cadastro.php">Cadastro</a></li>
             </ul>
         </nav>
     </header>

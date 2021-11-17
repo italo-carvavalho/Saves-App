@@ -4,7 +4,8 @@
 
 <main class="container">
 <h2>Cadastro do Cliente</h2>
-  <form action="">
+  <form action="auth_process.php" method="post">
+      <input type="hidden" name="type" value="register">
       <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome Completo">
           <div class="undeline">    
