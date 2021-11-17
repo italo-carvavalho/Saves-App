@@ -15,13 +15,16 @@ require_once("globals.php");
     <title>SAVESAPP</title>
 </head>
 <body>
-
-   <header>
+    <div class="inv">
+    <header>
         <nav>
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
-            <ul class="navlist">
-                <li><a href="<?= $BASE_URL ?>login.php">Entrar</a></li>
-                <li><a href="<?= $BASE_URL ?>cadastro.php">Cadastro</a></li>
-            </ul>
+            <div>
+                <button class="button-nav">Entrar</button>
+                <button class="button-nav">Cadastro</button>
+            </div>
+                
         </nav>
-    </header>
+    </header>  
+    </div>
+   

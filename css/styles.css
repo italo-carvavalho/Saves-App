@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: white;
 }
 body{
     display: grid; 
@@ -25,6 +22,11 @@ body{
 
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    background-color: white;
+}
+.inv{
+    grid-area: header;
+    height: 10vh;
 }
 
 main{
@@ -62,28 +64,10 @@ h1{
     text-align: top;
     width: 99vh;
 }
-a{
-    text-decoration: none;
-    background-color:  #1A0859;
-    color: white;
-}
 header{
     grid-area: header;
+    position: fixed;
     width: 100%;
-}
-a:hover{
-    opacity: 0.7;
-}
-.logo{
-    font-size: 6vh;
-    font-family: poppins, sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    letter-spacing: 1vh;
-    margin-left: 5vh;
-
-    background-color:  #1A0859;
 }
 nav{
     display: flex;
@@ -96,143 +80,43 @@ nav{
     height: 10vh;
     background-color: #1A0859;
 }
-.navlist{
-    display: flex;
-    list-style: none;
-
-    background-color:  #1A0859;
-}
-.navlist li{
-    letter-spacing: 4px;
-    margin-left: 2vh;
-    margin-right: 2vh;
-    
-    background-color:  #1A0859;
-}
-
-/*
-*{
-    margin: 0;
-    border: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-}
-
-
-body{
-    background: linear-gradient(45deg, rgb(192, 53, 10), #8e2de2);
-    background-repeat: no-repeat;
-    min-height: 97vh;
-    min-width: 100vw; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main.container {
-    background: white;
-    max-width: 450px;  
-    min-height: 40vh; 
-    padding: 2em;  
-    box-shadow: 5px 5px 15px rgb(0, 0, 0.3);
-    border-radius: 8px;
-}
-
-main h2{
-    font-weight: 600;
-    margin-bottom: 2rem;
-    position: relative;
-    text-align: center;
-}
-
-main h2::before {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 25px;
-    bottom: 3px;
-    left: 0;
-    border-radius: 8px;
-    background: linear-gradient(45deg, #8e2de2, #4a00a0);
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-}
-
-.input-field {
-    position: relative;
-    margin-top: 10px;
-}
-
-.input-field input {
-    outline: none;
-    font-size: 1rem;
-    color: rgb(0, 0, 0.9)
-}
-
-.input-field ipnut ::placeholder {
-    color: rgb(0, 0, 1);
-}
-
-form input[type="submit"] {
-    margin-top: 2rem;
-    padding: 0.5rem;
-    background: linear-gradient(to left, #b61fdb, #8e54e9);
+.button-nav{
+    display: inline-block;
     cursor: pointer;
-    font-size: 1rem;
-    color: white;
-    font-weight: 300;
-    border-radius: 4px;
-    transition: all 0.3 ease;
-}
-
-form input[type="submit"] :hover {
-    letter-spacing: 0.5px;
-    background: linear-gradient(to right, #b61fdb, #6824d6);
-}
-
-
-footer {
-  display:block;
-  position:fixed;
-  width:100%;
-  bottom:0vh;
-  left:0;
-  text-align:center;
-  padding: 20px 0;
-  background: white;
-  height: 3%;
-  
-}
-
-.footer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-
-}
-
-.footer span{
-    color: rgb(0, 0, 0.9);
-    font-size: 0.9rem;
+    
+    border: none;
+    font-size: 16px;
+    padding: 15px 32px;
+    
     text-align: center;
-}
-
-.footer social-field {
-    padding: 05rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    width: 100%;
-}
-
-.footer social-field a {
     text-decoration: none;
+    
+    
+    
+    background-color: #1A0859;
+    color: white;
+    
+}
+.button-nav {
+  transition-duration: 0.4s;
+}
+
+.button-nav:hover {
+  background-color: #11053B;
+  color: white;
+}
+
+.logo{
+    font-size: 6vh;
+    font-family: poppins, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    list-style: none;
+    text-decoration: none;
+
+    letter-spacing: 1vh;
+    margin-left: 5vh;
+
+    background-color:  #1A0859;
     color: white;
 }
-.footer social-field.Facebook {
-    background: linear-gradient(to right, #1e3c72);
-}
-*/
