@@ -1,7 +1,7 @@
 <?php 
 
 require_once("globals.php");
-require_once("App/Conexao.php");
+// require_once("App/Conexao.php");
 
 ?>
 
