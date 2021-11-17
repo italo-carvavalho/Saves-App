@@ -1,16 +1,17 @@
 <?php 
 
-namespace "App";
+
 
 class User
 {
 	private $id_user;
-	private $name;
-	private $email;
-	private $telefone;
-	private $password;
-	private $token;
+	public $name;
+	public $email;
+	public $telefone;
+	public $password;
+	public $token;
 
+	/*
 	public function getIdUser()
 	{
 		return $this->id_user;
@@ -36,7 +37,7 @@ class User
 		return $this->email;
 	}
 	
-	public function setEmail($name)
+	public function setEmail($email)
 	{
 		$this->email = $email;
 	}
@@ -69,5 +70,11 @@ class User
 	public function setToken($token)
 	{
 		$this->token = $token;
-	}
+	} */
+}
+
+
+interface UserDaoInterface{
+
+	public function buildUser($data);
 }
