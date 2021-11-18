@@ -1,7 +1,18 @@
 <?php 
 
 require_once("globals.php");
-// require_once("App/Conexao.php");
+require_once("conexao.php");
+require_once("Model/Message.php");
+
+$message = new Message($BASE_URL);
+
+$menssagens = $message->getMessage();
+
+if(!empty($menssagens['msg'])){
+
+    //limpar a menssagem
+    $message->clearMessage();
+}
 
 ?>
 
@@ -20,8 +31,8 @@ require_once("globals.php");
         <nav>
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
             <div>
-                <button class="button-nav">Cadastro</button>
-                <button class="button-nav" id="nav-sign-in">Entrar</button>
+                <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Cadastro</a>
+                <a href="<?=$BASE_URL?>login.php" class="button-nav" id="nav-sign-in">Entrar</a>
             </div>
                 
         </nav>

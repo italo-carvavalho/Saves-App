@@ -4,77 +4,31 @@
 
 class User
 {
-	private $id_user;
+	public $id_user;
 	public $name;
 	public $email;
-	public $telefone;
+	public $phone;
 	public $password;
 	public $token;
 
-	/*
-	public function getIdUser()
-	{
-		return $this->id_user;
-	}
-	
-	public function setIdUser($id_user)
-	{
-		$this->id_user = $id_user;
-	}
-	
-	public function getName()
-	{
-		return $this->name;
-	}
-	
-	public function setName($name)
-	{
-		$this->name = $name;
+	public function gerarToken(){
+		return bin2hex(random_bytes(50));
 	}
 
-	public function getEmail()
-	{
-		return $this->email;
-	}
-	
-	public function setEmail($email)
-	{
-		$this->email = $email;
+	public function gerarSenha($password){
+		return password_hash($password, PASSWORD_DEFAULT);
 	}
 
-	public function getTelefone()
-	{
-		return $this->telefone;
-	}
-	
-	public function setTelefone($telefone)
-	{
-		$this->telefone = $telefone;
-	}
-
-	public function getPassword()
-	{
-		return $this->password;
-	}
-	
-	public function setPassword($password)
-	{
-		$this->password = $password;
-	}
-
-	public function getToken()
-	{
-		return $this->token;
-	}
-	
-	public function setToken($token)
-	{
-		$this->token = $token;
-	} */
 }
 
 
 interface UserDaoInterface{
 
-	public function buildUser($data);
+	public function construirUsuario($data);
+
+	public function criar(User $user, $authUser = false);
+
+	public function buscarPorEmail($email);
+
+	public function setTokenToSession($token,$redirect = true);
 }
