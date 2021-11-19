@@ -23,12 +23,12 @@ if($type == "register"){
 
 	$name = filter_input(INPUT_POST,"name");
 	$email = filter_input(INPUT_POST,"email");
-	$phone = filter_input(INPUT_POST,"phone");
+	$telefone = filter_input(INPUT_POST,"telefone");
 	$password = filter_input(INPUT_POST,"password");
 	$confirmPassword = filter_input(INPUT_POST,"confirmPassword");
 
 	//verificação de dados minimos
-	if($name && $email && $phone && $password && $confirmPassword){
+	if($name && $email && $telefone && $password && $confirmPassword){
 		
 		//verificar se as senhas batem
 		if($password === $confirmPassword){
@@ -45,7 +45,7 @@ if($type == "register"){
                 //montar o objeto
                 $user->name =$name;
                 $user->email=$email;
-                $user->phone =$telefone;
+                $user->telefone =$telefone;
                 $user->password =$finalPassword;
                 $user->token = $userToken;
 
@@ -71,6 +71,23 @@ if($type == "register"){
 
 }else if($type == "login"){
 
+	
+
+	$email = filter_input(INPUT_POST,"email");
+	$password = filter_input(INPUT_POST,"password");
+
+	
+	//tenta autenticar o usuario 
+	if($userDao->autenticarUsuario($email,$password)){
+
+		//redireciona o usuario caso não conseguir autenticar
+		$message->setMessage("Seja bem vindo!","success","back");
+
+	}else{
+		$message->setMessage("Usuário e/ou senha incorretos","error","back");
+	}
+}else{
+	$message->setMessage("informações inválidas","error","index.php");
 }
 
 

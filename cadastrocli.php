@@ -19,7 +19,7 @@
           <div class="undeline"></div>
       </div>
       <div class="input-field">
-          <input type="texto" name="phone" id="telefone" placeholder="Telefone">
+          <input type="texto" name="telefone" id="telefone" placeholder="Telefone">
           <div class="undeline"></div>
      </div>
       <div class="input-field">

@@ -37,4 +37,8 @@ interface UserDaoInterface{
 	public function findByToken($token);
 
 	public function destroiToken();
+
+	public function autenticarUsuario($email,$senha);
+
+	public function update(User $user, $redirect = true);
 }

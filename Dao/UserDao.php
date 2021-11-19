@@ -150,6 +150,52 @@ class UserDao implements UserDaoInterface{
 		$this->message->setMessage("Você fez o logout com sucesso!","success","index.php");
 	}
 
+	public function autenticarUsuario($email,$password){
+
+		$user = $this->buscarPorEmail($email);
+
+		if($user){
+			
+			//checar se as senhas batem
+			if(password_verify($password, $user->password)){
+               //gerar um token e inserir na seção
+			   $token = $user->gerarToken();
+
+			   $this->setTokenToSession($token,false);
+
+				//atualizar o token no usuario  agora
+				$user->token = $token;
+				
+				$this->update($user,false);
+				
+				return true;
+
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+
+	public function update(User $user, $redirect = true){
+
+		$stmt = $this->conn->prepare("UPDATE users SET name = :name, email = :email, telefone = :telefone, token = :token WHERE id_user = :id_user");
+
+		$stmt->bindParam(":name",$user->name);
+		$stmt->bindParam(":email",$user->email);
+		$stmt->bindParam(":telefone",$user->telefone);
+		$stmt->bindParam(":token",$user->token);
+		$stmt->bindParam(":id_user",$user->id_user);
+		$stmt->execute();
+
+		if($redirect){
+			//redireciona para o perfil do usuario
+			$this->message->setMessage("Dados atualizados com sucesso!","success","editarperfil.php");
+		}
+
+	}
+
 }
 
 

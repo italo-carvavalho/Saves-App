@@ -10,15 +10,16 @@ require_once("templates/header.php");
 
   <main class="container">
    <h2>Login</h2>
-    <form action="">
+    <form action="auth_proccess.php" method="POST">
+        <input type="hidden" name="type" value="login">
         <div class="input-field">
-            <input type="text" name="Usuario" id="Usuario" placeholder="Entre com seu Apelido">
+            <input type="text" name="email" id="Usuario" placeholder="Entre com seu Apelido">
             <div class="undeline">    
             </div>
         </div>
 
         <div class="input-field">
-            <input type="password" name="Senha" id="Senha" placeholder="Entre com sua Senha">
+            <input type="password" name="password" id="Senha" placeholder="Entre com sua Senha">
             <div class="undeline"></div>
         </div>
 
