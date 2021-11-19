@@ -45,7 +45,7 @@ if($type == "register"){
                 //montar o objeto
                 $user->name =$name;
                 $user->email=$email;
-                $user->phone =$phone;
+                $user->phone =$telefone;
                 $user->password =$finalPassword;
                 $user->token = $userToken;
 

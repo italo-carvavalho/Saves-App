@@ -4,11 +4,7 @@
 
 <main class="container">
 
-<?php  if(!empty($menssagens['msg'])){  ?>
-  <div class="msg-container">
-     <p class="msg <?= $menssagens['type'] ?>"><?= $menssagens['msg'] ?></p>
-  </div>
-<?php  }  ?>
+
 
 <h2>Cadastro do Cliente</h2>
   <form action="auth_proccess.php" method="post">

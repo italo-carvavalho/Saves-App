@@ -1,14 +1,15 @@
 <?php 
 require_once("templates/header.php");
-require_once("templates/footer.php");
+require_once("Dao/UserDao.php");
+
+$userDao = new UserDao($conn,$BASE_URL);
+
+$userData = $userDao->verifyToken(true);
+
 ?>
 
 <main class="container">
-	<?php  if(!empty($menssagens['msg'])){  ?>
-  <div class="msg-container">
-     <p class="msg <?= $menssagens['type'] ?>"><?= $menssagens['msg'] ?></p>
-  </div>
-  <?php  }  ?>
+	
 
 
 
@@ -20,3 +21,8 @@ require_once("templates/footer.php");
 
           <h1>LOGADO</h1>
   	</main>
+
+
+<?php 
+require_once("templates/footer.php");
+?>

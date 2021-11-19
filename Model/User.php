@@ -7,7 +7,7 @@ class User
 	public $id_user;
 	public $name;
 	public $email;
-	public $phone;
+	public $telefone;
 	public $password;
 	public $token;
 
@@ -31,4 +31,10 @@ interface UserDaoInterface{
 	public function buscarPorEmail($email);
 
 	public function setTokenToSession($token,$redirect = true);
+
+	public function verifyToken($protegido = false);
+
+	public function findByToken($token);
+
+	public function destroiToken();
 }

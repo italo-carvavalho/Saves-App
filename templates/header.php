@@ -3,6 +3,7 @@
 require_once("globals.php");
 require_once("conexao.php");
 require_once("Model/Message.php");
+require_once("Dao/UserDao.php");
 
 $message = new Message($BASE_URL);
 
@@ -13,6 +14,11 @@ if(!empty($menssagens['msg'])){
     //limpar a menssagem
     $message->clearMessage();
 }
+
+$userDao = new UserDao($conn,$BASE_URL);
+
+//chama um metodo que vai pegar o dados do usuario
+$userData =$userDao->verifyToken(false);
 
 ?>
 
@@ -31,11 +37,23 @@ if(!empty($menssagens['msg'])){
         <nav>
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
             <div>
-                <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Cadastro</a>
-                <a href="<?=$BASE_URL?>login.php" class="button-nav" id="nav-sign-in">Entrar</a>
+                <? if($userData):     ?>
+                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav"><?= $userData->name ?></a>
+                    <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
+                <? else: ?>
+                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Cadastro</a>
+                    <a href="<?=$BASE_URL?>login.php" class="button-nav" id="nav-sign-in">Entrar</a>
+                <? endif;  ?>
             </div>
                 
         </nav>
+
+        <?php  if(!empty($menssagens['msg'])){  ?>
+            <div class="msg-container">
+                <p class="msg <?= $menssagens['type'] ?>"><?= $menssagens['msg'] ?></p>
+           </div>
+            <?php  }  ?>
+
     </header>  
     </div>
    

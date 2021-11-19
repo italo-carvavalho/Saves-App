@@ -24,7 +24,7 @@ class UserDao implements UserDaoInterface{
 		$user->id_user = $data['id_user'];
 		$user->name = $data['name'];
 		$user->email = $data['email'];
-		$user->telefone = $data['phone'];
+		$user->telefone = $data['telefone'];
 		$user->password = $data['password'];
 		$user->token = $data['token'];
 
@@ -41,7 +41,7 @@ class UserDao implements UserDaoInterface{
 		)");
 		$stmt->bindParam(":name",$user->name);
 		$stmt->bindParam(":email",$user->email);
-		$stmt->bindParam(":telefone",$user->phone);
+		$stmt->bindParam(":telefone",$user->telefone);
 		$stmt->bindParam(":password",$user->password);
 		$stmt->bindParam(":token",$user->token);
 
@@ -88,6 +88,67 @@ class UserDao implements UserDaoInterface{
         } 
 
     }
+
+	public function verifyToken($protegido = false){
+
+		//verificar se sessão tem o tokem
+		if(!empty($_SESSION["token"])) {
+
+			// Pega o token da session
+			$token = $_SESSION["token"];
+	
+			$user = $this->findByToken($token);
+	
+			if($user) {
+			  return $user;
+			} else if($protegido) {
+	
+			  // Redireciona usuário não autenticado
+			  $this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "index.php");
+	
+			}
+	
+		  } else if($protegido) {
+	
+			// Redireciona usuário não autenticado
+			$this->message->setMessage("Faça a autenticação para acessar esta página!", "error", "index.php");
+	
+		  }
+	}
+
+	public function findByToken($token){
+		
+		if($token != "") {
+
+        	$stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
+
+        	$stmt->bindParam(":token", $token);
+
+        	$stmt->execute();
+
+        	if($stmt->rowCount() > 0) {
+
+               $data = $stmt->fetch();
+               $user = $this->construirUsuario($data);
+          
+               return $user;
+
+            } else {
+              return false;
+            }
+
+        } else {
+          return false;
+        } 
+
+	}
+
+	public function destroiToken(){
+		//remove o token da sessoa
+		$_SESSION['token'] = "";
+		//redirecionar e apresentarmessagem de sucesso
+		$this->message->setMessage("Você fez o logout com sucesso!","success","index.php");
+	}
 
 }
 
