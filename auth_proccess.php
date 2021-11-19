@@ -81,7 +81,7 @@ if($type == "register"){
 	if($userDao->autenticarUsuario($email,$password)){
 
 		//redireciona o usuario caso não conseguir autenticar
-		$message->setMessage("Seja bem vindo!","success","back");
+		$message->setMessage("Seja bem vindo!","success","editarperfil.php");
 
 	}else{
 		$message->setMessage("Usuário e/ou senha incorretos","error","back");
