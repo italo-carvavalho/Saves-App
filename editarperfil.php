@@ -1,8 +1,8 @@
 <?php 
 require_once("templates/header.php");
-require_once("Dao/UserDao.php");
+require_once("Dao/ClienteDao.php");
 
-$userDao = new UserDao($conn,$BASE_URL);
+$userDao = new ClienteDao($conn,$BASE_URL);
 
 $userData = $userDao->verifyToken(true);
 

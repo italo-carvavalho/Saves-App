@@ -3,7 +3,7 @@
 require_once("Model/User.php");
 require_once("Model/Message.php");
 
-class UserDao implements UserDaoInterface{
+class ClienteDao implements UserDaoInterface{
 
 	private $conn;
 	private $url;
@@ -26,7 +26,10 @@ class UserDao implements UserDaoInterface{
 		$user->email = $data['email'];
 		$user->telefone = $data['telefone'];
 		$user->password = $data['password'];
+        $user->service = $data['service'];
+        $user->cidade = $data['cidade'];
 		$user->token = $data['token'];
+
 
 		return $user;
 
@@ -34,14 +37,16 @@ class UserDao implements UserDaoInterface{
 
 	public function criar(User $user, $authUser = false){
        
-		$stmt = $this->conn->prepare("INSERT INTO users(
-			name,email,telefone,password,token 
+		$stmt = $this->conn->prepare("INSERT INTO woker(
+			name,email,telefone,service,cidade,password,token 
 		)VALUES(
-           :name,:email,:telefone,:password,:token
+           :name,:email,:telefone,:service,:cidade:password,:token
 		)");
 		$stmt->bindParam(":name",$user->name);
 		$stmt->bindParam(":email",$user->email);
 		$stmt->bindParam(":telefone",$user->telefone);
+        $stmt->bindParam(":service",$user->service);
+        $stmt->bindParam(":cidade",$user->cidade);
 		$stmt->bindParam(":password",$user->password);
 		$stmt->bindParam(":token",$user->token);
 

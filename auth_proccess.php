@@ -5,13 +5,13 @@ require_once("conexao.php");
 require_once("globals.php");
 require_once("Model/Message.php");
 require_once("Model/User.php");
-require_once("Dao/UserDao.php");
+require_once("Dao/ClienteDao.php");
 
 
 
 $message = new Message($BASE_URL);
 
-$userDao = new userDao($conn,$BASE_URL);
+$userDao = new ClienteDao($conn,$BASE_URL);
 
 
 //resgata o tipo de formulario
@@ -19,7 +19,7 @@ $type = filter_input(INPUT_POST,"type");
 
 
 //verifica o tipo do formulario
-if($type == "register"){
+if($type == "register_cliente"){
 
 	$name = filter_input(INPUT_POST,"name");
 	$email = filter_input(INPUT_POST,"email");
@@ -68,6 +68,10 @@ if($type == "register"){
 		//enviar menssagem de erro de dados faltantes
 		$message->setMessage("Por favor preencha todos os campos","error","back");
 	}
+
+}else if($type == "register_worker"){
+
+
 
 }else if($type == "login"){
 

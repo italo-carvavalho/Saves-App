@@ -8,7 +8,7 @@
 
 <h2>Cadastro do Cliente</h2>
   <form action="auth_proccess.php" method="post">
-      <input type="hidden" name="type" value="register">
+      <input type="hidden" name="type" value="register_cliente">
       <div class="input-field">
           <input type="text" name="name" id="name" placeholder="Nome Completo">
           <div class="undeline">    

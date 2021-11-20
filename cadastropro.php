@@ -5,13 +5,14 @@
 <main class="container">
 <h2>Cadastro do Profissional</h2>
   <form action="">
+      <input type="hidden" name="register_worker">
       <div class="input-field">
-          <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+          <input type="text" name="name" id="nome" placeholder="Nome Completo">
           <div class="undeline">    
           </div>
       </div>
       <div class="input-field">
-          <input type="texto" name="e-mail" id="email" placeholder="E-mail">
+          <input type="texto" name="email" id="email" placeholder="E-mail">
           <div class="undeline"></div>
       </div>
       <div class="input-field">
@@ -22,7 +23,7 @@
        <div class="input-field">
           <label for="cidade">Escolha a sua Cidade:</label>
           <select name="cidade" id="cidade">
-              <option value="---"> --- </option>
+              <option value="cidade"> --- </option>
               <option value="Abreu e Lima">Abreu e Lima</option>
               <option value="Igarassu">Igarassu</option>
               <option value="Paulista">Paulista</option>
@@ -34,7 +35,7 @@
         <div class="input-field">
            <label for="profissao">Escolha a sua Profissão:</label>
            <select name="profissao" id="profissao">
-               <option value="---"> --- </option>
+               <option value="profissao"> --- </option>
                <option value="Mecanico">Mecanico</option>
                <option value="eletrecista">eletrecista</option>
                <option value="Geceiro">Geceiro</option>

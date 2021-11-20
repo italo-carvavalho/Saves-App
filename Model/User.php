@@ -10,6 +10,9 @@ class User
 	public $telefone;
 	public $password;
 	public $token;
+	public $service;
+	public $cidade;
+	public $image;
 
 	public function gerarToken(){
 		return bin2hex(random_bytes(50));

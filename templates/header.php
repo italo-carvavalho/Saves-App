@@ -3,7 +3,7 @@
 require_once("globals.php");
 require_once("conexao.php");
 require_once("Model/Message.php");
-require_once("Dao/UserDao.php");
+require_once("Dao/ClienteDao.php");
 
 $message = new Message($BASE_URL);
 
@@ -15,7 +15,7 @@ if(!empty($menssagens['msg'])){
     $message->clearMessage();
 }
 
-$userDao = new UserDao($conn,$BASE_URL);
+$userDao = new ClienteDao($conn,$BASE_URL);
 
 //chama um metodo que vai pegar o dados do usuario
 $userData =$userDao->verifyToken(false);
