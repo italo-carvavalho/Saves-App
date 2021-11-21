@@ -58,7 +58,7 @@ class ClienteDao implements UserDaoInterface{
         $_SESSION['token'] = $token;
 		if($redirect){
 			//redireciona para o perfil do usuario
-			$this->message->setMessage("Seja bem vindo","success","editarperfil.php");
+			$this->message->setMessage("Seja bem vindo","success","editar_cliente.php");
 		}
 	}
 

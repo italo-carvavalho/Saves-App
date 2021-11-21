@@ -4,8 +4,8 @@
 
 <main class="container">
 <h2>Cadastro do Profissional</h2>
-  <form action="">
-      <input type="hidden" name="register_worker">
+  <form action="auth_proccess.php" method="POST">
+      <input type="hidden" name="type" value="register_worker">
       <div class="input-field">
           <input type="text" name="name" id="nome" placeholder="Nome Completo">
           <div class="undeline">    
@@ -34,7 +34,7 @@
         </div>
         <div class="input-field">
            <label for="profissao">Escolha a sua Profissão:</label>
-           <select name="profissao" id="profissao">
+           <select name="service" id="profissao">
                <option value="profissao"> --- </option>
                <option value="Mecanico">Mecanico</option>
                <option value="eletrecista">eletrecista</option>
@@ -44,15 +44,24 @@
                </select>
            <div class="undeline"></div>
         </div>
+
+        <div class="input-field">
+          
+<textarea cols="40"rows="5"id="message"name="description"placeholder="Descrição.."></textarea> 
+        </div>
+
       
       <div class="input-field">
-          <input type="password" name="senha" id="senha" placeholder="Senha com 8 caracteres">
+          <input type="password" name="password" id="senha" placeholder="Senha com 8 caracteres">
            <div class="undeline"></div>
       </div>
       <div class="input-field">
-           <input type="password" name="confirmasenha" id="confsenha" placeholder="Confirme sua senha">
+           <input type="password" name="confirmPassword" id="confsenha" placeholder="Confirme sua senha">
            <div class="undeline"></div>
       </div>
+      
+      
+
       <input type="submit" value="Confirmar">
     
    </form>

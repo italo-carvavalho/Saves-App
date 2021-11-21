@@ -13,6 +13,7 @@ class User
 	public $service;
 	public $cidade;
 	public $image;
+	public $description;
 
 	public function gerarToken(){
 		return bin2hex(random_bytes(50));

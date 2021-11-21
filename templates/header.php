@@ -4,6 +4,7 @@ require_once("globals.php");
 require_once("conexao.php");
 require_once("Model/Message.php");
 require_once("Dao/ClienteDao.php");
+require_once("Dao/WorkerDao.php");
 
 $message = new Message($BASE_URL);
 
@@ -17,8 +18,14 @@ if(!empty($menssagens['msg'])){
 
 $userDao = new ClienteDao($conn,$BASE_URL);
 
+$workerDao = new WorkerDao($conn,$BASE_URL);
+
 //chama um metodo que vai pegar o dados do usuario
 $userData =$userDao->verifyToken(false);
+
+$workerData =$workerDao->verifyToken(false);
+
+
 
 ?>
 
@@ -37,13 +44,16 @@ $userData =$userDao->verifyToken(false);
         <nav>
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
             <div>
-                <? if($userData):     ?>
+                <? if($userData){     ?>
                     <a href="<?=$BASE_URL?>cadastro.php" class="button-nav"><?= $userData->name ?></a>
                     <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
-                <? else: ?>
+                <? }else if($workerData){ ?>
+                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav"><?= $workerData->name ?></a>
+                    <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
+                <? }else{  ?>
                     <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Cadastro</a>
                     <a href="<?=$BASE_URL?>login.php" class="button-nav" id="nav-sign-in">Entrar</a>
-                <? endif;  ?>
+                <?    }    ?>
             </div>
                 
         </nav>

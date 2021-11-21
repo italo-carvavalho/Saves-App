@@ -3,7 +3,7 @@
 require_once("Model/User.php");
 require_once("Model/Message.php");
 
-class ClienteDao implements UserDaoInterface{
+class WorkerDao implements UserDaoInterface{
 
 	private $conn;
 	private $url;
@@ -21,7 +21,7 @@ class ClienteDao implements UserDaoInterface{
 	{
 		$user = new User();
 
-		$user->id_user = $data['id_user'];
+		$user->id_user = $data['id_work'];
 		$user->name = $data['name'];
 		$user->email = $data['email'];
 		$user->telefone = $data['telefone'];
@@ -29,6 +29,7 @@ class ClienteDao implements UserDaoInterface{
         $user->service = $data['service'];
         $user->cidade = $data['cidade'];
 		$user->token = $data['token'];
+		$user->description = $data['description'];
 
 
 		return $user;
@@ -37,16 +38,17 @@ class ClienteDao implements UserDaoInterface{
 
 	public function criar(User $user, $authUser = false){
        
-		$stmt = $this->conn->prepare("INSERT INTO woker(
-			name,email,telefone,service,cidade,password,token 
+		$stmt = $this->conn->prepare("INSERT INTO worker(
+			name,email,telefone,service,cidade,description,password,token 
 		)VALUES(
-           :name,:email,:telefone,:service,:cidade:password,:token
+           :name,:email,:telefone,:service,:cidade,:description,:password,:token
 		)");
 		$stmt->bindParam(":name",$user->name);
 		$stmt->bindParam(":email",$user->email);
 		$stmt->bindParam(":telefone",$user->telefone);
         $stmt->bindParam(":service",$user->service);
         $stmt->bindParam(":cidade",$user->cidade);
+		$stmt->bindParam(":description",$user->description);
 		$stmt->bindParam(":password",$user->password);
 		$stmt->bindParam(":token",$user->token);
 
@@ -63,7 +65,7 @@ class ClienteDao implements UserDaoInterface{
         $_SESSION['token'] = $token;
 		if($redirect){
 			//redireciona para o perfil do usuario
-			$this->message->setMessage("Seja bem vindo","success","editarperfil.php");
+			$this->message->setMessage("Seja bem vindo","success","editar_profissional.php");
 		}
 	}
 
@@ -71,7 +73,7 @@ class ClienteDao implements UserDaoInterface{
 
 		if($email != "") {
 
-        	$stmt = $this->conn->prepare("SELECT * FROM users WHERE email = :email");
+        	$stmt = $this->conn->prepare("SELECT * FROM worker WHERE email = :email");
 
         	$stmt->bindParam(":email", $email);
 
@@ -125,7 +127,7 @@ class ClienteDao implements UserDaoInterface{
 		
 		if($token != "") {
 
-        	$stmt = $this->conn->prepare("SELECT * FROM users WHERE token = :token");
+        	$stmt = $this->conn->prepare("SELECT * FROM worker WHERE token = :token");
 
         	$stmt->bindParam(":token", $token);
 
@@ -185,13 +187,16 @@ class ClienteDao implements UserDaoInterface{
 
 	public function update(User $user, $redirect = true){
 
-		$stmt = $this->conn->prepare("UPDATE users SET name = :name, email = :email, telefone = :telefone, token = :token WHERE id_user = :id_user");
+		$stmt = $this->conn->prepare("UPDATE worker SET name = :name, email = :email, telefone = :telefone,service = :service, cidade = :cidade, description = :description, token = :token WHERE id_work = :id_work");
 
 		$stmt->bindParam(":name",$user->name);
 		$stmt->bindParam(":email",$user->email);
 		$stmt->bindParam(":telefone",$user->telefone);
+        $stmt->bindParam(":service",$user->service);
+        $stmt->bindParam(":cidade",$user->cidade);
+		$stmt->bindParam(":description",$user->description);
 		$stmt->bindParam(":token",$user->token);
-		$stmt->bindParam(":id_user",$user->id_user);
+		$stmt->bindParam(":id_work",$user->id_user);
 		$stmt->execute();
 
 		if($redirect){
