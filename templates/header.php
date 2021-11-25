@@ -45,12 +45,16 @@ $workerData =$workerDao->verifyToken(false);
             <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
             <div>
                 <? if($userData){     ?>
+                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Listar Prossionais</a>
+                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Cadastrar Serviço</a>
                     <a href="<?=$BASE_URL?>cadastro.php" class="button-nav"><?= $userData->name ?></a>
                     <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
                 <? }else if($workerData){ ?>
+                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Buscar Serviço</a>
                     <a href="<?=$BASE_URL?>cadastro.php" class="button-nav"><?= $workerData->name ?></a>
                     <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
                 <? }else{  ?>
+                  
                     <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Cadastro</a>
                     <a href="<?=$BASE_URL?>login.php" class="button-nav" id="nav-sign-in">Entrar</a>
                 <?    }    ?>

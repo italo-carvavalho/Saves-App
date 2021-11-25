@@ -16,7 +16,7 @@ $workerData = $workerDao->verifyToken(true);
   			<img id="home-image-2" src="images/business-deal.png" alt="handshake">
   		<h2 id="home-text-2">Encontre empregos facilmente</h2> --> 
 
-          <h1>PROFISSIONAL LOGADO</h1>
+          <h1>PROFISSIONAL DO PROFISSIONAL</h1>
   	</main>
 
 
