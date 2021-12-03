@@ -2,18 +2,19 @@
 
 
 
-class User
+class Cliente
 {
-	public $id_user;
+	public $id_cliente;
 	public $name;
 	public $email;
 	public $telefone;
 	public $password;
 	public $token;
-	public $service;
-	public $cidade;
-	public $image;
-	public $description;
+	
+
+	public function getFullName($cliente){
+		return $cliente->name;
+	}
 
 	public function gerarToken(){
 		return bin2hex(random_bytes(50));
@@ -26,11 +27,11 @@ class User
 }
 
 
-interface UserDaoInterface{
+interface ClienteDaoInterface{
 
 	public function construirUsuario($data);
 
-	public function criar(User $user, $authUser = false);
+	public function criar(Cliente $cliente, $authUser = false);
 
 	public function buscarPorEmail($email);
 
@@ -44,5 +45,5 @@ interface UserDaoInterface{
 
 	public function autenticarUsuario($email,$senha);
 
-	public function update(User $user, $redirect = true);
+	public function update(Cliente $cliente, $redirect = true);
 }

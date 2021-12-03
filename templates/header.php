@@ -51,7 +51,7 @@ $workerData =$workerDao->verifyToken(false);
                     <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
                 <? }else if($workerData){ ?>
                     <a href="<?=$BASE_URL?>cadastro.php" class="button-nav">Buscar Serviço</a>
-                    <a href="<?=$BASE_URL?>cadastro.php" class="button-nav"><?= $workerData->name ?></a>
+                    <a href="<?=$BASE_URL?>editar_profissional.php" class="button-nav"><?= $workerData->name ?></a>
                     <a href="<?=$BASE_URL?>logout.php" class="button-nav" id="nav-sign-in">Sair</a>
                 <? }else{  ?>
                   

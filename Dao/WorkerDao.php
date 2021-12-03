@@ -1,9 +1,9 @@
 <?php 
 
-require_once("Model/User.php");
+require_once("Model/Worker.php");
 require_once("Model/Message.php");
 
-class WorkerDao implements UserDaoInterface{
+class WorkerDao implements WorkerDaoInterface{
 
 	private $conn;
 	private $url;
@@ -19,44 +19,45 @@ class WorkerDao implements UserDaoInterface{
 
 	public function construirUsuario($data)
 	{
-		$user = new User();
+		$worker = new Worker();
 
-		$user->id_user = $data['id_work'];
-		$user->name = $data['name'];
-		$user->email = $data['email'];
-		$user->telefone = $data['telefone'];
-		$user->password = $data['password'];
-        $user->service = $data['service'];
-        $user->cidade = $data['cidade'];
-		$user->token = $data['token'];
-		$user->description = $data['description'];
+		$worker->id_worker = $data['id_work'];
+		$worker->name = $data['name'];
+		$worker->email = $data['email'];
+		$worker->telefone = $data['telefone'];
+		$worker->password = $data['password'];
+        $worker->service = $data['service'];
+        $worker->cidade = $data['cidade'];
+		$worker->token = $data['token'];
+		$worker->description = $data['description'];
+		$worker->image = $data['image'];
 
 
-		return $user;
+		return $worker;
 
 	}
 
-	public function criar(User $user, $authUser = false){
+	public function criar(Worker $worker, $authUser = false){
        
 		$stmt = $this->conn->prepare("INSERT INTO worker(
-			name,email,telefone,service,cidade,description,password,token 
+			name,email,telefone,description,password,token 
 		)VALUES(
-           :name,:email,:telefone,:service,:cidade,:description,:password,:token
+           :name,:email,:telefone,:description, :password,:token
 		)");
-		$stmt->bindParam(":name",$user->name);
-		$stmt->bindParam(":email",$user->email);
-		$stmt->bindParam(":telefone",$user->telefone);
-        $stmt->bindParam(":service",$user->service);
-        $stmt->bindParam(":cidade",$user->cidade);
-		$stmt->bindParam(":description",$user->description);
-		$stmt->bindParam(":password",$user->password);
-		$stmt->bindParam(":token",$user->token);
+		$stmt->bindParam(":name",$worker->name);
+		$stmt->bindParam(":email",$worker->email);
+		$stmt->bindParam(":telefone",$worker->telefone);
+       /* $stmt->bindParam(":service",$worker->service);
+        $stmt->bindParam(":cidade",$worker->cidade); */
+		$stmt->bindParam(":description",$worker->description); 
+		$stmt->bindParam(":password",$worker->password);
+		$stmt->bindParam(":token",$worker->token);
 
 		$stmt->execute();
 
 		//autenticar o usuario caso o auth seja true
 		if($authUser){
-			$this->setTokenToSession($user->token);
+			$this->setTokenToSession($worker->token);
 		}
 	}
 
@@ -82,9 +83,9 @@ class WorkerDao implements UserDaoInterface{
         	if($stmt->rowCount() > 0) {
 
                $data = $stmt->fetch();
-               $user = $this->construirUsuario($data);
+               $worker = $this->construirUsuario($data);
           
-               return $user;
+               return $worker;
 
             } else {
                return false;
@@ -104,10 +105,10 @@ class WorkerDao implements UserDaoInterface{
 			// Pega o token da session
 			$token = $_SESSION["token"];
 	
-			$user = $this->findByToken($token);
+			$worker = $this->findByToken($token);
 	
-			if($user) {
-			  return $user;
+			if($worker) {
+			  return $worker;
 			} else if($protegido) {
 	
 			  // Redireciona usuário não autenticado
@@ -136,9 +137,9 @@ class WorkerDao implements UserDaoInterface{
         	if($stmt->rowCount() > 0) {
 
                $data = $stmt->fetch();
-               $user = $this->construirUsuario($data);
+               $worker = $this->construirUsuario($data);
           
-               return $user;
+               return $worker;
 
             } else {
               return false;
@@ -159,21 +160,21 @@ class WorkerDao implements UserDaoInterface{
 
 	public function autenticarUsuario($email,$password){
 
-		$user = $this->buscarPorEmail($email);
+		$worker = $this->buscarPorEmail($email);
 
-		if($user){
+		if($worker){
 			
 			//checar se as senhas batem
-			if(password_verify($password, $user->password)){
+			if(password_verify($password, $worker->password)){
                //gerar um token e inserir na seção
-			   $token = $user->gerarToken();
+			   $token = $worker->gerarToken();
 
 			   $this->setTokenToSession($token,false);
 
 				//atualizar o token no usuario  agora
-				$user->token = $token;
+				$worker->token = $token;
 				
-				$this->update($user,false);
+				$this->update($worker,false);
 				
 				return true;
 
@@ -185,23 +186,24 @@ class WorkerDao implements UserDaoInterface{
 		}
 	}
 
-	public function update(User $user, $redirect = true){
+	public function update(Worker $worker, $redirect = true){
 
 		$stmt = $this->conn->prepare("UPDATE worker SET name = :name, email = :email, telefone = :telefone,service = :service, cidade = :cidade, description = :description, token = :token WHERE id_work = :id_work");
 
-		$stmt->bindParam(":name",$user->name);
-		$stmt->bindParam(":email",$user->email);
-		$stmt->bindParam(":telefone",$user->telefone);
-        $stmt->bindParam(":service",$user->service);
-        $stmt->bindParam(":cidade",$user->cidade);
-		$stmt->bindParam(":description",$user->description);
-		$stmt->bindParam(":token",$user->token);
-		$stmt->bindParam(":id_work",$user->id_user);
+		$stmt->bindParam(":name",$worker->name);
+		$stmt->bindParam(":email",$worker->email);
+		$stmt->bindParam(":telefone",$worker->telefone);
+    $stmt->bindParam(":service",$worker->service);
+    $stmt->bindParam(":cidade",$worker->cidade);
+		$stmt->bindParam(":description",$worker->description); 
+		//$stmt->bindParam(":image",$worker->image);
+		$stmt->bindParam(":token",$worker->token);
+		$stmt->bindParam(":id_work",$worker->id_worker);
 		$stmt->execute();
 
 		if($redirect){
 			//redireciona para o perfil do usuario
-			$this->message->setMessage("Dados atualizados com sucesso!","success","editarperfil.php");
+			$this->message->setMessage("Dados atualizados com sucesso!","success","editar_profissional.php");
 		}
 
 	}

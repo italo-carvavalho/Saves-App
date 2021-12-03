@@ -22,7 +22,7 @@ body {
 
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    background-color: white;
+    background-color: #fff;
 }
 .inv {
     grid-area: header;
@@ -199,3 +199,17 @@ footer {
     border-color: #badbcc;
 }
 /*fim das menssagens */
+
+
+/*imagem de perfil  */
+.profile-image-container{
+    width: 150px;
+    height: 150px;
+    border: 6px solid #8176e4;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center ;
+    margin: 15px auto;
+}
+/*imagens*/
+

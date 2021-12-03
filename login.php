@@ -23,6 +23,11 @@ require_once("templates/header.php");
             <div class="undeline"></div>
         </div>
 
+        <div class="input-field">
+        <input type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br />
+        <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br />
+        </div>
+
         <input type="submit" value="Continuar">
     </form>
 

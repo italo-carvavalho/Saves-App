@@ -1,9 +1,9 @@
 <?php 
 
-require_once("Model/User.php");
+require_once("Model/Cliente.php");
 require_once("Model/Message.php");
 
-class ClienteDao implements UserDaoInterface{
+class ClienteDao implements ClienteDaoInterface{
 
 	private $conn;
 	private $url;
@@ -19,37 +19,37 @@ class ClienteDao implements UserDaoInterface{
 
 	public function construirUsuario($data)
 	{
-		$user = new User();
+		$cliente = new Cliente();
 
-		$user->id_user = $data['id_user'];
-		$user->name = $data['name'];
-		$user->email = $data['email'];
-		$user->telefone = $data['telefone'];
-		$user->password = $data['password'];
-		$user->token = $data['token'];
+		$cliente->id_cliente = $data['id_user'];
+		$cliente->name = $data['name'];
+		$cliente->email = $data['email'];
+		$cliente->telefone = $data['telefone'];
+		$cliente->password = $data['password'];
+		$cliente->token = $data['token'];
 
-		return $user;
+		return $cliente;
 
 	}
 
-	public function criar(User $user, $authUser = false){
+	public function criar(Cliente $cliente, $authUser = false){
        
 		$stmt = $this->conn->prepare("INSERT INTO users(
 			name,email,telefone,password,token 
 		)VALUES(
            :name,:email,:telefone,:password,:token
 		)");
-		$stmt->bindParam(":name",$user->name);
-		$stmt->bindParam(":email",$user->email);
-		$stmt->bindParam(":telefone",$user->telefone);
-		$stmt->bindParam(":password",$user->password);
-		$stmt->bindParam(":token",$user->token);
+		$stmt->bindParam(":name",$cliente->name);
+		$stmt->bindParam(":email",$cliente->email);
+		$stmt->bindParam(":telefone",$cliente->telefone);
+		$stmt->bindParam(":password",$cliente->password);
+		$stmt->bindParam(":token",$cliente->token);
 
 		$stmt->execute();
 
 		//autenticar o usuario caso o auth seja true
 		if($authUser){
-			$this->setTokenToSession($user->token);
+			$this->setTokenToSession($cliente->token);
 		}
 	}
 
@@ -75,9 +75,9 @@ class ClienteDao implements UserDaoInterface{
         	if($stmt->rowCount() > 0) {
 
                $data = $stmt->fetch();
-               $user = $this->construirUsuario($data);
+               $cliente = $this->construirUsuario($data);
           
-               return $user;
+               return $cliente;
 
             } else {
                return false;
@@ -97,10 +97,10 @@ class ClienteDao implements UserDaoInterface{
 			// Pega o token da session
 			$token = $_SESSION["token"];
 	
-			$user = $this->findByToken($token);
+			$cliente = $this->findByToken($token);
 	
-			if($user) {
-			  return $user;
+			if($cliente) {
+			  return $cliente;
 			} else if($protegido) {
 	
 			  // Redireciona usuário não autenticado
@@ -129,9 +129,9 @@ class ClienteDao implements UserDaoInterface{
         	if($stmt->rowCount() > 0) {
 
                $data = $stmt->fetch();
-               $user = $this->construirUsuario($data);
+               $cliente = $this->construirUsuario($data);
           
-               return $user;
+               return $cliente;
 
             } else {
               return false;
@@ -152,21 +152,21 @@ class ClienteDao implements UserDaoInterface{
 
 	public function autenticarUsuario($email,$password){
 
-		$user = $this->buscarPorEmail($email);
+		$cliente = $this->buscarPorEmail($email);
 
-		if($user){
+		if($cliente){
 			
 			//checar se as senhas batem
-			if(password_verify($password, $user->password)){
+			if(password_verify($password, $cliente->password)){
                //gerar um token e inserir na seção
-			   $token = $user->gerarToken();
+			   $token = $cliente->gerarToken();
 
 			   $this->setTokenToSession($token,false);
 
 				//atualizar o token no usuario  agora
-				$user->token = $token;
+				$cliente->token = $token;
 				
-				$this->update($user,false);
+				$this->update($cliente,false);
 				
 				return true;
 
@@ -178,20 +178,20 @@ class ClienteDao implements UserDaoInterface{
 		}
 	}
 
-	public function update(User $user, $redirect = true){
+	public function update(Cliente $cliente, $redirect = true){
 
 		$stmt = $this->conn->prepare("UPDATE users SET name = :name, email = :email, telefone = :telefone, token = :token WHERE id_user = :id_user");
 
-		$stmt->bindParam(":name",$user->name);
-		$stmt->bindParam(":email",$user->email);
-		$stmt->bindParam(":telefone",$user->telefone);
-		$stmt->bindParam(":token",$user->token);
-		$stmt->bindParam(":id_user",$user->id_user);
+		$stmt->bindParam(":name",$cliente->name);
+		$stmt->bindParam(":email",$cliente->email);
+		$stmt->bindParam(":telefone",$cliente->telefone);
+		$stmt->bindParam(":token",$cliente->token);
+		$stmt->bindParam(":id_user",$cliente->id_cliente);
 		$stmt->execute();
 
 		if($redirect){
 			//redireciona para o perfil do usuario
-			$this->message->setMessage("Dados atualizados com sucesso!","success","editarperfil.php");
+			$this->message->setMessage("Dados atualizados com sucesso!","success","editar_cliente.php");
 		}
 
 	}

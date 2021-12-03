@@ -4,7 +4,7 @@
 require_once("conexao.php");
 require_once("globals.php");
 require_once("Model/Message.php");
-require_once("Model/User.php");
+require_once("Model/Cliente.php");
 require_once("Dao/ClienteDao.php");
 require_once("Dao/WorkerDao.php");
 
@@ -12,13 +12,15 @@ require_once("Dao/WorkerDao.php");
 
 $message = new Message($BASE_URL);
 
-$userDao = new ClienteDao($conn,$BASE_URL);
+$clienteDao = new ClienteDao($conn,$BASE_URL);
 
 $workerDao = new WorkerDao($conn,$BASE_URL);
 
 
 //resgata o tipo de formulario
 $type = filter_input(INPUT_POST,"type");
+
+$radio = filter_input(INPUT_POST,"radio");
 
 
 //verifica o tipo do formulario
@@ -37,24 +39,24 @@ if($type == "register_cliente"){
 		if($password === $confirmPassword){
 
 			//verificar se o email já esta cadastrado
-			if($userDao->buscarPorEmail($email) === false){
+			if($clienteDao->buscarPorEmail($email) === false){
 				
-				$user = new User();
+				$cliente = new Cliente();
 
                 //criação de token e senha
-                $userToken = $user->gerarToken();
-                $finalPassword =$user->gerarSenha($password);
+                $userToken = $cliente->gerarToken();
+                $finalPassword =$cliente->gerarSenha($password);
 
                 //montar o objeto
-                $user->name =$name;
-                $user->email=$email;
-                $user->telefone =$telefone;
-                $user->password =$finalPassword;
-                $user->token = $userToken;
+                $cliente->name =$name;
+                $cliente->email=$email;
+                $cliente->telefone =$telefone;
+                $cliente->password =$finalPassword;
+                $cliente->token = $userToken;
 
                 $auth = true;
 
-                $userDao->criar($user,$auth);
+                $clienteDao->criar($cliente,$auth);
 
 			}else{
 				//menssagem de erro usuario já existe
@@ -82,9 +84,10 @@ if($type == "register_cliente"){
 	$name = filter_input(INPUT_POST,"name");
 	$email = filter_input(INPUT_POST,"email");
 	$telefone = filter_input(INPUT_POST,"telefone");
-	$service = filter_input(INPUT_POST,"service");
+/*	$service = filter_input(INPUT_POST,"service");
 	$cidade = filter_input(INPUT_POST,"cidade");
-	$description = filter_input(INPUT_POST,"descritpion");
+	$description = filter_input(INPUT_POST,"descritpion"); */
+	$image = filter_input(INPUT_POST,"image"); 
 	$password = filter_input(INPUT_POST,"password");
 	$confirmPassword = filter_input(INPUT_POST,"confirmPassword");
 
@@ -97,25 +100,26 @@ if($type == "register_cliente"){
 			//verificar se o email já esta cadastrado
 			if($workerDao->buscarPorEmail($email) === false){
 				
-				$user = new User();
+				$worker = new Worker();
 
                 //criação de token e senha
-                $workerToken = $user->gerarToken();
-                $finalPassword =$user->gerarSenha($password);
+                $workerToken = $worker->gerarToken();
+                $finalPassword =$worker->gerarSenha($password);
 
                 //montar o objeto
-                $user->name =$name;
-                $user->email=$email;
-                $user->telefone =$telefone;
-				$user->service = $service;
+                $worker->name =$name;
+                $worker->email=$email;
+                $worker->telefone =$telefone;
+			/*	$user->service = $service;
 				$user->cidade = $cidade;
-				$ser->description = $description;
-                $user->password =$finalPassword;
-                $user->token = $workerToken;
+				$ser->description = $description; 
+				$ser->image = $image; */
+                $worker->password =$finalPassword;
+                $worker->token = $workerToken;
 
                 $auth = true;
 
-                $workerDao->criar($user,$auth);
+                $workerDao->criar($worker,$auth);
 
 			}else{
 				//menssagem de erro usuario já existe
@@ -135,21 +139,37 @@ if($type == "register_cliente"){
 
 }else if($type == "login"){
 
-	
+	if($radio == "cliente"){
+       
+		$email = filter_input(INPUT_POST,"email");
+		$password = filter_input(INPUT_POST,"password");
 
-	$email = filter_input(INPUT_POST,"email");
-	$password = filter_input(INPUT_POST,"password");
+		
+		//tenta autenticar o usuario 
+		if($clienteDao->autenticarUsuario($email,$password)){
 
-	
-	//tenta autenticar o usuario 
-	if($userDao->autenticarUsuario($email,$password)){
+			//redireciona o usuario caso não conseguir autenticar
+			$message->setMessage("Seja bem vindo!","success","editar_cliente.php");
 
-		//redireciona o usuario caso não conseguir autenticar
-		$message->setMessage("Seja bem vindo!","success","editarperfil.php");
+		}else{
+			$message->setMessage("Usuário e/ou senha incorretos","error","back");
+		}
 
-	}else{
-		$message->setMessage("Usuário e/ou senha incorretos","error","back");
-	}
+    }else if($radio == "profissional"){
+		$email = filter_input(INPUT_POST,"email");
+		$password = filter_input(INPUT_POST,"password");
+
+		//tenta autenticar o usuario 
+		if($workerDao->autenticarUsuario($email,$password)){
+
+			//redireciona o usuario caso não conseguir autenticar
+			$message->setMessage("Seja bem vindo!","success","editar_profissional.php");
+
+		}else{
+			$message->setMessage("Usuário e/ou senha incorretos","error","back");
+		}
+   }
+
 }else{
 	$message->setMessage("informações inválidas","error","index.php");
 }

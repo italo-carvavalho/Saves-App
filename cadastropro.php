@@ -20,7 +20,7 @@
           <div class="undeline"></div>
         </div> 
        </div>
-       <div class="input-field">
+    <!--   <div class="input-field">
           <label for="cidade">Escolha a sua Cidade:</label>
           <select name="cidade" id="cidade">
               <option value="cidade"> --- </option>
@@ -48,7 +48,7 @@
         <div class="input-field">
           
 <textarea cols="40"rows="5"id="message"name="description"placeholder="Descrição.."></textarea> 
-        </div>
+        </div> -->
 
       
       <div class="input-field">
