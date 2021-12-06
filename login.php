@@ -33,26 +33,26 @@ require_once("templates/header.php");
 
     <div class="footer">
         <div>
-            <a href="cadastrocli.php" style="text-decoration:none">
+            <a href="cadastrocli.php" style="text-decoration:none;font-size: large">
                 Cadastro do Cliente
             </a>
         </div>
         <div class="footer">
         <div>
-            <a href="cadastropro.php" style="text-decoration:none">
+            <a href="cadastropro.php" style="text-decoration:none;font-size: large">
                 Cadastro do Profissional 
         </a>
         </div>
-        <span>Ou Conecte Com sua Conta Social</span>      
+        <span style="font-size: large">Ou Conecte Com sua Conta Social</span>      
         <div class="social-fields">
             <div class="social-fieldd facebook" >
-                <a href="#" style="text-decoration:none">
+                <a href="#" style="text-decoration:none;font-size: large">
                     <i class="fab fa-facebook-f"></i>
                     Entre com o Facebook
                 </a>
             </div>
                 <div class="social-fieldd google">
-                    <a href="#" style="text-decoration:none" >
+                    <a href="#" style="text-decoration:none;font-size: large" >
                         <i class="fab fa-google"></i>
                         Entre com o Google
                     </a>
