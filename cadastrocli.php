@@ -28,7 +28,7 @@
       </div>
       <div class="row">
        <div class="input-field col s12">
-          <input id="icon_telephone" type="tel" class="validate" id="telefone">
+          <input  type="tel" class="validate" id="telefone">
           <label for="icon_telephone">Telefone</label>
         </div>
       </div>    
@@ -71,12 +71,12 @@
       <!-- <input type="submit" value="Confirmar"> -->
 <!--       -->
    <!-- </form> -->
-   <div class="footer">
+   
     <div class="z">
         <a href="login.php" style="text-decoration:none">
             Faça seu Loguin
         </a>
-    </div>
+   
    </div>
 </main>
 

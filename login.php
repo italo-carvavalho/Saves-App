@@ -9,29 +9,35 @@ require_once("templates/header.php");
 ?>
 
   <main class="container">
-   <h2>Login</h2>
-    <form action="auth_proccess.php" method="POST">
-        <input type="hidden" name="type" value="login">
-        <div class="input-field">
-            <input type="text" name="email" id="Usuario" placeholder="Entre com seu Apelido">
-            <div class="undeline">    
-            </div>
-        </div>
+  <div class="row">    
+      <form class="col s6"action="auth_proccess.php" method="POST">
+        <fieldset>    
+            <h2>Login</h2>
+         <input type="hidden" name="type" value="login">
 
-        <div class="input-field">
-            <input type="password" name="password" id="Senha" placeholder="Entre com sua Senha">
-            <div class="undeline"></div>
+         <div class="row">
+         <div class="input-field col s12">
+           <input  id="email" type="text" class="validate" id="Usuario">
+           <label for="email">E-mail</label>
+         </div>
         </div>
+        <div class="row">
+        <div class="input-field col s12">
+           <input type="password" class="validate" id="Senha">
+           <label for="password">Senha</label>
+         </div>
+        </div>    
 
         <div class="input-field">
         <input type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br />
         <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br />
         </div>
 
-        <input type="submit" value="Continuar">
-    </form>
-
-    <div class="footer">
+        <button type="submit" >Confirmar</button>
+       </fieldset>
+       </form>
+     </div>
+    <div class="z">
         <div>
             <a href="cadastrocli.php" style="text-decoration:none;font-size: large">
                 Cadastro do Cliente
@@ -45,13 +51,13 @@ require_once("templates/header.php");
         </div>
         <span style="font-size: large">Ou Conecte Com sua Conta Social</span>      
         <div class="social-fields">
-            <div class="social-fieldd facebook" >
+            <div class="social-field facebook" >
                 <a href="#" style="text-decoration:none;font-size: large">
                     <i class="fab fa-facebook-f"></i>
                     Entre com o Facebook
                 </a>
             </div>
-                <div class="social-fieldd google">
+                <div class="social-field google">
                     <a href="#" style="text-decoration:none;font-size: large" >
                         <i class="fab fa-google"></i>
                         Entre com o Google
