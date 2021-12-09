@@ -97,6 +97,4 @@ if($workerData->service == ''){
 
 
 
-<?php 
-require_once("templates/footer.php");
-?>
+<?php require_once("templates/footer.php");?>

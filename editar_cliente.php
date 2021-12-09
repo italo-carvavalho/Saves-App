@@ -19,6 +19,4 @@ $clienteData = $clienteDao->verifyToken(true);
   	</main>
 
 
-<?php 
-require_once("templates/footer.php");
-?>
+<?php require_once("templates/footer.php");?>
