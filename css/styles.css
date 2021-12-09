@@ -70,15 +70,13 @@ header {
     width: 100%;
 }
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-size: 3vh;
-    font-family: poppins, sans-serif;
-
-    height: 10vh;
-    background-color: #1A0859;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 3vh !important;
+    font-family: poppins, sans-serif !important;
+    height: 10vh !important;
+    background-color: #1A0859 !important;
 }
 .button-nav {
     display: inline-block;
