@@ -43,35 +43,7 @@
      </fieldset>
     </form>
   </div>
-  <!-- <form action="auth_proccess.php" method="post"> -->
-  <!--  -->
-      <!-- <input type="hidden" name="type" value="register_cliente"> -->
-      <!-- <div class="campo"> -->
-          <!-- <input type="text" name="name" id="name" placeholder="Nome Completo"> -->
-          <!-- <div class="undeline">     -->
-          <!-- </div> -->
-      <!-- </div> -->
-      <!-- <div class="input-field"> -->
-          <!-- <input type="texto" name="email" id="email" placeholder="E-mail"> -->
-          <!-- <div class="undeline"></div> -->
-      <!-- </div> -->
-      <!-- <div class="input-field"> -->
-          <!-- <input type="texto" name="telefone" id="telefone" placeholder="Telefone"> -->
-          <!-- <div class="undeline"></div> -->
-     <!-- </div> -->
-      <!-- <div class="input-field"> -->
-          <!-- <input type="password" name="password" id="senha" placeholder="Senha com 8 caracteres"> -->
-           <!-- <div class="undeline"></div> -->
-      <!-- </div> -->
-      <!-- <div class="input-field"> -->
-           <!-- <input type="password" name="confirmPassword" id="confsenha" placeholder="Confirme sua senha"> -->
-           <!-- <div class="undeline"></div> -->
-      <!-- </div> -->
-      <!-- <button type="submit" >Confirmar</button> -->
-      <!-- <input type="submit" value="Confirmar"> -->
-<!--       -->
-   <!-- </form> -->
-   
+ 
     <div class="z">
         <a href="login.php" style="text-decoration:none">
             Faça seu Loguin

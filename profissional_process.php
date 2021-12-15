@@ -4,11 +4,70 @@
 require_once("conexao.php");
 require_once("globals.php");
 require_once("Model/Message.php");
-require_once("Model/Cliente.php");
-require_once("Dao/ClienteDao.php");
-require_once("Dao/WorkerDao.php");
+
+$message = new Message($BASE_URL);
 
 
+
+if($_POST['type'] == "cadastrar_profissional"){
+
+	$dados = $_POST;
+
+
+	$name = $dados['nome'];
+	$telefone = $dados['telefone'];
+	$email = $dados['email'];
+	$senha = $dados['senha'];
+	$confirmeSenha = $dados['confirmeSenha'];
+
+
+if($name && $telefone && $email && $senha && $confirmeSenha){
+	    
+		if($senha == $confirmeSenha){
+
+			$stmt = $conn->prepare("SELECT * FROM worker WHERE email = :email");
+	      $stmt->bindParam(':email', $email);
+	      $stmt->execute();
+	      $retorno = $stmt->rowCount();
+
+	      if($retorno > 0){
+	         //menssagem de erro usuario já existe
+		      $message->setMessage("Usuário já cadastrado tente outro e-mail","error","back");
+	      }else{
+	        //nenhum usuário encontrado 
+	      	try{
+               $sql = "INSERT INTO worker(name,email,telefone,password) VALUES(:name,:email,:telefone,:senha
+			      )";
+			      $stmt = $conn->prepare($sql);
+			      $stmt->bindParam(":name",$name);
+					$stmt->bindParam(":email",$email);
+					$stmt->bindParam(":telefone",$telefone);
+					$stmt->bindParam(":senha",$senha);
+	            $stmt->execute();
+	            $message->setMessage("Usuário cadastrado com sucesso","success","back");
+             
+
+            }catch(Exeption $e){
+               echo $e->getMessage();
+            }
+	      }   
+
+		}else{
+			//menssagem de erro de senhas não batem
+			$message->setMessage("As senhas não correspondem","error","back");
+		}
+
+	}else{
+		//enviar menssagem de erro de dados faltantes
+		$message->setMessage("Por favor preencha todos os campos","error","back");
+	}
+
+
+
+}
+
+
+/*
 
 $message = new Message($BASE_URL);
 
@@ -76,17 +135,16 @@ if($type == "register_cliente"){
 
 }else if($type == "register_worker"){
 
-/*	echo "<pre>";
+	echo "<pre>";
 	echo print_r($_POST);
 	echo "</pre>";
-	die;  */
+	die;  
 
 	$name = filter_input(INPUT_POST,"name");
 	$email = filter_input(INPUT_POST,"email");
-	$telefone = filter_input(INPUT_POST,"telefone");
-/*	$service = filter_input(INPUT_POST,"service");
+	$telefone = filter_input(INPUT_POST,"telefone");	$service = filter_input(INPUT_POST,"service");
 	$cidade = filter_input(INPUT_POST,"cidade");
-	$description = filter_input(INPUT_POST,"descritpion"); */
+	$description = filter_input(INPUT_POST,"descritpion"); 
 	$image = filter_input(INPUT_POST,"image"); 
 	$password = filter_input(INPUT_POST,"password");
 	$confirmPassword = filter_input(INPUT_POST,"confirmPassword");
@@ -110,10 +168,10 @@ if($type == "register_cliente"){
                 $worker->name =$name;
                 $worker->email=$email;
                 $worker->telefone =$telefone;
-			/*	$user->service = $service;
+				$user->service = $service;
 				$user->cidade = $cidade;
 				$ser->description = $description; 
-				$ser->image = $image; */
+				$ser->image = $image; 
                 $worker->password =$finalPassword;
                 $worker->token = $workerToken;
 
@@ -252,7 +310,8 @@ if($type == "register_worker"){
 	//tenta autenticar o usuario 
 	if($userDao->autenticarUsuario($email,$password)){
 
-		//redireciona o usuario caso não conseguir autenticar
+		//redireciona o u
+suario caso não conseguir autenticar
 		$message->setMessage("Seja bem vindo!","success","editarperfil.php");
 
 	}else{

@@ -1,6 +1,6 @@
 <?php 
 require_once("templates/header.php");
-require_once("templates/footer.php");
+
 ?>
 	<main>
 		<h1>Faça parte do SAVESAPP</h1>
@@ -9,3 +9,8 @@ require_once("templates/footer.php");
   			<img id="home-image-2" src="images/business-deal.png" alt="handshake">
   		<h2 id="home-text-2">Encontre empregos facilmente</h2>
   	</main>
+
+<?php
+	  require_once("templates/footer.php");
+
+?>
