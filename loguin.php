@@ -10,31 +10,25 @@ require_once("templates/header.php");
 
   <main class="container">
   <div class="row">    
-      <form class="col s6"action="auth_proccess.php" method="POST">
-        <fieldset>    
+      <form action="auth_proccess.php" method="POST">    
             <h2>Login</h2>
-         <input type="hidden" name="type" value="login">
-
-         <div class="row">
-         <div class="input-field col s12">
+            
+        <input type="hidden" name="type" value="login">
+        <div>
            <input  id="email" type="text" class="validate" id="Usuario">
-           <label for="email">E-mail</label>
-         </div>
         </div>
-        <div class="row">
-        <div class="input-field col s12">
+        <div>
            <input type="password" class="validate" id="Senha">
-           <label for="password">Senha</label>
-         </div>
+        </div>   
+         
         </div>    
 
-        <div class="input-field">
+        <div>
         <input type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br />
         <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br />
         </div>
 
         <button type="submit" >Confirmar</button>
-       </fieldset>
        </form>
      </div>
     <div class="z">

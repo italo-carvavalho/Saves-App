@@ -151,6 +151,12 @@ footer {
     position: relative;
     top: -4vh;
 }
+/* tela de loguin */
+
+.container{
+    margin-left: 40%;
+    margin-bottom: 20%;
+}
 /*
 body {
 
