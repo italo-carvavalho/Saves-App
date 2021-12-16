@@ -8,9 +8,6 @@
 body {
     background-color: #FFF9;
 }
-main {
-}
-
 
 header{
     width: 100%;
@@ -54,6 +51,36 @@ header .navbar a{
 header .navbar a:hover {
     background-color: #7B68EE;
 }
+/* pagina de ligação do cadastro */
+#pro{
+       border:1px solid;
+       padding: 11px 21px;
+       vertical-align: middle;
+       background:#2D888F; 
+       color:white;
+       border-radius:6px; 
+       font-size: 20px; 
+       font-family:helvetica, serif;
+       text-decoration:none;
+       float: right;
+       margin-right: 35%;
+       margin-top: 20%;
+}
+#cli{
+    border:1px solid;
+     padding: 11px 21px; 
+     vertical-align: middle; 
+     background:#2D888F; 
+     color:white;
+     border-radius:6px; 
+     font-size: 20px; 
+     font-family:helvetica, serif;
+     text-decoration:none;
+     float: left;
+     margin-left: 35%;
+     margin-top: 20%;
+}
+/* texto e imagem do home */
 #title {
     text-align: center;
     margin: 2vh;
@@ -83,6 +110,7 @@ header .navbar a:hover {
     text-align: top;
     width: 99vh;
 }
+/* icones da redes social do footer */
 .footer-ul li {
     list-style: none;
 }
