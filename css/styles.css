@@ -5,7 +5,11 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-
+body {
+    background-color: #FFF9;
+}
+main {
+}
 
 
 header{
@@ -50,6 +54,75 @@ header .navbar a{
 header .navbar a:hover {
     background-color: #7B68EE;
 }
+#title {
+    text-align: center;
+    margin: 2vh;
+    font-size: 6vh;
+}
+#home-text-1{
+    display: inline-block;
+    margin-left: 30vh;
+    vertical-align: 40vh;
+    font-size: 5vh;
+}
+#home-text-2 {
+    display: inline-block;
+    vertical-align: 60vh;
+    font-size: 5vh;
+}
+#home-image-1 {
+    display: inline-block;
+    text-align: top;
+
+    width: 99vh;
+    margin-left: 15vh;
+}
+#home-image-2 {
+    display: inline-block;
+    margin-left: 10vh;
+    text-align: top;
+    width: 99vh;
+}
+.footer-ul li {
+    list-style: none;
+}
+.footer-ul a{
+    text-decoration: none;
+    color: white;
+}
+.footer-ul ul {
+    margin-top: 3vh;
+    margin-right: 4vh;
+    margin-left: 8vh;
+}
+.footer-social {
+    display: inline-block;
+}
+.footer-social li a{
+    list-style: none;
+    font-size: 4vh;
+    text-align: initial;
+    text-decoration: none;
+    color: white;
+}
+.footer-social img {
+    margin: 3vh;
+}
+footer {
+    display: flex;
+    background-color: #1A0859;
+    color: white;
+}
+.social-images{
+    width: 5vh;
+    margin: 2vh;
+    margin-bottom: 0;
+}
+
+#idioma {
+    position: relative;
+    top: -4vh;
+}
 /*
 body {
 
@@ -91,26 +164,7 @@ h1{
     font-size: 8vh;
     margin-bottom: 5vh;
 }
-#home-text-1{
-    display: inline-block;
-    vertical-align: 40vh;
-    font-size: 5vh;
-}
-#home-text-2 {
-    display: inline-block;
-    vertical-align: 60vh;
-    font-size: 5vh;
-}
-#home-image-1 {
-    display: inline-block;
-    text-align: top;
-    width: 99vh;
-}
-#home-image-2 {
-    display: inline-block;
-    text-align: top;
-    width: 99vh;
-}
+
 header {
     grid-area: header;
     position: fixed;
@@ -174,47 +228,7 @@ nav {
 .logo:hover {
     color: white;
 }
-footer {
-    grid-area: footer;
-    display: flex !important;
-    flex-direction: row;
-    background-color: #1A0859;
-    color: white;
-}
-.social-images{
-    width: 5vh;
-    margin: 2vh;
-    margin-bottom: 0;
-}
-.footer-ul li {
-    list-style: none;
-}
-.footer-ul a{
-    text-decoration: none;
-    color: white;
-}
-.footer-ul ul {
-    margin-top: 3vh;
-    margin-right: 4vh;
-    margin-left: 8vh;
-}
-.footer-social {
-    display: inline-block;
-}
-.footer-social li a{
-    list-style: none;
-    font-size: 4vh;
-    text-align: initial;
-    text-decoration: none;
-    color: white;
-}
-.footer-social img {
-    margin: 3vh;
-}
-#idioma {
-    position: relative;
-    top: -4vh;
-}
+
 */
 /*menssagens de erro e sucesso*/
 .msg-container{

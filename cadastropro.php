@@ -17,7 +17,7 @@
       </div>
       <div class="">
        <div class="input-field col s12">
-          <input name="telefone" id="icon_telephone" type="text" class="validate" id="telefone">
+          <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone">
           <label for="icon_telephone">Telefone</label>
         </div>
       </div>    

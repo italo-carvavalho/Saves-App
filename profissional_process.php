@@ -1,5 +1,5 @@
 <?php 
-
+var_dump($_POST['nome']);
 
 require_once("conexao.php");
 require_once("globals.php");
