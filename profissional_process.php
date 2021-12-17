@@ -47,7 +47,7 @@ if($name && $telefone && $email && $senha && $confirmeSenha){
 	            $message->setMessage("Usuário cadastrado com sucesso","success","back");
              
 
-            }catch(Exeption $e){
+            }catch(Exception $e){
                echo $e->getMessage();
             }
 	      }   

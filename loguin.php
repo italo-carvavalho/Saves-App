@@ -10,21 +10,20 @@ require_once("templates/header.php");
 
   <main class="container">
   <div class="row">    
-      <form action="auth_proccess.php" method="POST">    
+      <form action="process_loguin.php" method="POST">    
             <h2>Login</h2>
             
-        <input type="hidden" name="type" value="login">
         <div>
-           <input  id="email" type="text" class="validate" id="Usuario">
+           <input required  id="email" type="email" class="validate" name="email" id="Usuario">
         </div>
         <div>
-           <input type="password" class="validate" id="Senha">
+           <input required type="password" class="validate" id="Senha" name="password">
         </div>   
          
         </div>    
 
         <div>
-        <input type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br />
+        <input required type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br />
         <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br />
         </div>
 

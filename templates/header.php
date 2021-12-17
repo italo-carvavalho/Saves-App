@@ -1,5 +1,7 @@
 <?php 
 
+
+
 require_once("globals.php");
 require_once("conexao.php");
 require_once("Model/Message.php");
@@ -15,9 +17,10 @@ if(!empty($menssagens['msg'])){
     $message->clearMessage();
 }
 
-if(isset($_SESSION['logado'])){
-   //$id = $_SERVER['id'];
-    $name = "Ivan";
+if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] == true){
+     $name_prof = $_SESSION['name'];
+}elseif(isset($_SESSION['cliente_logado']) && $_SESSION['cliente_logado'] == true){
+    $name_cliente = $_SESSION['name'];
 }
 
 
@@ -47,8 +50,19 @@ if(isset($_SESSION['logado'])){
         </div>
 
         <nav class="navbar">
-            <a href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
-            <a href="<?=$BASE_URL?>loguin.php">Loguin</a>
+            <? if(isset($name_prof)){  ?>
+                <a href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof ?></a>
+                <a href="<?=$BASE_URL?>buscar_servicos.php">Buscar Serviços</a>
+                <a href="<?=$BASE_URL?>logout.php">Sair</a>
+            <? }elseif(isset($name_cliente)){ ?>
+                <a href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
+                <a href="<?=$BASE_URL?>buscar_profissional.php">Listar Profissional</a>
+                <a href="<?=$BASE_URL?>meus_pedidos.php">Meus Pedidos</a>
+                <a href="<?=$BASE_URL?>logout.php">Sair</a>
+            <? }else{  ?>
+                <a href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
+                <a href="<?=$BASE_URL?>loguin.php">Loguin</a>
+            <? }  ?>
         </nav>
 
         <div class="menu-icon">

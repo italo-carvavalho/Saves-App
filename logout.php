@@ -2,7 +2,7 @@
 
 require_once("templates/header.php");
 
-//se o usuario está logado
-if($userDao){
-   $userDao->destroiToken();
-}
+session_destroy();
+
+header("Location: index.php");
+
