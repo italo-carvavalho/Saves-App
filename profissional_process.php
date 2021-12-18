@@ -13,12 +13,24 @@ if($_POST['type'] == "cadastrar_profissional"){
 
 	$dados = $_POST;
 
+	$empty_input = false;
+			// Retirar os espaços em branco
+			$dados = array_map('trim', $dados);
+			// Retirar os espaços em branco em torno da string
+			if (in_array("", $dados)) {
 
-	$name = $dados['nome'];
-	$telefone = $dados['telefone'];
-	$email = $dados['email'];
-	$senha = $dados['senha'];
-	$confirmeSenha = $dados['confirmeSenha'];
+				$empty_input = true;
+				$message->setMessage("Não permitido espaços em branco","error","back");
+			// Validar se o email digitado pelo usuário contém estrutura de email "user@user.com"
+			} elseif (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
+				$empty_input = true;
+				$message->setMessage("Formato de email inválido","error","back");
+			}else{
+				$name = $dados['nome'];
+				$telefone = $dados['telefone'];
+				$email = $dados['email'];
+				$senha = $dados['senha'];
+				$confirmeSenha = $dados['confirmeSenha'];
 
 
 if($name && $telefone && $email && $senha && $confirmeSenha){
@@ -65,7 +77,7 @@ if($name && $telefone && $email && $senha && $confirmeSenha){
 
 
 }
-
+}
 
 /*
 

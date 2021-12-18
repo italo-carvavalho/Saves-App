@@ -1,41 +1,41 @@
 <?php require_once("templates/header.php")?>
 
 
-
 <main class="container">
+
 
 <div class="row">
     <form class="col s6" action="profissional_process.php" method="POST">
-      <input type="hidden" name="type" value="cadastrar_profissional">
+      <input type="hidden" name="type" value="cadastrar_profissional" required>
     <fieldset>
         <h4>Cadastro do Profissional</h4>
       <div class="">
         <div class="input-field col s12">
-          <input name="nome"  id="full_name" type="text" class="validate" id="name">
+          <input name="nome"  id="full_name" type="text" class="validate" id="name" required>
           <label for="full_name">Nome Completo</label>
         </div>
       </div>
       <div class="">
        <div class="input-field col s12">
-          <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone">
+          <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone" required>
           <label for="icon_telephone">Telefone</label>
         </div>
       </div>    
       <div class="">
         <div class="input-field col s12">
-          <input type="email" id="email" name="email" class="validate" id="email"> 
+          <input type="email" id="email" name="email" class="validate" id="email" required> 
           <label for="email">E-mail</label>
         </div>
        </div>
        <div class="">
       <div class="input-field col s12">
-        <input  name="senha" type="password" class="validate" id="senha">
+        <input  name="senha" type="password" class="validate" id="senha" required>
         <label for="password">Senha</label>
       </div>
     </div>
     <div class="">
       <div class="input-field col s12">
-        <input name="confirmeSenha"  type="password" class="validate" id="confsenha">
+        <input name="confirmeSenha"  type="password" class="validate" id="confsenha" required>
         <label for="password">Confirme sua Senha</label>
      </div>
      </div>

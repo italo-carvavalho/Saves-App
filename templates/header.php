@@ -57,12 +57,12 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
                 <a href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }elseif(isset($name_cliente) && !empty($name_prof)){ ?>
                 <a href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
-                <a href="<?=$BASE_URL?>buscar_profissional.php">Listar Profissional</a>
-                <a href="<?=$BASE_URL?>meus_pedidos.php">Meus Pedidos</a>
+                <a href="<?=$BASE_URL?>buscar_profissional.php">Profissionais</a>
+                <a href="<?=$BASE_URL?>Servicos.php">Serviços</a>
                 <a href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
                 <a href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
-                <a href="<?=$BASE_URL?>loguin.php">Loguin</a>
+                <a href="<?=$BASE_URL?>loguin.php">Entrar</a>
             <?php }  ?>
         </nav>
 
