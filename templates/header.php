@@ -17,12 +17,13 @@ if(!empty($menssagens['msg'])){
     $message->clearMessage();
 }
 
+$name_prof = "";
+$name_cliente = "";
 if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] == true){
      $name_prof = $_SESSION['name'];
 }elseif(isset($_SESSION['cliente_logado']) && $_SESSION['cliente_logado'] == true){
     $name_cliente = $_SESSION['name'];
 }
-
 
 
 ?>
@@ -50,19 +51,19 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
         </div>
 
         <nav class="navbar">
-            <? if(isset($name_prof)){  ?>
-                <a href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof ?></a>
+            <?php if(isset($name_prof) && !empty($name_prof)){  ?>
+                <a href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof?></a>
                 <a href="<?=$BASE_URL?>buscar_servicos.php">Buscar Serviços</a>
                 <a href="<?=$BASE_URL?>logout.php">Sair</a>
-            <? }elseif(isset($name_cliente)){ ?>
+            <?php }elseif(isset($name_cliente) && !empty($name_prof)){ ?>
                 <a href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
                 <a href="<?=$BASE_URL?>buscar_profissional.php">Listar Profissional</a>
                 <a href="<?=$BASE_URL?>meus_pedidos.php">Meus Pedidos</a>
                 <a href="<?=$BASE_URL?>logout.php">Sair</a>
-            <? }else{  ?>
+            <?php }else{  ?>
                 <a href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
                 <a href="<?=$BASE_URL?>loguin.php">Loguin</a>
-            <? }  ?>
+            <?php }  ?>
         </nav>
 
         <div class="menu-icon">
