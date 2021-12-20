@@ -26,6 +26,7 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +56,9 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
                 <a href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof?></a>
                 <a href="<?=$BASE_URL?>buscar_servicos.php">Buscar Serviços</a>
                 <a href="<?=$BASE_URL?>logout.php">Sair</a>
-            <?php }elseif(isset($name_cliente) && !empty($name_prof)){ ?>
+            <?php }elseif(isset($name_cliente) && !empty($name_cliente)){ ?>
                 <a href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
-                <a href="<?=$BASE_URL?>buscar_profissional.php">Profissionais</a>
+                <a href="<?=$BASE_URL?>buscar_profissionais.php">Profissionais</a>
                 <a href="<?=$BASE_URL?>Servicos.php">Serviços</a>
                 <a href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
