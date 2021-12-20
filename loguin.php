@@ -32,16 +32,11 @@ require_once("templates/header.php");
      </div>
     <div class="z">
         <div>
-            <a href="cadastrocli.php" style="text-decoration:none;font-size: large">
-                Cadastro do Cliente
+            <a href="cadastro.php" style="text-decoration:none;font-size: large">
+                Cadastro
             </a>
         </div>
-        <div class="footer">
-        <div>
-            <a href="cadastropro.php" style="text-decoration:none;font-size: large">
-                Cadastro do Profissional 
-        </a>
-        </div>
+       
         <span style="font-size: large">Ou Conecte Com sua Conta Social</span>      
         <div class="social-fields">
             <div class="social-field facebook" >
