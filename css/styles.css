@@ -31,7 +31,7 @@ header .menu-icon{
     color: #ffffff;
 }
 
-header .brand a{
+header .brand .nav-btn{
     color: #ffffff;
     font-size: 35px;
     text-decoration: none;
@@ -43,7 +43,7 @@ header .navbar{
 
 }
 
-header .navbar a{
+header .navbar .nav-btn{
     color: #ffffff;
     font-size: 18px;
     font-weight: bold;
@@ -52,7 +52,7 @@ header .navbar a{
     text-decoration: none;
 }
 
-header .navbar a:hover {
+header .navbar .nav-btn:hover {
     background-color: #7B68EE;
 }
 /* pagina de ligação do cadastro */
@@ -266,7 +266,22 @@ footer {
     text-align: center;
     font-size: 16px;
     color: white;
-
+}
+.logo {
+    margin-left: 10vh;
+    color: #ffffff;
+    font-size: 7vh;
+    font-weight: bold;
+    padding: 0 20px;
+    line-height: 80px;
+    text-decoration: none;
+}
+.guest {
+    width: 8vh;
+    height: 8vh;
+    margin: 2vh;
+}
+/*
 @media screen and (max-width: 768px){
     header .menu-icon{
         display: block;

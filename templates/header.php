@@ -47,23 +47,24 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
 <body>
 
     <header>
-        <div class="brand">
-            <a href="<?=$BASE_URL?>">SAVESAPP</a>
+        <div>
+            <a class="logo" href="<?=$BASE_URL?>">SAVESAPP</a>
         </div>
 
         <nav class="navbar">
             <?php if(isset($name_prof) && !empty($name_prof)){  ?>
-                <a href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof?></a>
-                <a href="<?=$BASE_URL?>buscar_servicos.php">Buscar Serviços</a>
-                <a href="<?=$BASE_URL?>logout.php">Sair</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Buscar Serviços</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
+                <a href="<?=$BASE_URL?>perfil_pro.php"> <img class="guest" type="image/svg+xml" src="<?=$BASE_URL?>images/user.svg"> </a>
             <?php }elseif(isset($name_cliente) && !empty($name_cliente)){ ?>
-                <a href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
-                <a href="<?=$BASE_URL?>buscar_profissionais.php">Profissionais</a>
-                <a href="<?=$BASE_URL?>Servicos.php">Serviços</a>
-                <a href="<?=$BASE_URL?>logout.php">Sair</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_profissionais.php">Profissionais</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>Servicos.php">Serviços</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
-                <a href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
-                <a href="<?=$BASE_URL?>loguin.php">Entrar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>loguin.php">Entrar</a>
             <?php }  ?>
         </nav>
 
