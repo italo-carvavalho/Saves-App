@@ -9,7 +9,7 @@ require_once("templates/header.php");
 ?>
 
   <main class="container">
-  <div class="row">    
+  <div >    
       <form action="process_loguin.php" method="POST">    
             <h2>Login</h2>
             

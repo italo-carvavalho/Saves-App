@@ -1,7 +1,7 @@
 <?php 
 
 
-
+// require_once("loguin.php");
 require_once("globals.php");
 require_once("conexao.php");
 require_once("Model/Message.php");
@@ -63,8 +63,8 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
                 <a class="nav-btn" href="<?=$BASE_URL?>Servicos.php">Serviços</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>cadastro.php">Cadastro</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>loguin.php">Entrar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>#" id="cadastro">Cadastro</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>#" id="loguin">Entrar</a>
             <?php }  ?>
         </nav>
 
@@ -72,13 +72,101 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
             <i class="fas fa-bars"></i>
         </div>
      </header>  
-
+ </body>
     <?php  if(!empty($menssagens['msg'])){  ?>
             <div class="msg-container">
                 <p class="msg <?= $menssagens['type'] ?>"><?= $menssagens['msg'] ?></p>
            </div>
     <?php  }  ?>
     
-    
+<!-- modal tela de loguin -->
+<div id="log" class="modal">
+  <div class="modal-content"> 
+  <!-- <span class="close">&times;</span>    -->
+    <form action="process_loguin.php" method="POST">    
+        <h2>Login</h2>
+          
+    <div>
+        <input required  id="email" type="email" class="validate" name="email" id="Usuario">
+  </div>
+    <div>
+        <input required type="password" class="validate" id="Senha" name="password">
+  </div>   
+    <div>
+      <input required type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br>
+      <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br>
+    </div>
+    <button type="submit" >Confirmar</button>
+  </form>
+    <div>
+        <a href="cadastro.php" style="text-decoration:none;font-size: large">
+            Cadastro
+        </a>
+  </div>
+    <span style="font-size: large">Ou Conecte Com sua Conta Social</span>      
+    <div class="social-fields">
+      <div class="social-field facebook" >
+          <a href="#" style="text-decoration:none;font-size: large">
+              <i class="fab fa-facebook-f"></i>
+                Entre com o Facebook
+          </a>
+   </div>
+       <div class="social-field google">
+           <a href="#" style="text-decoration:none;font-size: large" >
+                <i class="fab fa-google"></i>
+                Entre com o Google
+            </a>
+           </div>
+          </div>
+        </div>
+      </div>             
+    </div>             
+  </main>
 
-    <script src="<?=$BASE_URL?>js/script.js"></script>
+  <!-- modal tela de cadastro -->
+  <main>
+  <div id="cad" class="modal" >
+  <div class="modal-content"> 
+    <form class="col s6" action="profissional_process.php" method="POST">
+      <input type="hidden" name="type" value="cadastrar_profissional">
+        <h4>Cadastro do usuário</h4>
+      <div class="">
+        <div class="input-field col s12">
+          <input name="nome"  id="full_name" type="text" class="validate" id="name">
+          <label for="full_name">Nome Completo</label>
+        </div>
+      </div>
+      <div class="">
+       <div class="input-field col s12">
+          <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone">
+          <label for="icon_telephone">Telefone</label>
+        </div>
+      </div>    
+      <div class="">
+        <div class="input-field col s12">
+          <input type="email" id="email" name="email" class="validate"> 
+          <label for="email">E-mail</label>
+        </div>
+       </div>
+       <div class="">
+      <div class="input-field col s12">
+        <input  name="senha" type="password" class="validate" id="senha">
+        <label for="password">Senha</label>
+      </div>
+    </div>
+    <div class="">
+      <div class="input-field col s12">
+        <input name="confirmeSenha"  type="password" class="validate" id="confsenha">
+        <label for="password">Confirme sua Senha</label>
+     </div>
+     </div>
+       <button type="submit" >Confirmar</button><br>
+       <a href="login.php" style="text-decoration:none">
+        Faça seu Loguin
+       </a>
+    </div>
+   </form>
+ </div>
+</main>
+
+<script src="<?=$BASE_URL?>js/script.js"></script>
