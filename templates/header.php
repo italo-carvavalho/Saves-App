@@ -1,7 +1,5 @@
 <?php 
 
-
-// require_once("loguin.php");
 require_once("globals.php");
 require_once("conexao.php");
 require_once("Model/Message.php");
@@ -87,10 +85,10 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
         <h2>Login</h2>
           
     <div>
-        <input required  id="email" type="email" class="validate" name="email" id="Usuario">
+        <input required  id="email" type="email" class="validate" name="email"  placeholder="Email">
   </div>
     <div>
-        <input required type="password" class="validate" id="Senha" name="password">
+        <input required type="password" class="validate" id="Senha" name="password" placeholder="">
   </div>   
     <div>
       <input required type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br>
@@ -125,37 +123,38 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
 
   <!-- modal tela de cadastro -->
   <main>
-  <div id="cad" class="modal" >
+  <div id="cad" class="modal">
   <div class="modal-content"> 
-    <form class="col s6" action="profissional_process.php" method="POST">
+  <!-- <button2 class="close">&times;</button2>  -->
+    <form  action="profissional_process.php" method="POST">
       <input type="hidden" name="type" value="cadastrar_profissional">
         <h4>Cadastro do usuário</h4>
       <div class="">
-        <div class="input-field col s12">
+        <div class="input-field">
           <input name="nome"  id="full_name" type="text" class="validate" id="name">
           <label for="full_name">Nome Completo</label>
         </div>
       </div>
       <div class="">
-       <div class="input-field col s12">
+       <div class="input-field">
           <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone">
           <label for="icon_telephone">Telefone</label>
         </div>
       </div>    
       <div class="">
-        <div class="input-field col s12">
+        <div class="input-field">
           <input type="email" id="email" name="email" class="validate"> 
           <label for="email">E-mail</label>
         </div>
        </div>
        <div class="">
-      <div class="input-field col s12">
+      <div class="input-field">
         <input  name="senha" type="password" class="validate" id="senha">
         <label for="password">Senha</label>
       </div>
     </div>
     <div class="">
-      <div class="input-field col s12">
+      <div class="input-field">
         <input name="confirmeSenha"  type="password" class="validate" id="confsenha">
         <label for="password">Confirme sua Senha</label>
      </div>
@@ -170,3 +169,5 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
 </main>
 
 <script src="<?=$BASE_URL?>js/script.js"></script>
+<script src="<?=$BASE_URL?>js/loguin.js"></script>
+<script src="<?=$BASE_URL?>js/cadastro.js"></script>
