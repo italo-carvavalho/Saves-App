@@ -2,10 +2,7 @@
 require_once("templates/header.php");
 
 
-// require_once("vendor/autoload.php");
-// use App\Model\UserDao;
-// $ob = new UserDao();
-// echo $ob->u;
+
 ?>
 
   <main class="container">

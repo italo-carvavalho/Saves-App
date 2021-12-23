@@ -1,86 +1,80 @@
 <?php 
+require_once("globals.php");
+require_once("conexao.php");
+require_once("Model/Message.php");
+
+
+
+$message = new Message($BASE_URL);
+
+$menssagens = $message->getMessage();
+
+if(!empty($menssagens['msg'])){
+    //limpar a menssagem
+    $message->clearMessage();
+}
+
+if($_SESSION['profissional_logado']){
+   
+}else{
+	header('Location: index.php');
+}
+
 require_once("templates/header.php");
-require_once("Model/Worker.php");
-require_once("Dao/WorkerDao.php");
-
-$worker = new Worker();
-
-$wokerDao = new WorkerDao($conn,$BASE_URL);
-
-$workerData = $workerDao->verifyToken(true);
- 
-
-
-$fullName = $worker->getFullName($workerData);
-
-if($workerData->image == ''){
-	$workerData->image = "user.png";
-}
-
-if($workerData->cidade == ''){
-	$cidade = '';
-}else{
-	$cidade = $workerData->cidade;
-}
-if($workerData->service == ''){
-	$service = '';
-}else{
-	$service = $workerData->service;
-}
-
 ?>
 
-<main class="container">
+			
+	<div>
+		<img class="profile-image-container" src=" " alt="">
+	</div>
+	
+	<div class="container-prof">
+		<h2>Perfil do Profissional</h2>
+		<p>Complete suas informações</p>
+	</div>
 
-  
-		  
-<div>
-	<img class="profile-image-container" src="<?=$BASE_URL?>images/<?= $workerData->image ?>" alt="">
-</div>
-	    <h2><?= $fullName ?></h2>
-
-		<p class="page-description">Complete Seu Cadastro</p>
+   
 
 	    <form action="<?= $BASE_URL ?>prof_process.php" method="post" enctype="multipart/form-data">
 		
-
+      
 	       <input type="hidden" name="type" value="update">	
 		   <div class="input-field">
 			   <label for="name">Nome:</label>
-			   <input type="text" name="name" id="name" value="<?= $workerData->name ?>">
+			   <input type="text" name="name" id="name" value=" ">
 		   </div>
-		   <div class="input-field">
+		   <div>
 			   <label for="email">E-mail:</label>
-			   <input style="background-color: #ccc;" readonly type="text" name="email" id="email" value="<?= $workerData->email ?>">
+			   <input style="background-color: #ccc;" readonly type="text" name="email" id="email" value="">
 		   </div>
 		   <div class="input-field">
 			   <label for="telefone">Telefone</label>
-			<input readonly type="text" name="telefone" id="telefone" value="<?= $workerData->telefone ?>">
+			   <input readonly type="text" name="telefone" id="telefone" value="">
 		   </div>
-		   <div class="input-field">
-		   <label for="cidade">Escolha a sua Cidade:</label>
-			<select name="cidade" id="cidade">
-				<option><?= $cidade ?></option>
-				<option value="Abreu e Lima">Abreu e Lima</option>
-				<option value="Igarassu">Igarassu</option>
-				<option value="Paulista">Paulista</option>
-				<option value="Itamaraca">Itamaraca</option>
-				<option value="Recife">Recife</option>
-				</select>
-		   </div>
-		   <div class="form-wraper w50">
+			<div class="input-field">
+				<label for="cidade">Escolha a sua Cidade:</label>
+				<select name="cidade" id="cidade">
+					<option></option>
+					<option value="Abreu e Lima">Abreu e Lima</option>
+					<option value="Igarassu">Igarassu</option>
+					<option value="Paulista">Paulista</option>
+					<option value="Itamaraca">Itamaraca</option>
+					<option value="Recife">Recife</option>
+					</select>
+			</div>
+			<div class="form-wraper w50">
 				<label for="profissao">Escolha a sua Profissão:</label>
-				<select name="service" id="profissao">
-					<option><?= $service ?></option>
+					<select name="service" id="profissao">
+					<option></option>
 					<option value="Mecanico">Mecanico</option>
 					<option value="eletrecista">eletrecista</option>
 					<option value="Geceiro">Geceiro</option>
 					<option value="Pintor">Pintor</option>
 					<option value="Pedreiro">Pedreiro</option>
-					</select>
+				</select>
 		   </div>
 		   <div class="form-wraper w100">
-			  <textarea cols="40"rows="5" id="message"name="descricao" placeholder="Descreva seu trabalho"><?php echo $workerData->description ?></textarea> 
+			  <textarea cols="40"rows="5" id="message"name="descricao" placeholder="Descreva seu trabalho"></textarea> 
         </div>
 		   </div>
            <div>
@@ -89,10 +83,11 @@ if($workerData->service == ''){
 		   </div>
 
 		   <input type="submit" class="btn form-btn" value="Alterar">
+		
 	    </form>
    
 
-         </main>
+        <!-- </main> -->
 
 
 
