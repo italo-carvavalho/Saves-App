@@ -14,11 +14,27 @@ if(!empty($menssagens['msg'])){
     $message->clearMessage();
 }
 
+
+$nome = '';
+$email = '';
+$telefone = '';
 if($_SESSION['profissional_logado']){
-   
+//	$id= $_SESSION['id_work'];
+	$id = 41;
+    //die;
+	$sql = "SELECT * FROM worker WHERE id_work = '{$id}'";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+    $result = $stmt->fetch();
+    $name =  $result['name'];
+	$email =$result['email'];
+	$telefone = $result['telefone'];
+	
 }else{
 	header('Location: index.php');
 }
+
+
 
 require_once("templates/header.php");
 ?>
@@ -41,15 +57,15 @@ require_once("templates/header.php");
 	       <input type="hidden" name="type" value="update">	
 		   <div class="input-field">
 			   <label for="name">Nome:</label>
-			   <input type="text" name="name" id="name" value=" ">
+			   <input type="text" name="name" id="name" value="<?= $name ?>">
 		   </div>
 		   <div>
 			   <label for="email">E-mail:</label>
-			   <input style="background-color: #ccc;" readonly type="text" name="email" id="email" value="">
+			   <input style="background-color: #ccc;" readonly type="text" name="email" id="email" value="<?= $email ?>">
 		   </div>
 		   <div class="input-field">
 			   <label for="telefone">Telefone</label>
-			   <input readonly type="text" name="telefone" id="telefone" value="">
+			   <input readonly type="text" name="telefone" id="telefone" value="<?= $telefone ?>">
 		   </div>
 			<div class="input-field">
 				<label for="cidade">Escolha a sua Cidade:</label>
@@ -92,4 +108,7 @@ require_once("templates/header.php");
 
 
 
-<?php require_once("templates/footer.php");?>
+<?php require_once("templates/footer.php");
+
+
+?>

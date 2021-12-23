@@ -27,7 +27,7 @@ if($_POST['radio'] == "cliente")
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($result)){
-          
+           
             $_SESSION['cliente_logado'] = true;
             $_SESSION['name'] =  $result['name'];
             header("Location: index.php");
@@ -61,9 +61,10 @@ elseif($_POST['radio'] == "profissional")
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($result)){
-          
+            
             $_SESSION['profissional_logado'] = true;
             $_SESSION['name'] =  $result['name'];
+            $_SESSION['id_work'] = $result['id_work'];
             header("Location: index.php");
             $message->setMessage("Bem Vindo!","success","");
         }else{
