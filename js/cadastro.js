@@ -7,7 +7,7 @@ var modal = document.getElementById("cad");
 var btn = document.getElementById("cadastro");
 
 // Get the <span> element that closes the modal
-// var button2 = document.getElementsByClassName("close")[0];
+// var button = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -15,7 +15,7 @@ btn.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
-// button2.onclick = function() {
+// button.onclick = function() {
   // modal.style.display = "none";
 // }
 // 

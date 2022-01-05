@@ -63,7 +63,7 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="cadastro">Cadastro</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>#" id="loguin">Entrar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>loguin.php">Entrar</a>
             <?php }  ?>
         </nav>
 
@@ -81,7 +81,7 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
 <!-- modal tela de loguin -->
 <div id="log" class="modal">
   <div class="modal-content"> 
-  <!-- <span class="close">&times;</span>    -->
+   <!-- <button class="close">&times;</button>     -->
     <form action="process_loguin.php" method="POST">    
         <h2>Login</h2>
           
@@ -124,51 +124,46 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
 
   <!-- modal tela de cadastro -->
   <main>
-  <div id="cad" class="modal">
-  <div class="modal-content"> 
-  <!-- <button2 class="close">&times;</button2>  -->
+    <div id="cad" class="modal">
+    <div  class="modal-content">    
+    <h2 class="c">Cadastro de Usuário</h2>
+   <!-- <button class="close">&times;</button>  -->
     <form  action="profissional_process.php" method="POST">
       <input type="hidden" name="type" value="cadastrar_profissional">
-        <h4>Cadastro do usuário</h4>
-      <div class="">
         <div class="input-field">
-          <input name="nome"  id="full_name" type="text" class="validate" id="name">
-          <label for="full_name">Nome Completo</label>
-        </div>
-      </div>
-      <div class="">
-       <div class="input-field">
-          <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone">
-          <label for="icon_telephone">Telefone</label>
-        </div>
-      </div>    
-      <div class="">
+        <label for="nome">Nome Completo:</label>
+        <input name="nome"  type="text" class="validate" id="name" style="width: 20em">
+        </div>  
+      
         <div class="input-field">
-          <input type="email" id="email" name="email" class="validate"> 
-          <label for="email">E-mail</label>
-        </div>
-       </div>
-       <div class="">
-      <div class="input-field">
-        <input  name="senha" type="password" class="validate" id="senha">
-        <label for="password">Senha</label>
-      </div>
-    </div>
-    <div class="">
-      <div class="input-field">
-        <input name="confirmeSenha"  type="password" class="validate" id="confsenha">
-        <label for="password">Confirme sua Senha</label>
-     </div>
-     </div>
-       <button type="submit" >Confirmar</button><br>
-       <a href="login.php" style="text-decoration:none">
+        <label for="telefone">Telefone:</label>
+        <input name="telefone"  type="tel" class="validate" id="telefone"style="width: 15em">
+        </div>          
+     
+        <div class="input-field">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" class="validate" style="width: 20em"> 
+        </div>       
+       
+        <div class="input-field">
+        <label for="password">Senha:</label>
+        <input  name="senha" type="password" class="validate" id="senha" style="width: 13em">
+        </div>    
+    
+        <div class="input-field">
+        <label for="password">Confirmar Senha:</label>
+        <input name="confirmeSenha"  type="password" class="validate" id="confsenha" style="width: 13em">
+         </div>
+     
+        <button type="submit" class="botao" >Confirmar</button><br>
+        <!-- <a href="login.php" style="text-decoration:none">
         Faça seu Loguin
-       </a>
+        </a> -->
     </div>
    </form>
  </div>
 </main>
 
 <script src="<?=$BASE_URL?>js/script.js"></script>
-<script src="<?=$BASE_URL?>js/loguin.js"></script>
-<script src="<?=$BASE_URL?>js/cadastro.js"></script>
+<!-- <script src="js/jss/loguin.js"></script> -->
+<script src="js/cadastro.js"></script>
