@@ -69,7 +69,7 @@ if(isset($_SESSION['id_user'])){
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="cadastro">Cadastro</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>login.php">Entrar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>#" id="loguin">Entrar</a>
             <?php }  ?>
         </nav>
 
@@ -87,7 +87,7 @@ if(isset($_SESSION['id_user'])){
 <!-- modal tela de loguin -->
 <div id="log" class="modal">
   <div class="modal-content"> 
-   <!-- <button class="close">&times;</button>     -->
+   <span class="fecharr">&times;</span>    
     <form action="process_loguin.php" method="POST">    
         <h2>Login</h2>
           
@@ -133,7 +133,7 @@ if(isset($_SESSION['id_user'])){
     <div id="cad" class="modal">
     <div  class="modal-content">    
     <h2 class="c">Cadastro de Usuário</h2>
-   <!-- <button class="close">&times;</button>  -->
+   <span class="fechar">&times;</span> 
     <form  action="profissional_process.php" method="POST">
       <input type="hidden" name="type" value="cadastrar_profissional">
         <div class="input-field">
@@ -187,5 +187,5 @@ if(isset($_SESSION['id_user'])){
 </main>
 
 <script src="<?=$BASE_URL?>js/script.js"></script>
-<!-- <script src="js/jss/loguin.js"></script> -->
+<script src="js/loguin.js"></script>
 <script src="js/cadastro.js"></script>
