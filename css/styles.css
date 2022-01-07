@@ -143,19 +143,25 @@ header .navbar .nav-btn:hover {
     padding-left: 9%;
   }
 /* The Close Button */
-/* .close {
+.fecharr,.fechar {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   } */
   
-  /* .close:hover,
-  .close:focus {
+  .fecharr:hover,
+  .fecharr:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  } */
+  }
+  .fechar:hover,
+  .fechar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 /* estilo do formulario */
 
