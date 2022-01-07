@@ -1,5 +1,5 @@
 <?php 
-var_dump($_POST['nome']);
+
 
 require_once("conexao.php");
 require_once("globals.php");
@@ -30,14 +30,16 @@ if($_POST['type'] == "cadastrar_profissional"){
 				$telefone = $dados['telefone'];
 				$email = $dados['email'];
 				$senha = $dados['senha'];
+				$tipo_usuario = $dados['tipo_usuario'];
 				$confirmeSenha = $dados['confirmeSenha'];
+
 
 
 if($name && $telefone && $email && $senha && $confirmeSenha){
 	    
 		if($senha == $confirmeSenha){
 
-			$stmt = $conn->prepare("SELECT * FROM worker WHERE email = :email");
+		 $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
 	      $stmt->bindParam(':email', $email);
 	      $stmt->execute();
 	      $retorno = $stmt->rowCount();
@@ -48,7 +50,7 @@ if($name && $telefone && $email && $senha && $confirmeSenha){
 	      }else{
 	        //nenhum usuário encontrado 
 	      	try{
-               $sql = "INSERT INTO worker(name,email,telefone,password) VALUES(:name,:email,:telefone,:senha
+               $sql = "INSERT INTO users(name,email,telefone,password) VALUES(:name,:email,:telefone,:senha
 			      )";
 			      $stmt = $conn->prepare($sql);
 			      $stmt->bindParam(":name",$name);

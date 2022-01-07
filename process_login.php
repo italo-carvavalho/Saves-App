@@ -10,8 +10,7 @@ $message = new Message($BASE_URL);
 
 
 
-if($_POST['radio'] == "cliente")
-{
+//if($_POST['radio'] == "cliente"){
   
     $dados = $_POST;
 
@@ -28,8 +27,8 @@ if($_POST['radio'] == "cliente")
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($result)){
            
-            $_SESSION['cliente_logado'] = true;
-            $_SESSION['name'] =  $result['name'];
+            //$_SESSION['cliente_logado'] = true;
+            $_SESSION['id_user'] =  $result['id_user'];
             header("Location: index.php");
             $message->setMessage("Bem Vindo!","success","");
         }else{
@@ -44,8 +43,8 @@ if($_POST['radio'] == "cliente")
         $message->setMessage("Por favor preencha todos os campos","error","back");
 
     }
-}
-elseif($_POST['radio'] == "profissional")
+//}
+/*elseif($_POST['radio'] == "profissional")
 {
     $dados = $_POST;
 
@@ -79,7 +78,7 @@ elseif($_POST['radio'] == "profissional")
         $message->setMessage("Por favor preencha todos os campos","error","back");
 
     }
-}
+} */
 
 
 

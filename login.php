@@ -7,7 +7,7 @@ require_once("templates/header.php");
 
   <main class="container">
   <div >    
-      <form action="process_loguin.php" method="POST">    
+      <form action="process_login.php" method="POST">    
             <h2>Login</h2>
             
         <div>
@@ -19,10 +19,10 @@ require_once("templates/header.php");
          
         </div>    
 
-        <div>
+       <!-- <div>
         <input required type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br />
         <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br />
-        </div>
+        </div> -->
 
         <button type="submit" >Confirmar</button>
        </form>

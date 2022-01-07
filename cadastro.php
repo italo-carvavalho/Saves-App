@@ -5,7 +5,7 @@
 
 
 <div class="row">
-    <form class="col s6" action="profissional_process.php" method="POST">
+    <form class="col s6" action="acoes/profissional_process.php" method="POST">
       <input type="hidden" name="type" value="cadastrar_profissional">
     <fieldset>
         <h4>Cadastro do usuário</h4>
@@ -38,7 +38,22 @@
         <input name="confirmeSenha"  type="password" class="validate" id="confsenha">
         <label for="password">Confirme sua Senha</label>
      </div>
+    </div>
+
+    <div class="">
+      <div class="input-field col s12">
+      <input type="radio" id="" name="tipo_usuario" value="0">
+        <label for="">Cliente</label>
      </div>
+    </div>
+
+    <div class="">
+      <div class="input-field col s12">
+      <input type="radio" id="" name="tipo_usuario" value="1">
+        <label for="">Profissional</label>
+     </div>
+    </div>
+
        <button type="submit" >Confirmar</button>
       </div>
      </fieldset>

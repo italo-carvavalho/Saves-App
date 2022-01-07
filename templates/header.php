@@ -15,12 +15,20 @@ if(!empty($menssagens['msg'])){
     $message->clearMessage();
 }
 
-$name_prof = "";
+/*$name_prof = "";
 $name_cliente = "";
 if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] == true){
      $name_prof = $_SESSION['name'];
 }elseif(isset($_SESSION['cliente_logado']) && $_SESSION['cliente_logado'] == true){
     $name_cliente = $_SESSION['name'];
+} */
+
+if(isset($_SESSION['id_user'])){
+    $id =  $_SESSION['id_user'];
+
+    $stmt = $conn->query("SELECT * FROM users WHERE id_user = '{$id}'");
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
 }
 
 
@@ -38,6 +46,7 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;1,200;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+
     <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
  
 
@@ -51,19 +60,16 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
         </div>
 
         <nav class="navbar">
-            <?php if(isset($name_prof) && !empty($name_prof)){  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>editar_profissional.php"><?= $name_prof?></a>
-                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Buscar Serviços</a>
+            <?php if(isset($id) && !empty($id)){  ?>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil.php"><?= $user['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Serviços</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Clientes</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Agendar</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
-                <a href="<?=$BASE_URL?>perfil_pro.php"> <img class="guest" type="image/svg+xml" src="<?=$BASE_URL?>images/user.svg"> </a>
-            <?php }elseif(isset($name_cliente) && !empty($name_cliente)){ ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_cliente.php"><?= $name_cliente ?></a>
-                <a class="nav-btn" href="<?=$BASE_URL?>buscar_profissionais.php">Profissionais</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>Servicos.php">Serviços</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
+               <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="cadastro">Cadastro</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>loguin.php">Entrar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>login.php">Entrar</a>
             <?php }  ?>
         </nav>
 
@@ -154,7 +160,23 @@ if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] =
         <label for="password">Confirmar Senha:</label>
         <input name="confirmeSenha"  type="password" class="validate" id="confsenha" style="width: 13em">
          </div>
-     
+
+        <br>
+        <div class="">
+          <div class="input-field">
+         
+          <input type="radio" id="" name="tipo_usuario" value="0"> Cliente
+            
+        </div>
+        </div>
+
+        <div class="">
+          <div class="input-field">
+          <input type="radio" id="" name="tipo_usuario" value="1"> Profissional
+            
+        </div>
+        </div>
+        
         <button type="submit" class="botao" >Confirmar</button><br>
         <!-- <a href="login.php" style="text-decoration:none">
         Faça seu Loguin
