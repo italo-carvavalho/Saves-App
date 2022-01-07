@@ -1,6 +1,7 @@
 
 
 <footer> 
+ 
         <div class="footer-social">
             <ul>
                 <li><img class="social-images" src="<?=$BASE_URL?>images/language.png"><a id="idioma" href="#">Idioma</a></li>
@@ -26,7 +27,5 @@
         </div>
 
 
-
-
 </footer>
-    
+
