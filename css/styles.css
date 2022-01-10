@@ -56,7 +56,7 @@ header .navbar .nav-btn:hover {
     background-color: #7B68EE;
 }
 /* pagina de ligação do cadastro */
-#pro{
+/* #pro{
        border:1px solid;
        padding: 11px 21px;
        vertical-align: middle;
@@ -83,7 +83,7 @@ header .navbar .nav-btn:hover {
      float: left;
      margin-left: 35%;
      margin-top: 20%;
-}
+} */
 /* texto e imagem do home */
 #title {
     text-align: center;
@@ -92,7 +92,7 @@ header .navbar .nav-btn:hover {
 }
 #home-text-1{
     display: inline-block;
-    margin-left: 30vh;
+    margin-left: 27vh;
     vertical-align: 40vh;
     font-size: 5vh;
 }
@@ -103,16 +103,15 @@ header .navbar .nav-btn:hover {
 }
 #home-image-1 {
     display: inline-block;
-    text-align: top;
-
     width: 99vh;
-    margin-left: 15vh;
+    /* margin-left: 60vh; */
+
 }
 #home-image-2 {
     display: inline-block;
-    margin-left: 10vh;
-    text-align: top;
     width: 99vh;
+    /* margin-left: 10vh; */
+
 }
 /* modal */
 .modal {
@@ -132,7 +131,16 @@ header .navbar .nav-btn:hover {
   }
   
   /* Modal Content */
-  .modal-content {
+  .modal-content-log {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 12px;
+    padding-left: 12%;
+  }
+  .modal-content-cad {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -141,26 +149,24 @@ header .navbar .nav-btn:hover {
     border-radius: 12px;
     padding-left: 9%;
   }
+  
 /* The Close Button */
-.fecharr,.fechar {
+.cadclose,.logclose {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  } */
+  } 
   
-  .fecharr:hover,
-  .fecharr:focus {
+  .cadclose:hover,
+  .logclose:hover,
+  .cadclose:focus, 
+  .logclose:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
   }
-  .fechar:hover,
-  .fechar:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  
 
 /* estilo do formulario */
 
@@ -180,9 +186,19 @@ header .navbar .nav-btn:hover {
     color: #666;
     display: block;
 }
-
-.botao {
-    font-size: 1.5em;
+/* @media screen and (max-width: 600px) {
+    .input-field, 
+    input[type=submit],
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+      width: 100%;
+      margin-top: 0;
+    }
+  } */
+.botao-log {
+    font-size: 1.1em;
     background: #32149e;
     border: 0;
     margin-bottom: 1em;
@@ -193,23 +209,48 @@ header .navbar .nav-btn:hover {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     cursor: pointer; 
     border-radius: 8px;
-    margin-left: 2em;
+    margin-left: 3em;
+}
+.botao-cad {
+    font-size: 1.1em;
+    background: #32149e;
+    border: 0;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    color: #FFF;
+    padding: 0.2em 0.6em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    cursor: pointer; 
+    border-radius: 8px;
+    margin-left: 4.5em;
 }
 
-.botao:hover {
+.botao-log:hover,
+.botao-cad:hover {
     box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
     text-shadow: none;
     background-color: #7B68EE;
 
 }
-.c{
+
+.c-log{
    margin-top: 1em;
    margin-bottom: 1em;
    color: #32149e;
    font-family: serif;
    font-size: 30px;
+   
 }
-label
+.c-cad{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #32149e;
+    font-family: serif;
+    font-size: 30px;
+    
+ }
+
 
 /* icones da redes social do footer */
 .footer-ul li {
