@@ -64,7 +64,7 @@ if(isset($_SESSION['id_user'])){
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Serviços</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Clientes</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Agendar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>agenda.php">Agendar</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
             <?php }else{  ?>
@@ -77,7 +77,7 @@ if(isset($_SESSION['id_user'])){
             <i class="fas fa-bars"></i>
         </div>
      </header>  
- </body>
+</body>
     <?php  if(!empty($menssagens['msg'])){  ?>
             <div class="msg-container">
                 <p class="msg <?= $menssagens['type'] ?>"><?= $menssagens['msg'] ?></p>

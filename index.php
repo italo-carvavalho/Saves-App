@@ -2,6 +2,7 @@
 require_once("templates/header.php");
 
 ?>
+
 	<main>
 		<h1 id="title">Faça parte do SAVESAPP</h1>
   		<h2 id="home-text-1">Encontre os melhores <br> profissionais</h2>
@@ -10,7 +11,9 @@ require_once("templates/header.php");
   		<h2 id="home-text-2">Encontre empregos facilmente</h2>
   	</main>
 
-<?php
-	  require_once("templates/footer.php");
+	
+
+<?php 
+require_once("templates/footer.php");
 
 ?>

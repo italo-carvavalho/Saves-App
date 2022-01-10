@@ -6,6 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 html, body{
+    position: relative;
     height: 100%;
 }
 body {
@@ -278,10 +279,13 @@ header .navbar .nav-btn:hover {
 .footer-social img {
     margin: 3vh;
 }
+
 footer {
     display: flex;
     background-color: #1A0859;
     color: white;
+
+
 }
 .social-images{
     width: 5vh;
