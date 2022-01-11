@@ -177,10 +177,26 @@ header .navbar .nav-btn:hover {
     border-radius: 8px;
 }
 .input-field label{
-    margin-bottom: 0.2em;
+    /*margin-bottom: 0.2em; */
+    margin-top: 10px;
     color: #666;
     display: block;
 }
+
+.input-field select{
+  padding: 0.2em;
+  border: 1px solid #ccc;
+  box-shadow:  2px 2px 2px rgba(0,0,0,0.2);
+  display: block;
+  border-radius: 8px;
+  background-color: #fff;
+  outline: none;
+}
+
+.input-field select option:disabled{
+    color: red;
+}
+
 
 .botao {
     font-size: 1.5em;
@@ -243,9 +259,13 @@ footer {
     display: flex;
     background-color: #1A0859;
     color: white;
-
-
+    position: absolute;
+    bottom: -300px;
+    width: 100%;
+    margin-bottom: 0;
 }
+
+
 .social-images{
     width: 5vh;
     margin: 2vh;
@@ -304,57 +324,6 @@ footer {
     margin: 15px auto;
 }
 
-/*cards*/
-.card .star{
-    width: 20px;
-}
-
-.card .user{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.title{
-    display: flex;
-    justify-content: center;
-    margin: 5rem 0 5rem 0;
-    font-size: 40px;
-    font-weight: 300;
-}
-
-.cards{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 960px;
-    margin: 0 auto;
-    grid-gap: 40px;
-    margin-bottom: 5rem;
-}
-
-.card{
-    background-color:#8A2BE2 ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 35px 35px;
-    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.171);
-}
-
-.card h3{
-    font-weight: 300;
-    margin-bottom: 5px;
-    color: white;
-}
-
-.card p{
-    margin-top: 20px;
-    font-weight: 300;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-}
 .logo {
     margin-left: 10vh;
     color: #ffffff;
@@ -364,6 +333,7 @@ footer {
     line-height: 80px;
     text-decoration: none;
 }
+
 .guest {
     width: 8vh;
     height: 8vh;
@@ -371,8 +341,95 @@ footer {
 }
 
 
+.container-cliente{
+    padding-top: 50px;
+}
 
+.container-cliente p{
+    margin: 20px;
+}
 
+.form-profissional{
+    width: 96%;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+    
+}
+
+.form-profissional legend{
+    color: rgb(130,130,130);
+    font-size: 17px;
+    text-align: left;
+}
+
+.form-profissional fieldset{
+    padding: 20px 40px;
+    border: 1px solid #ccc;
+}
+
+.form-profissional input[type=text],input[type=email]{
+    display: inline-block;
+    margin-top: 20px;
+    width: 80%;
+    padding: 5px 5px;
+}
+
+.form-profissional input[type=text],input[type=email], .form-profissional select:focus,
+.form-profissional textarea:focus{
+    outline: 0;
+}
+
+.form-profissional input[type=file]{
+   margin-top: 15px;
+   margin-right: 60px;
+   color: rgb(110,110,110);
+}
+
+.form-profissional select{
+    width:calc(80% + 2px);
+    margin-top: 20px;
+    display: inline-block;
+    padding: 5px 5px;
+    color: rgb(110,110,110);
+}
+
+.form-profissional h3{
+    margin-top: 10px;
+    color: rgb(110,110,110);
+    border: 1px solid #ccc;
+}
+
+.radio-input{
+    display: inline-block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.radio-input span{
+    margin-left: 13px;
+    font-size: 16px;
+    color: rgb(130,130,130);
+}
+
+.form-profissional textarea{
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    width: 80%;
+    resize: none;
+}
+
+.form-profissional input[type=submit]{
+    margin-top: 30px;
+    border: 0;
+    width: 140px;
+    height: 40px;
+    font-size: 16px;
+    border: 2px solid rgb(130,130,130);
+    color: #fff;
+    cursor: pointer;
+    background-color: rgb(140,140,140);
+}
 
 
 

@@ -32,10 +32,9 @@ if($_POST['type'] == "cadastrar_profissional"){
 				$senha = $dados['senha'];
 				$tipo_usuario = $dados['tipo_usuario'];
 				$confirmeSenha = $dados['confirmeSenha'];
+                $cidades = $dados['cidades'];
 
-
-
-if($name && $telefone && $email && $senha && $confirmeSenha){
+if($name && $telefone && $email && $senha && $confirmeSenha && $tipo_usuario && $cidades){
 	    
 		if($senha == $confirmeSenha){
 
@@ -50,13 +49,15 @@ if($name && $telefone && $email && $senha && $confirmeSenha){
 	      }else{
 	        //nenhum usuário encontrado 
 	      	try{
-               $sql = "INSERT INTO users(name,email,telefone,password) VALUES(:name,:email,:telefone,:senha
-			      )";
+               $sql = "INSERT INTO users(name,email,telefone,password,tipo_usuario,cidade) VALUES(:name,:email,:telefone,:senha,
+			   :tipo_usuario,:cidade)";
 			      $stmt = $conn->prepare($sql);
 			      $stmt->bindParam(":name",$name);
 					$stmt->bindParam(":email",$email);
 					$stmt->bindParam(":telefone",$telefone);
 					$stmt->bindParam(":senha",$senha);
+					$stmt->bindParam(":tipo_usuario",$tipo_usuario);
+					$stmt->bindParam(":cidade",$cidades);
 	            $stmt->execute();
 	            $message->setMessage("Usuário cadastrado com sucesso","success","back");
              

@@ -15,19 +15,14 @@ if(!empty($menssagens['msg'])){
     $message->clearMessage();
 }
 
-/*$name_prof = "";
-$name_cliente = "";
-if(isset($_SESSION['profissional_logado']) && $_SESSION['profissional_logado'] == true){
-     $name_prof = $_SESSION['name'];
-}elseif(isset($_SESSION['cliente_logado']) && $_SESSION['cliente_logado'] == true){
-    $name_cliente = $_SESSION['name'];
-} */
+
 
 if(isset($_SESSION['id_user'])){
     $id =  $_SESSION['id_user'];
-
     $stmt = $conn->query("SELECT * FROM users WHERE id_user = '{$id}'");
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $tipo_usuario = $user['tipo_usuario'];
+  
 
 }
 
@@ -60,17 +55,20 @@ if(isset($_SESSION['id_user'])){
         </div>
 
         <nav class="navbar">
-            <?php if(isset($id) && !empty($id)){  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil.php"><?= $user['name'] ?></a>
-                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Serviços</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Clientes</a>
+            <?php if(isset($id) && $tipo_usuario == 0){  ?>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Pedidos</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>agenda.php">Agendar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_cliente.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
+            <?php }elseif(isset($id) && $tipo_usuario == 1){  ?>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Serviços</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_profissional.php"><?= $user['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="cadastro">Cadastro</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="loguin">Entrar</a>
-            <?php }  ?>
+            <?php } ?>
         </nav>
 
         <div class="menu-icon">
@@ -88,7 +86,7 @@ if(isset($_SESSION['id_user'])){
 <div id="log" class="modal">
   <div class="modal-content"> 
    <span class="fecharr">&times;</span>    
-    <form action="process_loguin.php" method="POST">    
+    <form action="process_login.php" method="POST">    
         <h2>Login</h2>
           
     <div>
@@ -97,10 +95,10 @@ if(isset($_SESSION['id_user'])){
     <div>
         <input required type="password" class="validate" id="Senha" name="password" placeholder="">
   </div>   
-    <div>
+  <!--  <div>
       <input required type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br>
       <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br>
-    </div>
+    </div> -->
     <button type="submit" >Confirmar</button>
   </form>
     <div>
@@ -149,7 +147,19 @@ if(isset($_SESSION['id_user'])){
         <div class="input-field">
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" class="validate" style="width: 20em"> 
-        </div>       
+        </div>     
+        
+        <div class="input-field">
+        <label for="email">Cidade</label>
+        <select name="cidades" id="">
+                <option disabled selected value="">Qual cidade você mora?</option>
+                <option value="Igarassu">Igarassu</option>
+                <option value="Itapissuma">Itapissuma</option>
+                <option value="Itamaraca">Itamaracá</option>
+                <option value="Abreu e Lima">Abreu e Lima</option>
+                <option value="Paulista">Paulista</option>
+             </select>
+        </div>  
        
         <div class="input-field">
         <label for="password">Senha:</label>
