@@ -84,29 +84,41 @@ if(isset($_SESSION['id_user'])){
     
 <!-- modal tela de loguin -->
 <div id="log" class="modal">
-  <div class="modal-content"> 
-   <span class="fecharr">&times;</span>    
-    <form action="process_login.php" method="POST">    
-        <h2>Login</h2>
-          
-    <div>
-        <input required  id="email" type="email" class="validate" name="email"  placeholder="Email">
+
+  <div class="modal-content-log"> 
+    
+    <h2 class="c-log">Login</h2>
+    
+    <span class="logclose">&times;</span>    
+    <form action="process_loguin.php" method="POST"> 
+     
+    <div class="input-field">
+    <label for="email">E-mail:</label>
+        <input required  id="email" type="email" class="validate" name="email" style="width: 15em">
+    </div></br>
+    
+    <div class="input-field">
+    <label for="password">Senha:</label>
+        <input required type="password" class="validate" id="Senha" name="password" style="width: 15em">
+    </div>
+  </br>   
+ <!-- <div class="input-field">
+      <input required type="radio" name="radio" value="cliente"/>Cliente
   </div>
-    <div>
-        <input required type="password" class="validate" id="Senha" name="password" placeholder="">
-  </div>   
-  <!--  <div>
-      <input required type="radio" name="radio" value="cliente"/><span style="font-size:12px"> Cliente</span><br>
-      <input type="radio" name="radio" value="profissional"/><span style="font-size:12px"> Profissional</span><br>
-    </div> -->
-    <button type="submit" >Confirmar</button>
+  <div class="input-field">
+      <input type="radio" name="radio" value="profissional"/>Profissional
+  </div> -->
+  </br>
+    <button type="submit" class="botao-log">Confirmar</button>
+
   </form>
-    <div>
+  </br>
+    <!-- <div>
         <a href="cadastro.php" style="text-decoration:none;font-size: large">
             Cadastro
         </a>
-  </div>
-    <span style="font-size: large">Ou Conecte Com sua Conta Social</span>      
+  </div> -->
+    <span style="font-size: large">Ou se Conecte Com sua conta</span>      
     <div class="social-fields">
       <div class="social-field facebook" >
           <a href="#" style="text-decoration:none;font-size: large">
@@ -114,9 +126,10 @@ if(isset($_SESSION['id_user'])){
                 Entre com o Facebook
           </a>
    </div>
-       <div class="social-field google">
-           <a href="#" style="text-decoration:none;font-size: large" >
-                <i class="fab fa-google"></i>
+  </br>
+      <div class="social-field google">
+          <a href="#" style="text-decoration:none;font-size: large" >
+              <i class="fab fa-google"></i>
                 Entre com o Google
             </a>
            </div>
@@ -124,14 +137,15 @@ if(isset($_SESSION['id_user'])){
         </div>
       </div>             
     </div>             
-  </main>
+  
 
   <!-- modal tela de cadastro -->
-  <main>
     <div id="cad" class="modal">
-    <div  class="modal-content">    
-    <h2 class="c">Cadastro de Usuário</h2>
-   <span class="fechar">&times;</span> 
+    <div class="modal-content-cad"> 
+
+    <h2 class="c-cad">Cadastro de Usuário</h2>
+
+   <span class="cadclose">&times;</span> 
     <form  action="profissional_process.php" method="POST">
       <input type="hidden" name="type" value="cadastrar_profissional">
         <div class="input-field">
@@ -169,33 +183,26 @@ if(isset($_SESSION['id_user'])){
         <div class="input-field">
         <label for="password">Confirmar Senha:</label>
         <input name="confirmeSenha"  type="password" class="validate" id="confsenha" style="width: 13em">
-         </div>
-
+        </div>
         <br>
-        <div class="">
-          <div class="input-field">
-         
-          <input type="radio" id="" name="tipo_usuario" value="0"> Cliente
-            
+        
+        <div class="input-field">
+        <input type="radio" id="" name="tipo_usuario" value="0"> Cliente
         </div>
-        </div>
-
-        <div class="">
-          <div class="input-field">
-          <input type="radio" id="" name="tipo_usuario" value="1"> Profissional
-            
-        </div>
+        <div class="input-field">
+        <input type="radio" id="" name="tipo_usuario" value="1"> Profissional
         </div>
         
-        <button type="submit" class="botao" >Confirmar</button><br>
+        
+        <button type="submit" class="botao-cad" >Confirmar</button><br>
         <!-- <a href="login.php" style="text-decoration:none">
         Faça seu Loguin
         </a> -->
     </div>
    </form>
  </div>
-</main>
+
 
 <script src="<?=$BASE_URL?>js/script.js"></script>
-<script src="js/loguin.js"></script>
-<script src="js/cadastro.js"></script>
+<script src="<?=$BASE_URL?>js/loguin.js"></script>
+<script src="<?=$BASE_URL?>js/cadastro.js"></script>
