@@ -61,15 +61,9 @@ if(isset($_SESSION['id_user'])){
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
-<<<<<<< HEAD
-            <?php }elseif(isset($id) && $tipo_usuario == 1){  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_profissional.php"><?= $user['name'] ?></a>
-                <a class="nav-btn" href="<?=$BASE_URL?>cadastrar_servico.php">Serviço</a>
-=======
             <?php }elseif(isset($id) && $type_user == 1){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Serviços</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?= $user['name'] ?></a>
->>>>>>> 16ebc09acca1b18a801c4dd969944903026a9e01
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="register">Cadastro</a>
