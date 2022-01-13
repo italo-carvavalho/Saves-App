@@ -1,6 +1,6 @@
 <?php
 
-require_once("conexao.php");
+require_once("connection.php");
 require_once("globals.php");
 require_once("Model/Message.php");
 
@@ -12,10 +12,10 @@ $message = new Message($BASE_URL);
 
 //if($_POST['radio'] == "cliente"){
   
-    $dados = $_POST;
+    $data = $_POST;
 
-	$email = $dados['email'];
-	$password = $dados['password'];
+	$email = $data['email'];
+	$password = $data['password'];
 
     if($email && $password){
 

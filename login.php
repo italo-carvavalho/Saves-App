@@ -11,10 +11,10 @@ require_once("templates/header.php");
             <h2>Login</h2>
             
         <div>
-           <input required  id="email" type="email" class="validate" name="email" id="Usuario">
+           <input required  id="email" type="email" class="validate" name="email" id="user">
         </div>
         <div>
-           <input required type="password" class="validate" id="Senha" name="password">
+           <input required type="password" class="validate" id="password" name="password">
         </div>   
          
         </div>    
@@ -29,7 +29,7 @@ require_once("templates/header.php");
      </div>
     <div class="z">
         <div>
-            <a href="cadastro.php" style="text-decoration:none;font-size: large">
+            <a href="register.php" style="text-decoration:none;font-size: large">
                 Cadastro
             </a>
         </div>

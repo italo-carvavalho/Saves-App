@@ -1,16 +1,16 @@
 <?php 
 
 require_once("globals.php");
-require_once("conexao.php");
+require_once("connection.php");
 require_once("Model/Message.php");
 
 
 
 $message = new Message($BASE_URL);
 
-$menssagens = $message->getMessage();
+$posts = $message->getMessage();
 
-if(!empty($menssagens['msg'])){
+if(!empty($posts['msg'])){
     //limpar a menssagem
     $message->clearMessage();
 }
@@ -21,7 +21,7 @@ if(isset($_SESSION['id_user'])){
     $id =  $_SESSION['id_user'];
     $stmt = $conn->query("SELECT * FROM users WHERE id_user = '{$id}'");
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    $tipo_usuario = $user['tipo_usuario'];
+    $type_user = $user['type_user'];
   
 
 }
@@ -55,19 +55,25 @@ if(isset($_SESSION['id_user'])){
         </div>
 
         <nav class="navbar">
-            <?php if(isset($id) && $tipo_usuario == 0){  ?>
+            <?php if(isset($id) && $type_user == 0){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Pedidos</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>agenda.php">Agendar</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_cliente.php"><?= $user['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>schedule.php">Agendar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
+<<<<<<< HEAD
             <?php }elseif(isset($id) && $tipo_usuario == 1){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_profissional.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>cadastrar_servico.php">Serviço</a>
+=======
+            <?php }elseif(isset($id) && $type_user == 1){  ?>
+                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Serviços</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?= $user['name'] ?></a>
+>>>>>>> 16ebc09acca1b18a801c4dd969944903026a9e01
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>#" id="cadastro">Cadastro</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>#" id="loguin">Entrar</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>#" id="register">Cadastro</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>#" id="login">Entrar</a>
             <?php } ?>
         </nav>
 
@@ -76,9 +82,9 @@ if(isset($_SESSION['id_user'])){
         </div>
      </header>  
 </body>
-    <?php  if(!empty($menssagens['msg'])){  ?>
+    <?php  if(!empty($posts['msg'])){  ?>
             <div class="msg-container">
-                <p class="msg <?= $menssagens['type'] ?>"><?= $menssagens['msg'] ?></p>
+                <p class="msg <?= $posts['type'] ?>"><?= $posts['msg'] ?></p>
            </div>
     <?php  }  ?>
     
@@ -99,7 +105,7 @@ if(isset($_SESSION['id_user'])){
     
     <div class="input-field">
     <label for="password">Senha:</label>
-        <input required type="password" class="validate" id="Senha" name="password" style="width: 15em">
+        <input required type="password" class="validate" id="password" name="password" style="width: 15em">
     </div>
   </br>   
  <!-- <div class="input-field">
@@ -109,7 +115,7 @@ if(isset($_SESSION['id_user'])){
       <input type="radio" name="radio" value="profissional"/>Profissional
   </div> -->
   </br>
-    <button type="submit" class="botao-log">Confirmar</button>
+    <button type="submit" class="button-log">Confirmar</button>
 
   </form>
   </br>
@@ -146,16 +152,16 @@ if(isset($_SESSION['id_user'])){
     <h2 class="c-cad">Cadastro de Usuário</h2>
 
    <span class="cadclose">&times;</span> 
-    <form  action="profissional_process.php" method="POST">
-      <input type="hidden" name="type" value="cadastrar_profissional">
+    <form  action="professional_process.php" method="POST">
+      <input type="hidden" name="type" value="register_professional">
         <div class="input-field">
-        <label for="nome">Nome Completo:</label>
-        <input name="nome"  type="text" class="validate" id="name" style="width: 20em">
+        <label for="name">Nome Completo:</label>
+        <input name="name"  type="text" class="validate" id="name" style="width: 20em">
         </div>  
       
         <div class="input-field">
-        <label for="telefone">Telefone:</label>
-        <input name="telefone"  type="tel" class="validate" id="telefone"style="width: 15em">
+        <label for="phone">Telefone:</label>
+        <input name="phone"  type="phone" class="validate" id="phone"style="width: 15em">
         </div>          
      
         <div class="input-field">
@@ -165,7 +171,7 @@ if(isset($_SESSION['id_user'])){
         
         <div class="input-field">
         <label for="email">Cidade</label>
-        <select name="cidades" id="">
+        <select name="city" id="">
                 <option disabled selected value="">Qual cidade você mora?</option>
                 <option value="Igarassu">Igarassu</option>
                 <option value="Itapissuma">Itapissuma</option>
@@ -177,24 +183,24 @@ if(isset($_SESSION['id_user'])){
        
         <div class="input-field">
         <label for="password">Senha:</label>
-        <input  name="senha" type="password" class="validate" id="senha" style="width: 13em">
+        <input  name="password" type="password" class="validate" id="password" style="width: 13em">
         </div>    
     
         <div class="input-field">
         <label for="password">Confirmar Senha:</label>
-        <input name="confirmeSenha"  type="password" class="validate" id="confsenha" style="width: 13em">
+        <input name="confirmPassword"  type="password" class="validate" id="confpassword" style="width: 13em">
         </div>
         <br>
         
         <div class="input-field">
-        <input type="radio" id="" name="tipo_usuario" value="0"> Cliente
+        <input type="radio" id="" name="type_user" value="0"> Cliente
         </div>
         <div class="input-field">
-        <input type="radio" id="" name="tipo_usuario" value="1"> Profissional
+        <input type="radio" id="" name="type_user" value="1"> Profissional
         </div>
         
         
-        <button type="submit" class="botao-cad" >Confirmar</button><br>
+        <button type="submit" class="button-cad">Confirmar</button><br>
         <!-- <a href="login.php" style="text-decoration:none">
         Faça seu Loguin
         </a> -->
@@ -204,5 +210,5 @@ if(isset($_SESSION['id_user'])){
 
 
 <script src="<?=$BASE_URL?>js/script.js"></script>
-<script src="<?=$BASE_URL?>js/loguin.js"></script>
-<script src="<?=$BASE_URL?>js/cadastro.js"></script>
+<script src="<?=$BASE_URL?>js/login.js"></script>
+<script src="<?=$BASE_URL?>js/register.js"></script>

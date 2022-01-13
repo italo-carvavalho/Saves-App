@@ -1,34 +1,34 @@
 <?php 
 require_once("globals.php");
-require_once("conexao.php");
+require_once("connection.php");
 require_once("Model/Message.php");
 
 
 
 $message = new Message($BASE_URL);
 
-$menssagens = $message->getMessage();
+$posts = $message->getMessage();
 
-if(!empty($menssagens['msg'])){
+if(!empty($posts['msg'])){
     //limpar a menssagem
     $message->clearMessage();
 }
 
 
-$nome = '';
+$name = '';
 $email = '';
-$telefone = '';
-if($_SESSION['profissional_logado']){
+$phone = '';
+if($_SESSION['professional_logged']){
 //	$id= $_SESSION['id_work'];
 	$id = 41;
     //die;
-	$sql = "SELECT * FROM worker WHERE id_work = '{$id}'";
+	$sql = "SELECT * FROM users WHERE id_work = '{$id}'";
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
     $result = $stmt->fetch();
     $name =  $result['name'];
 	$email =$result['email'];
-	$telefone = $result['telefone'];
+	$phone = $result['phone'];
 	
 }else{
 	header('Location: index.php');
@@ -51,7 +51,7 @@ require_once("templates/header.php");
 
    
 
-	    <form action="<?= $BASE_URL ?>prof_process.php" method="post" enctype="multipart/form-data">
+	    <form action="<?= $BASE_URL ?>professional_process.php" method="post" enctype="multipart/form-data">
 		
       
 	       <input type="hidden" name="type" value="update">	
@@ -64,12 +64,12 @@ require_once("templates/header.php");
 			   <input style="background-color: #ccc;" readonly type="text" name="email" id="email" value="<?= $email ?>">
 		   </div>
 		   <div class="input-field">
-			   <label for="telefone">Telefone</label>
-			   <input readonly type="text" name="telefone" id="telefone" value="<?= $telefone ?>">
+			   <label for="phone">Telefone</label>
+			   <input readonly type="text" name="phone" id="phone" value="<?= $phone ?>">
 		   </div>
 			<div class="input-field">
-				<label for="cidade">Escolha a sua Cidade:</label>
-				<select name="cidade" id="cidade">
+				<label for="city">Escolha a sua Cidade:</label>
+				<select name="city" id="city">
 					<option></option>
 					<option value="Abreu e Lima">Abreu e Lima</option>
 					<option value="Igarassu">Igarassu</option>
@@ -79,8 +79,8 @@ require_once("templates/header.php");
 					</select>
 			</div>
 			<div class="form-wraper w50">
-				<label for="profissao">Escolha a sua Profissão:</label>
-					<select name="service" id="profissao">
+				<label for="profession">Escolha a sua Profissão:</label>
+					<select name="services" id="profession">
 					<option></option>
 					<option value="Mecanico">Mecanico</option>
 					<option value="eletrecista">eletrecista</option>
@@ -90,7 +90,7 @@ require_once("templates/header.php");
 				</select>
 		   </div>
 		   <div class="form-wraper w100">
-			  <textarea cols="40"rows="5" id="message"name="descricao" placeholder="Descreva seu trabalho"></textarea> 
+			  <textarea cols="40"rows="5" id="message"name="description" placeholder="Descreva seu trabalho"></textarea> 
         </div>
 		   </div>
            <div>
@@ -98,7 +98,7 @@ require_once("templates/header.php");
 			   <input type="file" name="image" id="" class="form-control-file">
 		   </div>
 
-		   <input type="submit" class="btn form-btn" value="Alterar">
+		   <input type="submit" class="btn form-btn" value="edit">
 		
 	    </form>
    
