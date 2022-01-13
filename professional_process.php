@@ -1,7 +1,7 @@
 <?php 
 
 
-require_once("conexao.php");
+require_once("connection.php");
 require_once("globals.php");
 require_once("Model/Message.php");
 
@@ -41,7 +41,7 @@ if($name && $phone && $email && $password && $confirmPassword && $type_user && $
 		 $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
 	      $stmt->bindParam(':email', $email);
 	      $stmt->execute();
-	      $retorno = $stmt->rowCount();
+	      $return = $stmt->rowCount();
 
 	      if($return > 0){
 	         //menssagem de erro usuario já existe

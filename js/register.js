@@ -2,7 +2,7 @@
 var modal = document.getElementById("cad","log"); // Get the modal
 // var m = document.getElementById("log");
 
-var btn = document.getElementById("cadastro", "loguin"); // Get the button that opens the modal
+var btn = document.getElementById("register", "login"); // Get the button that opens the modal
 
 
 var span = document.getElementsByClassName("cadclose", "logclose")[0]; // Get the <span> element that closes the modal

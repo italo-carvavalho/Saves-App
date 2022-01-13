@@ -4,12 +4,12 @@
 <!-- <main class="container"> -->
 
   
-<form action="process_service.php" enctype="multipart/form-data" class="form-profissional" method="post">
+<form action="process_services.php" enctype="multipart/form-data" class="form-profissional" method="post">
     <fieldset>
         <legend>Cadastre um Serviço</legend>
        <!-- <div><input type="text" name="name_servico" id="" placeholder="Digite o seu serviço"></div>
         <div><input type="email" name="email" id="" placeholder="Digite o seu e-mail"></div> -->
-        <input type="hidden" name="type" value="cadastrar_servico">
+        <input type="hidden" name="type" value="register_services">
          <div>
              <select name="name_services" id="">
                 <option disabled selected value="">Qual a sua serviço?</option>

@@ -5,7 +5,7 @@
 
 
 <div class="row">
-    <form class="col s6" action="acoes/profissional_process.php" method="POST">
+    <form class="col s6" action="professional_process.php" method="POST">
       <input type="hidden" name="type" value="register_professional">
     <fieldset>
         <h4>Cadastro do usuário</h4>
@@ -18,7 +18,7 @@
       <div class="">
        <div class="input-field col s12">
           <input name="phone" id="icon_telephone" type="phone" class="validate" id="phone">
-          <label for="icon_telephone">Telefone</label>
+          <label for="icon_phone">Telefone</label>
         </div>
       </div>    
       <div class="">

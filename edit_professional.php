@@ -1,15 +1,15 @@
 <?php 
 require_once("globals.php");
-require_once("conexao.php");
+require_once("connection.php");
 require_once("Model/Message.php");
 
 
 
 $message = new Message($BASE_URL);
 
-$menssagens = $message->getMessage();
+$posts = $message->getMessage();
 
-if(!empty($menssagens['msg'])){
+if(!empty($posts['msg'])){
     //limpar a menssagem
     $message->clearMessage();
 }
@@ -18,7 +18,7 @@ if(!empty($menssagens['msg'])){
 $name = '';
 $email = '';
 $phone = '';
-if($_SESSION['profissional_logged']){
+if($_SESSION['professional_logged']){
 //	$id= $_SESSION['id_work'];
 	$id = 41;
     //die;
@@ -51,7 +51,7 @@ require_once("templates/header.php");
 
    
 
-	    <form action="<?= $BASE_URL ?>prof_process.php" method="post" enctype="multipart/form-data">
+	    <form action="<?= $BASE_URL ?>professional_process.php" method="post" enctype="multipart/form-data">
 		
       
 	       <input type="hidden" name="type" value="update">	

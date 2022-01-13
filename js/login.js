@@ -1,7 +1,7 @@
 
 var m = document.getElementById("log");
 
-var t = document.getElementById("loguin");
+var t = document.getElementById("login");
 
 var span = document.getElementsByClassName("logclose")[0];
  

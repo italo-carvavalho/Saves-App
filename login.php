@@ -29,7 +29,7 @@ require_once("templates/header.php");
      </div>
     <div class="z">
         <div>
-            <a href="cadastro.php" style="text-decoration:none;font-size: large">
+            <a href="register.php" style="text-decoration:none;font-size: large">
                 Cadastro
             </a>
         </div>
