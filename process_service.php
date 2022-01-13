@@ -10,34 +10,34 @@ $message = new Message($BASE_URL);
 $fk_id_user = $_SESSION['id_user'];
 
 
-if($_POST['type'] == "cadastrar_servico"){
+if($_POST['type'] == "register_services"){
 
-	$dados = $_POST;
+	$data = $_POST;
 
-	$nome_servico = $dados['nome_servico'];
-	$descricao = $dados['descricao'];
+	$name_services = $data['name_services'];
+	$description = $data['description'];
 	$image = $_FILES['image'];
 
-	$pasta = "images/";
-	$nomeDoArquivo = $image['name'];
-	$novoNomeDoArquivo = uniqid();
-	$extensao = strtolower(pathinfo($nomeDoArquivo,PATHINFO_EXTENSION));
-	if($extensao != "jpg" && $extensao != "png"){
+	$folder = "images/";
+	$archiveName = $image['name'];
+	$newArchiveName = uniqid();
+	$extension = strtolower(pathinfo($archiveName,PATHINFO_EXTENSION));
+	if($extension != "jpg" && $extension != "png"){
 		$message->setMessage("Tipo de arquivo não aceito","error","back");
 	}
-	$path = $pasta . $novoNomeDoArquivo . "." . $extensao;
-	$deu_certo =move_uploaded_file($image["tmp_name"],$pasta . $novoNomeDoArquivo.".".$extensao);
+	$path = $folder . $newArchiveName . "." . $extension;
+	$success =move_uploaded_file($image["tmp_name"],$folder . $newArchiveName.".".$extension);
 
-	if($deu_certo){
+	if($success){
 		//echo "deu certo <a target=\"_blank\" href=\"images/$novoNomeDoArquivo.$extensao\">Clique aqui</a>";
-        if($nome_servico && $descricao){
+        if($name_services && $description){
 		
 				try{
-				$sql = "INSERT INTO servicos(nome_servico,descricao,image,fk_id_user) 
-				VALUES(:nome_servico,:descricao,:image,:fk_id_user)";
+				$sql = "INSERT INTO services(name_services,description,image,fk_id_user) 
+				VALUES(:name_services,:description,:image,:fk_id_user)";
 					$stmt = $conn->prepare($sql);
-					$stmt->bindParam(":nome_servico",$nome_servico);
-					$stmt->bindParam(":descricao",$descricao);
+					$stmt->bindParam(":name_services",$nome_servico);
+					$stmt->bindParam(":description",$description);
 					$stmt->bindParam(":image",$path);
 					$stmt->bindParam(":fk_id_user",$fk_id_user);
 

@@ -6,18 +6,18 @@
 
 <div class="row">
     <form class="col s6" action="acoes/profissional_process.php" method="POST">
-      <input type="hidden" name="type" value="cadastrar_profissional">
+      <input type="hidden" name="type" value="register_professional">
     <fieldset>
         <h4>Cadastro do usuário</h4>
       <div class="">
         <div class="input-field col s12">
-          <input name="nome"  id="full_name" type="text" class="validate" id="name">
+          <input name="name"  id="full_name" type="text" class="validate" id="name">
           <label for="full_name">Nome Completo</label>
         </div>
       </div>
       <div class="">
        <div class="input-field col s12">
-          <input name="telefone" id="icon_telephone" type="telephone" class="validate" id="telefone">
+          <input name="phone" id="icon_telephone" type="phone" class="validate" id="phone">
           <label for="icon_telephone">Telefone</label>
         </div>
       </div>    
@@ -29,27 +29,27 @@
        </div>
        <div class="">
       <div class="input-field col s12">
-        <input  name="senha" type="password" class="validate" id="senha">
+        <input  name="password" type="password" class="validate" id="password">
         <label for="password">Senha</label>
       </div>
     </div>
     <div class="">
       <div class="input-field col s12">
-        <input name="confirmeSenha"  type="password" class="validate" id="confsenha">
+        <input name="confirmpassword"  type="password" class="validate" id="confpassword">
         <label for="password">Confirme sua Senha</label>
      </div>
     </div>
 
     <div class="">
       <div class="input-field col s12">
-      <input type="radio" id="" name="tipo_usuario" value="0">
+      <input type="radio" id="" name="type_user" value="0">
         <label for="">Cliente</label>
      </div>
     </div>
 
     <div class="">
       <div class="input-field col s12">
-      <input type="radio" id="" name="tipo_usuario" value="1">
+      <input type="radio" id="" name="type_user" value="1">
         <label for="">Profissional</label>
      </div>
     </div>

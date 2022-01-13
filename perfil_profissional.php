@@ -11,7 +11,7 @@
         <div><input type="email" name="email" id="" placeholder="Digite o seu e-mail"></div> -->
         <input type="hidden" name="type" value="cadastrar_servico">
          <div>
-             <select name="nome_servico" id="">
+             <select name="name_services" id="">
                 <option disabled selected value="">Qual a sua serviço?</option>
                 <option value="Eletricista">Eletricista</option>
                 <option value="Gesseiro">Gesseiro</option>
@@ -22,7 +22,7 @@
          
 
             <div>
-                <textarea placeholder="Descreva seu serviço" name="descricao" id="" cols="10" rows="5"></textarea>
+                <textarea placeholder="Descreva seu serviço" name="description" id="" cols="10" rows="5"></textarea>
             </div>
 
             <div class="form-group">
@@ -32,7 +32,7 @@
 
 
             <div>
-                <input type="submit" value="Enviar">
+                <input type="submit" value="send">
             </div>
     </fieldset>
 </form>

@@ -9,55 +9,55 @@ $message = new Message($BASE_URL);
 
 
 
-if($_POST['type'] == "cadastrar_profissional"){
+if($_POST['type'] == "register_professional"){
 
-	$dados = $_POST;
+	$data = $_POST;
 
 	$empty_input = false;
 			// Retirar os espaços em branco
-			$dados = array_map('trim', $dados);
+			$data = array_map('trim', $data);
 			// Retirar os espaços em branco em torno da string
-			if (in_array("", $dados)) {
+			if (in_array("", $data)) {
 
 				$empty_input = true;
 				$message->setMessage("Não permitido espaços em branco","error","back");
 			// Validar se o email digitado pelo usuário contém estrutura de email "user@user.com"
-			} elseif (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
+			} elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
 				$empty_input = true;
 				$message->setMessage("Formato de email inválido","error","back");
 			}else{
-				$name = $dados['nome'];
-				$telefone = $dados['telefone'];
-				$email = $dados['email'];
-				$senha = $dados['senha'];
-				$tipo_usuario = $dados['tipo_usuario'];
-				$confirmeSenha = $dados['confirmeSenha'];
-                $cidades = $dados['cidades'];
+				$name = $data['name'];
+				$phone = $data['phone'];
+				$email = $data['email'];
+				$password = $data['password'];
+				$type_user = $data['type_user'];
+				$confirmPassword = $data['confirmPassword'];
+                $city = $data['city'];
 
-if($name && $telefone && $email && $senha && $confirmeSenha && $tipo_usuario && $cidades){
+if($name && $phone && $email && $password && $confirmPassword && $type_user && $city){
 	    
-		if($senha == $confirmeSenha){
+		if($password == $confirmPassword){
 
 		 $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
 	      $stmt->bindParam(':email', $email);
 	      $stmt->execute();
 	      $retorno = $stmt->rowCount();
 
-	      if($retorno > 0){
+	      if($return > 0){
 	         //menssagem de erro usuario já existe
 		      $message->setMessage("Usuário já cadastrado tente outro e-mail","error","back");
 	      }else{
 	        //nenhum usuário encontrado 
 	      	try{
-               $sql = "INSERT INTO users(name,email,telefone,password,tipo_usuario,cidade) VALUES(:name,:email,:telefone,:senha,
-			   :tipo_usuario,:cidade)";
+               $sql = "INSERT INTO users(name,email,phone,password,type_user,city) VALUES(:name,:email,:phone,:password,
+			   :type_user,:city)";
 			      $stmt = $conn->prepare($sql);
 			      $stmt->bindParam(":name",$name);
 					$stmt->bindParam(":email",$email);
-					$stmt->bindParam(":telefone",$telefone);
-					$stmt->bindParam(":senha",$senha);
-					$stmt->bindParam(":tipo_usuario",$tipo_usuario);
-					$stmt->bindParam(":cidade",$cidades);
+					$stmt->bindParam(":phone",$phone);
+					$stmt->bindParam(":password",$password);
+					$stmt->bindParam(":type_user",$type_user);
+					$stmt->bindParam(":city",$city);
 	            $stmt->execute();
 	            $message->setMessage("Usuário cadastrado com sucesso","success","back");
              

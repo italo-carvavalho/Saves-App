@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 07-Jan-2022 às 18:30
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 7.4.27
+-- Host: 127.0.0.1
+-- Tempo de geração: 13-Jan-2022 às 21:07
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `agenda`
---
-
-CREATE TABLE `agenda` (
-  `id_agenda` int(11) NOT NULL,
-  `data_hora` datetime NOT NULL DEFAULT current_timestamp(),
-  `situacao` varchar(50) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `id_servico` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `reviews`
 --
 
@@ -51,13 +37,27 @@ CREATE TABLE `reviews` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `servicos`
+-- Estrutura da tabela `schedule`
 --
 
-CREATE TABLE `servicos` (
-  `id_servico` int(11) NOT NULL,
-  `nome_servico` varchar(100) NOT NULL,
-  `descricao` int(11) DEFAULT NULL,
+CREATE TABLE `schedule` (
+  `id_schedule` int(11) NOT NULL,
+  `date_hour` datetime NOT NULL DEFAULT current_timestamp(),
+  `situation` varchar(50) NOT NULL,
+  `id_client` int(11) NOT NULL,
+  `id_services` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `services`
+--
+
+CREATE TABLE `services` (
+  `id_services` int(11) NOT NULL,
+  `name_services` varchar(100) NOT NULL,
+  `description` int(11) DEFAULT NULL,
   `fk_id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -71,17 +71,17 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
-  `cidade` varchar(100) DEFAULT NULL,
-  `tipo_usuario` varchar(1) NOT NULL
+  `city` varchar(100) DEFAULT NULL,
+  `type_user` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`id_user`, `name`, `email`, `telefone`, `password`, `cidade`, `tipo_usuario`) VALUES
+INSERT INTO `users` (`id_user`, `name`, `email`, `phone`, `password`, `city`, `type_user`) VALUES
 (12, 'Ana', 'itaj@discente.ifpe.edu.br', '81975483412', '$2y$10$HqA4UK1A6zfPGeWL2tPDxO8e4wrhX2fJGOfia1CZrnHS8aLT5svy.', NULL, ''),
 (13, 'Maria', 'mari@gmil.com', '81975483412', '$2y$10$wUcizmx1XraaNF3PQ6seAOrzqwY0CEFErGkzljIqLELSb8Db1Xx5O', NULL, ''),
 (14, 'Ana', 'user2@teste.com.br', NULL, '$2y$10$GMsQGMA79qq/Qi7WbmbaiuydhBAOTX6phxdRL4naKDcZ/joXPs.kW', NULL, ''),
@@ -104,14 +104,6 @@ INSERT INTO `users` (`id_user`, `name`, `email`, `telefone`, `password`, `cidade
 --
 
 --
--- Índices para tabela `agenda`
---
-ALTER TABLE `agenda`
-  ADD PRIMARY KEY (`id_agenda`),
-  ADD KEY `user_service` (`id_cliente`),
-  ADD KEY `agenda_servico` (`id_servico`);
-
---
 -- Índices para tabela `reviews`
 --
 ALTER TABLE `reviews`
@@ -119,10 +111,18 @@ ALTER TABLE `reviews`
   ADD KEY `user_review` (`id_user`);
 
 --
--- Índices para tabela `servicos`
+-- Índices para tabela `schedule`
 --
-ALTER TABLE `servicos`
-  ADD PRIMARY KEY (`id_servico`),
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`id_schedule`),
+  ADD KEY `user_service` (`id_client`),
+  ADD KEY `agenda_servico` (`id_services`);
+
+--
+-- Índices para tabela `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id_services`),
   ADD KEY `user_servico` (`fk_id_user`);
 
 --
@@ -136,22 +136,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de tabela `agenda`
---
-ALTER TABLE `agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `reviews`
 --
 ALTER TABLE `reviews`
   MODIFY `id_reviews` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `servicos`
+-- AUTO_INCREMENT de tabela `schedule`
 --
-ALTER TABLE `servicos`
-  MODIFY `id_servico` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `schedule`
+  MODIFY `id_schedule` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `services`
+--
+ALTER TABLE `services`
+  MODIFY `id_services` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `users`
@@ -164,22 +164,22 @@ ALTER TABLE `users`
 --
 
 --
--- Limitadores para a tabela `agenda`
---
-ALTER TABLE `agenda`
-  ADD CONSTRAINT `agenda_servico` FOREIGN KEY (`id_servico`) REFERENCES `servicos` (`id_servico`),
-  ADD CONSTRAINT `user_service` FOREIGN KEY (`id_cliente`) REFERENCES `users` (`id_user`);
-
---
 -- Limitadores para a tabela `reviews`
 --
 ALTER TABLE `reviews`
   ADD CONSTRAINT `user_review` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
--- Limitadores para a tabela `servicos`
+-- Limitadores para a tabela `schedule`
 --
-ALTER TABLE `servicos`
+ALTER TABLE `schedule`
+  ADD CONSTRAINT `agenda_servico` FOREIGN KEY (`id_services`) REFERENCES `services` (`id_services`),
+  ADD CONSTRAINT `user_service` FOREIGN KEY (`id_client`) REFERENCES `users` (`id_user`);
+
+--
+-- Limitadores para a tabela `services`
+--
+ALTER TABLE `services`
   ADD CONSTRAINT `user_servico` FOREIGN KEY (`fk_id_user`) REFERENCES `users` (`id_user`);
 COMMIT;
 
