@@ -118,17 +118,17 @@ if(isset($_SESSION['id_user'])){
             Cadastro
         </a>
   </div> -->
-    <span style="font-size: large">Ou se Conecte Com sua conta</span>      
+    <span>Ou se Conecte Com sua conta</span>      
     <div class="social-fields">
       <div class="social-field facebook" >
-          <a href="#" style="text-decoration:none;font-size: large">
+          <a href="#" style="text-decoration:none;">
               <i class="fab fa-facebook-f"></i>
                 Entre com o Facebook
           </a>
    </div>
   </br>
       <div class="social-field google">
-          <a href="#" style="text-decoration:none;font-size: large" >
+          <a href="#" style="text-decoration:none;" >
               <i class="fab fa-google"></i>
                 Entre com o Google
             </a>
