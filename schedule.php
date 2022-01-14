@@ -9,11 +9,14 @@ $services = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <h1>Agendar um serviço</h1>
-<table>
-    <?php  foreach($services as $value):
-        echo "$value <br>"
-    ?>
+<form action="register_schedule">
+    <?php  foreach($services as $value):echo "$value <br> ";?>
     <?php endforeach;?>
+    <input type="hidden" name="type" value="register_schedule">
+    <input type="hidden" name="solicitation" value="0">
+<button class="schedule_button" type="submit">Enviar Solicitação</button><br>
+</form>
+    
        
 </table>
 
