@@ -4,22 +4,87 @@ require_once("templates/header.php");
 
 <?php
 
-$stmt = $conn->query("SELECT users.name, services.name_services FROM services INNER JOIN users WHERE users.id_user = services.fk_id_user");
-$services = $stmt->fetch(PDO::FETCH_ASSOC);
+$stmt = $conn->query("SELECT name, city , name_services, image
+FROM services INNER JOIN users WHERE id_user = fk_id_user");
+$services = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
 <h1>Agendar um serviço</h1>
-<table>
-    <?php  foreach($services as $value):
-        echo "$value <br>"
-    ?>
-    <?php endforeach;?>
-       
-</table>
 
-<?php  foreach($services as $cervice): ?>
 
-<?php endforeach;  ?>
+<div class="header-fixed">
+    <table>
+        <thead>
+            <tr>
+                <th>S. No</th>
+                <th>Image</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Departaments</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="images/perfil.png" alt=""></td>
+                <td>Raki Gupta</td>
+                <td>raki@gmail.com</td>
+                <td>Tecnologi</td>
+                <td><button>View</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 
