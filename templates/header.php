@@ -56,7 +56,7 @@ if(isset($_SESSION['id_user'])){
 
         <nav class="navbar">
             <?php if(isset($id) && $type_user == 2){  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Pedidos</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>client_schedule.php">Meus Agendamentos</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>schedule.php">Agendar</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
