@@ -8,7 +8,7 @@ if($_POST['type'] == "schedule_solicitation"){
 
 	$data = $_POST;
 
-    $city = $data['solicitation'];
+    $solicitation = $data['solicitation'];
 
 try{
 	$sql = "INSERT INTO schedule(solicitation) VALUES(:solicitation)";
@@ -20,6 +20,5 @@ try{
 	}catch(Exception $e){
 		echo $e->getMessage();
 }
-}
-
+}	
 ?>
