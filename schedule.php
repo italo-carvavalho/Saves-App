@@ -3,30 +3,20 @@ require_once("templates/header.php");
 ?>
 
 <?php
-$stmt = $conn->query("SELECT u.name, s.name_services, s.image FROM services as s 
-                      INNER JOIN users as u
-                      WHERE s.fk_id_user = u.id_user");
-$services = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt = $conn->query("SELECT users.name, services.name_services FROM services INNER JOIN users WHERE users.id_user = services.fk_id_user");
+$services = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
-
 <h1>Agendar um serviço</h1>
-
 <table>
-    <thead>
-        <tr>
-            <th>Foto</th>
-            <th>Nome</th>
-            <th>Serviço</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php  foreach($services as $cervice): ?>
-    
-    <?php endforeach;  ?>
-    </tbody>
-    
+    <?php  foreach($services as $value):
+        echo "$value <br>"
+    ?>
+    <?php endforeach;?>
+       
 </table>
+
 <?php  foreach($services as $cervice): ?>
 
 <?php endforeach;  ?>

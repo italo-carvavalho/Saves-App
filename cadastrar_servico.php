@@ -5,25 +5,25 @@
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $stmt = $conn->query("SELECT * FROM servicos WHERE fk_id_user = '{$id}'");
-    $servicos = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $conn->query("SELECT * FROM services WHERE fk_id_user = '{$id}'");
+    $services = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 
 ?>
   
-<form action="process_services.php" enctype="multipart/form-data" class="form-profissional" method="post">
+<form action="process_services.php" enctype="multipart/form-data" class="form-profissional" method="POST">
     <fieldset>
         <legend>Cadastre um Serviço</legend>
       
-        <input type="hidden" name="type" value="cadastrar_servico">
+        <input type="hidden" name="type" value="register_services">
        
          <div>
-             <input type="text" name="nome_services" id="" value="<?= isset($servicos['name_services']) ? $servicos['name_services'] : ""  ?>" placeholder="Digite o seu serviço">
+             <input type="text" name="name_services" id="" value="<?= isset($services['name_services']) ? $services['name_services'] : ""  ?>" placeholder="Digite o seu serviço">
         </div>
            
             <div>
-                <textarea placeholder="Descreva seu serviço" name="description" id="" cols="10" rows="5"><?= isset($servicos['description']) ? $servicos['description'] : "" ?></textarea>
+                <textarea placeholder="Descreva seu serviço" name="description" id="" cols="10" rows="5"><?= isset($services['description']) ? $services['description'] : "" ?></textarea>
             </div>
 
             <div class="form-group">

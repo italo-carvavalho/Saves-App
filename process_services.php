@@ -10,48 +10,6 @@ $message = new Message($BASE_URL);
 $fk_id_user = $_SESSION['id_user'];
 
 
-$stmt = $conn->query("SELECT * FROM services WHERE fk_id_user = '{$fk_id_user}'");
-$servicos = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if(!empty($servicos)){
-
-	$dados = $_POST;
-	$name_services = $dados['name_services'];
-	$description = $dados['description'];
-	$image = $_FILES['image'];
-
-	echo $name_services." ".$description;
-	die;
-
-	$pasta = "images/";
-	$nomeDoArquivo = $image['name'];
-	$novoNomeDoArquivo = uniqid();
-	$extensao = strtolower(pathinfo($nomeDoArquivo,PATHINFO_EXTENSION));
-	if($extensao != "jpg" && $extensao != "png"){
-		$message->setMessage("Tipo de arquivo não aceito","error","back");
-	}
-	$path = $pasta . $novoNomeDoArquivo . "." . $extensao;
-
-	$deu_certo =move_uploaded_file($image["tmp_name"],$pasta . $novoNomeDoArquivo.".".$extensao);
-
-	if($deu_certo){
-
-		$sql = "UPDATE services SET name_service = :nome_service, description = :description, image = :image 
-		WHERE fk_id_user = :fk_id_user";
-			$stmt = $conn->prepare($sql);
-			$stmt->bindParam(":name_services",$name_services);
-			$stmt->bindParam(":description",$description);
-			$stmt->bindParam(":image",$path);
-			$stmt->bindParam(":fk_id_user",$fk_id_user);
-			$stmt->execute();
-			
-			$message->setMessage("Serviço atualizado com sucesso","success","back");
-	}else{
-		$message->setMessage("Erro no upload da imagem","error","back");
-	}
-}
-
-
 if($_POST['type'] == "register_services"){
 
 	$data = $_POST;
@@ -71,7 +29,7 @@ if($_POST['type'] == "register_services"){
 	$success =move_uploaded_file($image["tmp_name"],$folder . $newFileName.".".$extension);
 
 	if($success){
-		//echo "deu certo <a target=\"_blank\" href=\"images/$novoNomeDoArquivo.$extensao\">Clique aqui</a>";
+
         if($name_services && $description){
 		
 				try{
