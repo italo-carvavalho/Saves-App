@@ -42,4 +42,4 @@ if(isset($_GET['id'])){
 
 <!-- </main> -->
 
-<?php require_once("templates/footer0.php") ?> 
+<?php require_once("templates/footer.php") ?> 
