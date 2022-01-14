@@ -12,18 +12,18 @@ if(isset($_GET['id'])){
 
 ?>
   
-<form action="process_service.php" enctype="multipart/form-data" class="form-profissional" method="post">
+<form action="process_services.php" enctype="multipart/form-data" class="form-profissional" method="post">
     <fieldset>
         <legend>Cadastre um Serviço</legend>
       
         <input type="hidden" name="type" value="cadastrar_servico">
        
          <div>
-             <input type="text" name="nome_servico" id="" value="<?= isset($servicos['nome_servico']) ? $servicos['nome_servico'] : ""  ?>" placeholder="Digite o seu serviço">
+             <input type="text" name="nome_services" id="" value="<?= isset($servicos['name_services']) ? $servicos['name_services'] : ""  ?>" placeholder="Digite o seu serviço">
         </div>
            
             <div>
-                <textarea placeholder="Descreva seu serviço" name="descricao" id="" cols="10" rows="5"><?= isset($servicos['descricao']) ? $servicos['descricao'] : "" ?></textarea>
+                <textarea placeholder="Descreva seu serviço" name="description" id="" cols="10" rows="5"><?= isset($servicos['description']) ? $servicos['description'] : "" ?></textarea>
             </div>
 
             <div class="form-group">

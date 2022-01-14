@@ -9,15 +9,19 @@ $message = new Message($BASE_URL);
 
 $fk_id_user = $_SESSION['id_user'];
 
-$stmt = $conn->query("SELECT * FROM servicos WHERE fk_id_user = '{$fk_id_user}'");
+
+$stmt = $conn->query("SELECT * FROM services WHERE fk_id_user = '{$fk_id_user}'");
 $servicos = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if(!empty($servicos)){
 
 	$dados = $_POST;
-	$nome_servico = $dados['nome_servico'];
-	$descricao = $dados['descricao'];
+	$name_services = $dados['name_services'];
+	$description = $dados['description'];
 	$image = $_FILES['image'];
+
+	echo $name_services." ".$description;
+	die;
 
 	$pasta = "images/";
 	$nomeDoArquivo = $image['name'];
@@ -32,11 +36,11 @@ if(!empty($servicos)){
 
 	if($deu_certo){
 
-		$sql = "UPDATE servicos SET nome_servico = :nome_servico, descricao = :descricao, image = :image 
+		$sql = "UPDATE services SET name_service = :nome_service, description = :description, image = :image 
 		WHERE fk_id_user = :fk_id_user";
 			$stmt = $conn->prepare($sql);
-			$stmt->bindParam(":nome_servico",$nome_servico);
-			$stmt->bindParam(":descricao",$descricao);
+			$stmt->bindParam(":name_services",$name_services);
+			$stmt->bindParam(":description",$description);
 			$stmt->bindParam(":image",$path);
 			$stmt->bindParam(":fk_id_user",$fk_id_user);
 			$stmt->execute();
@@ -46,9 +50,6 @@ if(!empty($servicos)){
 		$message->setMessage("Erro no upload da imagem","error","back");
 	}
 }
-
-echo "vazio";
-die;
 
 
 if($_POST['type'] == "register_services"){
