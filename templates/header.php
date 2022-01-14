@@ -55,7 +55,7 @@ if(isset($_SESSION['id_user'])){
         </div>
 
         <nav class="navbar">
-            <?php if(isset($id) && $type_user == 0){  ?>
+            <?php if(isset($id) && $type_user == 2){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>buscar_servicos.php">Pedidos</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>schedule.php">Agendar</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $user['name'] ?></a>
@@ -164,7 +164,7 @@ if(isset($_SESSION['id_user'])){
         </div>     
         
         <div class="input-field">
-        <label for="email">Cidade</label>
+        <label for="city">Cidade</label>
         <select name="city" id="">
                 <option disabled selected value="">Qual cidade você mora?</option>
                 <option value="Igarassu">Igarassu</option>
@@ -187,7 +187,7 @@ if(isset($_SESSION['id_user'])){
         <br>
         
         <div class="input-field">
-        <input type="radio" id="" name="type_user" value="0"> Cliente
+        <input type="radio" id="" name="type_user" value="2"> Cliente
         </div>
         <div class="input-field">
         <input type="radio" id="" name="type_user" value="1"> Profissional

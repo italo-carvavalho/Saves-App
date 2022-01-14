@@ -482,6 +482,7 @@ footer {
 .grid{
     display: grid;
     margin-top:70px;
+    margin-left: 50vh;
 }
 
 .card{
@@ -551,6 +552,12 @@ footer {
     margin-bottom: 0;
 }
 
+.profile-buttons{
+    display: inline-block;
+    margin-left: 50vh;
+    
+}
+
 .profile-button1 {
     background-color: #008CBA; 
     border: none;
@@ -560,8 +567,9 @@ footer {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 5px;
     cursor: pointer;
+    margin-top: 10px;
+    margin-left: 500px;
 }
 
 .profile-button2 {
@@ -573,11 +581,10 @@ footer {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 5px;
     cursor: pointer;
+    margin-top: 10px;
+    margin-right: 520px;
 }
-
-
 /*
 @media screen and (max-width: 768px){
     header .menu-icon{

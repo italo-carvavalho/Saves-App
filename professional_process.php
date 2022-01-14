@@ -34,6 +34,7 @@ if($_POST['type'] == "register_professional"){
 				$confirmPassword = $data['confirmPassword'];
                 $city = $data['city'];
 
+
 if($name && $phone && $email && $password && $confirmPassword && $type_user && $city){
 	    
 		if($password == $confirmPassword){

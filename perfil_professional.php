@@ -23,11 +23,17 @@ require_once("templates/header.php");
         </div>
     </div>
 
+  
 </div>
 
-<a href="cadastrar_servico.php?id=<?= $id ?>" class="profile-button1">Editar</a>
+    <a href="cadastrar_servico.php?id=<?= $id ?>" class="profile-button1">Editar</a>
+    <a href="cadastrar_servico.php?id=<?= $id ?>"  class="profile-button2">Excluir</a>
 
-<a href="cadastrar_servico.php?id=<?= $id ?>"  class="profile-button2">Excluir</a>
+
+
+
+    
+
 
 
 
