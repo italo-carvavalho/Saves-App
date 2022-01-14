@@ -15,7 +15,6 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="header-fixed">
     <table>
-        <thead>
             <tr>
                 <th>S. No</th>
                 <th>Image</th>
@@ -24,8 +23,6 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Departaments</th>
                 <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
             <tr>
                 <td>1</td>
                 <td><img src="images/perfil.png" alt=""></td>
@@ -82,7 +79,6 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td>Tecnologi</td>
                 <td><button>View</button></td>
             </tr>
-        </tbody>
     </table>
 </div>
 
