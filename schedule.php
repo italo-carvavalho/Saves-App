@@ -8,8 +8,9 @@ $fk_id_profession = $_SESSION['id_client'];
 
 
 
-$stmt = $conn->query("SELECT id_services, name_services, email, city, name, image, id_client,id_services, fk_id_profession
-FROM services INNER JOIN client WHERE id_client = fk_id_profession");
+$stmt = $conn->query("SELECT s.id_services, s.fk_id_profession, p.id_profession, s.image, s.name_services,
+p.name, p.email, p.city 
+FROM services As s JOIN profession as p ON s.fk_id_profession = p.id_profession");
 $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -34,7 +35,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <tr>
                 <td><?= $service['id_services']  ?></td>
-                <td><img src="images/perfil.png" alt=""></td>
+                <td><img src="<?= $service['image'] ?>" alt=""></td>
                 <td><?= $service['name'] ?></td>
                 <td><?= $service['email'] ?></td>
                 <td><?= $service['name_services'] ?></td>
