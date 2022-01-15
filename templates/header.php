@@ -15,29 +15,33 @@ if(!empty($posts['msg'])){
     $message->clearMessage();
 }
 
-if(isset($_SESSION)){
-   $id = $_SESSION['id_user'];
+if (isset($_SESSION['id_client'])) {
 
-   $sql = "SELECT email FROM client WHERE email = :email";
-   $stmt = $conn->prepare($sql);
-   $stmt->bindValue(':email', $email);
-   $stmt->execute();
-   $result_client = $stmt->fetch(PDO::FETCH_ASSOC);
+$id_client = $_SESSION['id_client'];
+}
+
+if (isset($_SESSION['id_profession'])) {
+
+$id_profession = $_SESSION['id_profession'];
+
 }
 
 
 
-
-if(isset($_SESSION['id_'])){
-    $stmt = $conn->query("SELECT * FROM client WHERE id_client = '{$_SESSION['id_client']}'");
+if(isset($id_client)){
+    
+    $stmt = $conn->query("SELECT id_client, name FROM client WHERE id_client = '{$id_client}'");
     $user_client = $stmt->fetch(PDO::FETCH_ASSOC);
-    $name_client = $user_cliente['name'];
+    $name_client = $user_client['name'];
+
   
-}elseif(isset($_SESSION['id_profession'])){
-    $stmt = $conn->query("SELECT * FROM profession WHERE id_profession = 1");
+}elseif(isset($id_profession)){
+
+    $stmt = $conn->query("SELECT id_profession, name FROM profession WHERE id_profession = '{$id_profession}'");
     $user_prof = $stmt->fetch(PDO::FETCH_ASSOC);
     $name_profession = $user_prof['name'];
-    $id_profession = $user_prof['id_profession'];
+
+
 }
 
 ?>
@@ -67,16 +71,16 @@ if(isset($_SESSION['id_'])){
         </div>
 
         <nav class="navbar">
-            <?php if($_SESSION['id_client']){  ?>
+            <?php if(isset($id_client)){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>client_schedule.php">Meus Agendamentos</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>schedule.php">Agendar</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $name_client['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?php echo $name_client; ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
-            <?php }elseif($_SESSION['id_profession'] == $id_profession){  ?>
+            <?php }elseif(isset($id_profession)){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>professional_schedule.php">Solicitações</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>cadastrar_servico.php">Serviços</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?php echo $name_profession['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?php echo $name_profession; ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="register">Cadastro</a>

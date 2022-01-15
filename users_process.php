@@ -83,8 +83,7 @@ if($_POST['type'] == "register_professional" &&  $_POST['type_user'] == "1"){
 
 	}
 }elseif($_POST['type'] == "register_professional" &&  $_POST['type_user'] == 2){
-   echo "cliente";
-   die;
+
 
    $data = $_POST;
 
@@ -104,9 +103,9 @@ if($_POST['type'] == "register_professional" &&  $_POST['type_user'] == "1"){
 			   $name = $data['name'];
 			   $phone = $data['phone'];
 			   $email = $data['email'];
+			   $city = $data['city'];
 			   $password = $data['password'];
 			   $confirmPassword = $data['confirmPassword'];
-			   $city = $data['city'];
 
 
 if($name && $phone && $email && $password && $confirmPassword  && $city){
