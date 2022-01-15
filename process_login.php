@@ -42,7 +42,7 @@ $message = new Message($BASE_URL);
             if(!empty($result_client)){
                
                 //$_SESSION['cliente_logado'] = true;
-                $_SESSION['id_client'] =  $result_client['id_client'];
+                $_SESSION['id_user'] =  $result_client['id_client'];
                 header("Location: index.php");
                 $message->setMessage("Bem Vindo!","success","");
             }else{
@@ -62,7 +62,7 @@ $message = new Message($BASE_URL);
             if(!empty($result_prof)){
                
                 //$_SESSION['cliente_logado'] = true;
-                $_SESSION['id_profession'] =  $result_prof['id_profession'];
+                $_SESSION['id_user'] =  $result_prof['id_profession'];
                 header("Location: index.php");
                 $message->setMessage("Bem Vindo!","success","");
             }else{

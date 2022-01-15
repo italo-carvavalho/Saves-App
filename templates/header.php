@@ -15,10 +15,20 @@ if(!empty($posts['msg'])){
     $message->clearMessage();
 }
 
+if(isset($_SESSION)){
+   $id = $_SESSION['id_user'];
+
+   $sql = "SELECT email FROM client WHERE email = :email";
+   $stmt = $conn->prepare($sql);
+   $stmt->bindValue(':email', $email);
+   $stmt->execute();
+   $result_client = $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
 
 
-if(isset($_SESSION['id_client'])){
+
+if(isset($_SESSION['id_'])){
     $stmt = $conn->query("SELECT * FROM client WHERE id_client = '{$_SESSION['id_client']}'");
     $user_client = $stmt->fetch(PDO::FETCH_ASSOC);
     $name_client = $user_cliente['name'];
