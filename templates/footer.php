@@ -13,7 +13,7 @@
 
         <div class="footer-ul">
             <ul>
-                <li><a href="#">Empresa</a></li><br>
+                <li><a href="#">Empresa</a></li>
                 <li><a href="#">Emprego</a></li>
                 <li><a href="#">Marca</a></li>
                 <li><a href="#">Sobre</a></li>
