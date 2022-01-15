@@ -2,6 +2,15 @@
 require_once("templates/header.php");
 
 
+$stmt = $conn->query("SELECT * FROM services JOIN profession 
+                    ON fk_id_profession = id_profession");
+$servicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($servicos as $servico){
+   
+}
+
+
 ?>
   
 <main>
@@ -9,7 +18,7 @@ require_once("templates/header.php");
 <div class="grid">
     <div class="card">
         <div class="profile-sidebar">
-            <img class="profile-image" src="<?= isset($servicos['image']) ? $servicos['image'] : 'images/user2.png'; ?>" style="width:100px" alt="">
+            <img class="profile-image" src="<?= isset($servico['image']) ? $servico['image'] : 'images/user2.png'; ?>" style="width:100px" alt="">
           <!--  <ul class="social-list">
               <li class="social-item"><a aria-label="dribbble" class="social-link" href=""><i class="fab fa-dribbble-square"></i></a></li>
               <li class="social-item"><a aria-label="facebook" class="social-link" href=""><i class="fab fa-facebook-square"></i></a></li>
@@ -17,18 +26,20 @@ require_once("templates/header.php");
             </ul> -->
         </div>
         <div class="profile-main">
-            <h2 class="profile-name"><?= $user['name'] ?></h2>
-            <p class="profile-position"><?= isset($servicos['nome_servico']) ? $servicos['nome_servico'] : ""  ?></p>
-            <p class="profile-body"><?= isset($servicos['descricao']) ? $servicos['descricao'] : ""  ?></p>
+            <h2 class="profile-name"><?= $servico['name'] ?></h2>
+            <p class="profile-position"><?= isset($servico['nome_services']) ? $servico['nome_services'] : ""  ?></p>
+            <p class="profile-body"><?= isset($servico['description']) ? $servico['description'] : ""  ?></p>
         </div>
     </div>
 
   
 </div>
 
-    <a href="cadastrar_servico.php?id=<?= $id ?>" class="profile-button1">Editar</a>
-    <a href="cadastrar_servico.php?id=<?= $id ?>"  class="profile-button2">Excluir</a>
+    <a href="cadastrar_servico.php?id=<?= $servico['fk_id_profession'] ?>" class="profile-button1">Editar</a>
+    <a href="cadastrar_servico.php?id=<?= $servico['fk_id_profession'] ?>"  class="profile-button2">Excluir</a>
 
 </main>
+
+
 
 <?php require_once("templates/footer.php")?> 

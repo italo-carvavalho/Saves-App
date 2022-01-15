@@ -4,7 +4,7 @@
 $dbname = "savesapp";
 $host = "localhost";
 $user = "root";
-$pass = "root";
+$pass = "";
 
 $conn = new PDO("mysql:dbname=".$dbname.";host=".$host,$user,$pass);
 

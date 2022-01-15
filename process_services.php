@@ -7,7 +7,8 @@ require_once("Model/Message.php");
 
 $message = new Message($BASE_URL);
 
-$fk_id_user = $_SESSION['id_user'];
+$fk_id_profession = $_SESSION['id_profession'];
+
 
 
 if($_POST['type'] == "register_services"){
@@ -33,13 +34,13 @@ if($_POST['type'] == "register_services"){
         if($name_services && $description){
 		
 				try{
-				$sql = "INSERT INTO services(name_services,description,image,fk_id_user) 
-				VALUES(:name_services,:description,:image,:fk_id_user)";
+				$sql = "INSERT INTO services(name_services,description,image,fk_id_profession) 
+				VALUES(:name_services,:description,:image,:fk_id_profession)";
 					$stmt = $conn->prepare($sql);
 					$stmt->bindParam(":name_services",$name_services);
 					$stmt->bindParam(":description",$description);
 					$stmt->bindParam(":image",$path);
-					$stmt->bindParam(":fk_id_user",$fk_id_user);
+					$stmt->bindParam(":fk_id_profession",$fk_id_profession);
 
 					$stmt->execute();
 						
