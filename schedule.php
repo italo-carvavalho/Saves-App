@@ -28,6 +28,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Serviço</th>
                 <th>Cidade</th>
                 <th>Agendar</th>
+                
             </tr>
            <?php foreach($services as $service): ?>
 
@@ -42,7 +43,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <input type="hidden" name="situation" value="Pendente">
                   <input type="hidden" name="fk_id_profession" value="<?= $fk_id_profession ?>">
                   <input type="hidden" name="fk_id_services" value="<?= $service['id_services'] ?>">
-                <td><button type="submit">Agendar</button></td>
+                  <td><button type="submit">Agendar</button></td>
                 </form>
                 
             </tr>  
