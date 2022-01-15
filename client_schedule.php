@@ -9,20 +9,16 @@ require_once("templates/header.php")
 $fk_id_user = $_SESSION['id_user'];
 
 
-
-$stmt = $conn->query("SELECT s.image, u.city, u.id_user, u.type_user,
+$stmt = $conn->query("SELECT s.image, u.city, u.id_user, u.type_user,s.fk_id_user,
 u.name, s.name_services, sc.date_hour, sc.situation, sc.fk_id_user, sc.fk_id_services 
-		FROM schedule as sc JOIN users as u
+		FROM schedule As sc JOIN users AS u
 		ON sc.fk_id_user = u.id_user
-		JOIN services as s
+		JOIN services As s
 		ON fk_id_services = id_services
-		WHERE u.type_user = 2 AND sc.fk_id_user = $fk_id_user");
+		WHERE sc.fk_id_user = $fk_id_user AND u.type_user = 2");
 $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-
-
-	
 ?>
 
 <div class="header-fixed">
