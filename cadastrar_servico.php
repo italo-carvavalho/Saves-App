@@ -5,7 +5,7 @@
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $stmt = $conn->query("SELECT * FROM services WHERE fk_id_user = '{$id}'");
+    $stmt = $conn->query("SELECT * FROM services WHERE fk_id_profession = '{$id}'");
     $services = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
