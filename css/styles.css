@@ -587,6 +587,9 @@ td img{
     overflow: auto;
     margin-top: 30px;
 }
+.header-fixed th{
+    display: initial;
+}
 
 .header-fixed thead th{
     color: rgb(22, 21, 21);
@@ -604,9 +607,9 @@ tr:nth-child(odd){
     background-color: #edeef1;
 }
 
-tr:hover td{
+/* tr:hover td{
     color: #44b478;
-}
+} */
 
 .header-fixed td a, input{
     border: none;
@@ -625,7 +628,7 @@ td a:hover, input:hover{
     border-bottom: 1px solid #dddddd;
     padding: 10px 20px;
     font-size: 14px;
-    color: #44b478;
+    /* color: #44b478; */
 }
 
 ::-webkit-scrollbar{

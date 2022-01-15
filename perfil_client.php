@@ -3,8 +3,8 @@ require_once("templates/header.php");
 
 
 
-$id =  $_SESSION['id_user'];
-$stmt = $conn->query("SELECT * FROM users WHERE id_user = '{$id}'");
+$id =  $_SESSION['id_client'];
+$stmt = $conn->query("SELECT * FROM client WHERE id_client = '{$id}'");
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 $name = $user['name'];
 $phone = $user['phone'];
