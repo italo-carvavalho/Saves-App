@@ -4,6 +4,8 @@ require_once("templates/header.php");
 
 <?php
 
+$fk_id_user = $_SESSION['id_user'];
+
 
 
 $stmt = $conn->query("SELECT id_services, name_services, email, city, name, image, id_user,id_services, fk_id_user
@@ -38,7 +40,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $service['city'] ?></td>
                 <form action="process_schedule.php" method="post">
                   <input type="hidden" name="situation" value="Pendente">
-                  <input type="hidden" name="fk_id_user" value="<?= $service['id_user'] ?>">
+                  <input type="hidden" name="fk_id_user" value="<?= $fk_id_user ?>">
                   <input type="hidden" name="fk_id_services" value="<?= $service['id_services'] ?>">
                 <td><button type="submit">Agendar</button></td>
                 </form>

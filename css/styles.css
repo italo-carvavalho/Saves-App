@@ -601,7 +601,7 @@ td img{
 ::-webkit-scrollbar{
     width: 0px;
 }
-/*
+
 @media screen and (max-width: 768px){
     header .menu-icon{
         display: block;
@@ -624,4 +624,3 @@ td img{
         left: 0;
     }
 }
-*/
