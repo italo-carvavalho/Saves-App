@@ -62,7 +62,7 @@ if(isset($_SESSION['id_user'])){
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
             <?php }elseif(isset($id) && $type_user == 1){  ?>
-                <a class="nav-btn" href="<?=$BASE_URL?>client_schedule.php">Solicitações</a>
+                <a class="nav-btn" href="<?=$BASE_URL?>professional_schedule.php">Solicitações</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>cadastrar_servico.php">Serviços</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?= $user['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
