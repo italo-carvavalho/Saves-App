@@ -6,15 +6,16 @@ require_once("Model/Message.php");
 ?>
 
 <?php
-$fk_id_prefession = $_SESSION['id_client'];
+$fk_id_client = $_SESSION['id_client'];
 
 
-$stmt = $conn->query("SELECT s.image, c.city, sc.id_schedule,s.fk_id_profession,
-c.name, s.name_services, sc.date_hour, sc.situation, sc.fk_id_client, sc.fk_id_services 
-		FROM schedule As sc JOIN client AS c
-		ON sc.fk_id_profession = c.id_client
+$stmt = $conn->query("SELECT p.id_profession, s.image, p.city, sc.id_schedule,sc.fk_id_profession,
+p.name, s.name_services, sc.date_hour, sc.situation, sc.fk_id_client, sc.fk_id_services 
+		FROM schedule As sc JOIN profession  AS p
+		ON sc.fk_id_profession = p.id_profession
 		JOIN services As s
 		ON fk_id_services = id_services
+        
 		");
 $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -44,8 +45,9 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $schedule['city'] ?></td>
                 <td><?= $schedule['situation'] ?></td>
                
+              
                 
-                <td><a href="delete_schedule.php?id=<?= $fk_id_profession ?>">Cancelar</a></td>
+                <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
                 </form>
                 
             </tr>  

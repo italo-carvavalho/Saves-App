@@ -1,17 +1,20 @@
 <?php 
 
+ $id_schedule =  $_GET['id'];
+
+
 require_once("connection.php");
 require_once("globals.php");
 require_once("Model/Message.php");
 
 $message = new Message($BASE_URL);
 
-$fk_id_user = intval($_GET['id']);
 
 
-$sql = "DELETE FROM schedule WHERE fk_id_user = :fk_id_user";
+
+$sql = "DELETE FROM schedule WHERE id_schedule = :id_schedule";
 $stmt= $conn->prepare($sql);
-$stmt->bindParam(":fk_id_user",$fk_id_user);
+$stmt->bindParam(":id_schedule",$id_schedule);
 $stmt->execute();
 
 $message->setMessage("Agendamento excluído","success","back");
