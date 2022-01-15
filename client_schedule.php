@@ -2,7 +2,7 @@
 require_once("connection.php");
 require_once("globals.php");
 require_once("Model/Message.php");
-require_once("templates/header.php")
+
 ?>
 
 <?php
@@ -21,15 +21,20 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
+<?php require_once("templates/header.php")  ?>
+
 <div class="header-fixed">
     <table>
+        <thead>
             <tr>
 				<th>Imagem</th>
                 <th>Nome do Profissional</th>
                 <th>Serviço</th>
                 <th>Cidade</th>
                 <th>Situação</th>
+                <th>Ações</th>
             </tr>
+        </thead>
            <?php foreach($schedules as $schedule): ?>
 
             <tr>

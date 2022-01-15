@@ -8,7 +8,7 @@ require_once("templates/header.php")
 <?php
 $fk_id_user = $_SESSION['id_user'];
 
-$stmt = $conn->query("SELECT  s.image, u.city, u.id_user, u.phone, u.email,
+$stmt = $conn->query("SELECT s.id_services, u.city, u.id_user, u.phone, u.email,
 u.name, s.name_services, sc.date_hour, sc.situation, sc.fk_id_user, sc.fk_id_services 
 		FROM schedule as sc JOIN users as u
 		ON sc.fk_id_user = u.id_user
@@ -30,6 +30,8 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Telefone</th>
                 <th>Cidade</th>
                 <th>Situação</th>
+                <th>Aceitar</th>
+                <th>Cancelar</th>
             </tr>
            <?php foreach($schedules as $schedule): ?>
 

@@ -147,7 +147,7 @@ if(isset($_SESSION['id_user'])){
     <h2 class="c-cad">Cadastro de Usuário</h2>
 
    <span class="cadclose">&times;</span> 
-    <form  action="professional_process.php" method="POST">
+    <form  action="users_process.php" method="POST">
       <input type="hidden" name="type" value="register_professional">
         <div class="input-field">
         <label for="name">Nome Completo:</label>
