@@ -4,12 +4,12 @@ require_once("templates/header.php");
 
 <?php
 
-$fk_id_user = $_SESSION['id_user'];
+$fk_id_profession = $_SESSION['id_client'];
 
 
 
-$stmt = $conn->query("SELECT id_services, name_services, email, city, name, image, id_user,id_services, fk_id_user
-FROM services INNER JOIN users WHERE id_user = fk_id_user");
+$stmt = $conn->query("SELECT id_services, name_services, email, city, name, image, id_client,id_services, fk_id_profession
+FROM services INNER JOIN client WHERE id_client = fk_id_profession");
 $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -40,7 +40,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $service['city'] ?></td>
                 <form action="process_schedule.php" method="post">
                   <input type="hidden" name="situation" value="Pendente">
-                  <input type="hidden" name="fk_id_user" value="<?= $fk_id_user ?>">
+                  <input type="hidden" name="fk_id_profession" value="<?= $fk_id_profession ?>">
                   <input type="hidden" name="fk_id_services" value="<?= $service['id_services'] ?>">
                 <td><button type="submit">Agendar</button></td>
                 </form>
