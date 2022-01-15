@@ -6,18 +6,18 @@ require_once("templates/header.php")
 ?>
 
 <?php
-$sql = ("SELECT * FROM users");
+$fk_id_user = $_SESSION['id_user'];
+
+$sql = ("SELECT * FROM schedule WHERE id_user = $fk_id_user");
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$list = $stmt->fetch(PDO::FETCH_ASSOC)
-if ($list['']) {
 	
-}
-while():
+
+while($list = $stmt->fetch(PDO::FETCH_ASSOC)):
 
 ?>
 
-	<li><?php echo $list['name']; ?></li>
+	<li><?php echo $list['solicitation']; ?></li>
 
 <?php endwhile; ?>
 
