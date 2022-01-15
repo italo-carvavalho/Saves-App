@@ -29,18 +29,6 @@ require_once("templates/header.php");
     <a href="cadastrar_servico.php?id=<?= $id ?>" class="profile-button1">Editar</a>
     <a href="cadastrar_servico.php?id=<?= $id ?>"  class="profile-button2">Excluir</a>
 
-
-
-
-    
-
-
-
-
 </main>
-
-
-
-
 
 <?php require_once("templates/footer.php")?> 

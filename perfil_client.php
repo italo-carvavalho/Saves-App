@@ -15,18 +15,16 @@ $email = $user['email'];
 ?>
 
 
-<main class="container">
+<div class="container">
 
+<fieldset class="r">
+<img src="images/user2.png"  class="profile-image"alt="Avatar" style="width:30%; margin-top:30px;">
  <div class="container-client">
-   <p>Nome: <?= $name ?></p>
-   <p>E-mail: <?= $email ?></p>
-   <p>Telefone: <?= $phone ?></p>
+   <p>Nome: </br> <?= $name ?></p>
+   <p>E-mail: </br> <?= $email ?></p>
+   <p>Telefone: </br> <?= $phone ?></p>
  </div>
-  
-
-
-
-
-</main>
+ </fieldset>
+</div>
 
 <?php require_once("templates/footer.php")?> 
