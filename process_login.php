@@ -19,66 +19,63 @@ $message = new Message($BASE_URL);
 
     if($email && $password){
 
-        $sql = "SELECT * FROM users WHERE email = :email AND password = :password";
+        $sql = "SELECT email FROM client WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':password', $password);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(!empty($result)){
-           
-            //$_SESSION['cliente_logado'] = true;
-            $_SESSION['id_user'] =  $result['id_user'];
-            header("Location: index.php");
-            $message->setMessage("Bem Vindo!","success","");
-        }else{
-            
-            $message->setMessage("Email e/ou senha incorretos","error","back");
+        $result_client = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        }
-        
-
-    }else{
-       
-        $message->setMessage("Por favor preencha todos os campos","error","back");
-
-    }
-//}
-/*elseif($_POST['radio'] == "profissional")
-{
-    $dados = $_POST;
-
-	$email = $dados['email'];
-	$password = $dados['password'];
-
-    if($email && $password){
-
-        $sql = "SELECT * FROM worker WHERE email = :email AND password = :password";
+        $sql = "SELECT email FROM profession WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':password', $password);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(!empty($result)){
-            
-            $_SESSION['profissional_logado'] = true;
-            $_SESSION['name'] =  $result['name'];
-            $_SESSION['id_work'] = $result['id_work'];
-            header("Location: index.php");
-            $message->setMessage("Bem Vindo!","success","");
-        }else{
-            
-            $message->setMessage("Email e/ou senha incorretos","error","back");
+        $result_prof = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        if($email == $result_client['email'])
+        {
+            $sql = "SELECT * FROM client WHERE email = :email AND password = :password";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':email', $email);
+            $stmt->bindValue(':password', $password);
+            $stmt->execute();
+            $result_client = $stmt->fetch(PDO::FETCH_ASSOC);
+            if(!empty($result_client)){
+               
+                //$_SESSION['cliente_logado'] = true;
+                $_SESSION['id_client'] =  $result_client['id_client'];
+                header("Location: index.php");
+                $message->setMessage("Bem Vindo!","success","");
+            }else{
+                
+                $message->setMessage("Email e/ou senha incorretos","error","back");
+    
+            }
         }
-        
-
-    }else{
-       
-        $message->setMessage("Por favor preencha todos os campos","error","back");
-
+        elseif($email == $result_prof['email'])
+        {
+            $sql = "SELECT * FROM profession WHERE email = :email AND password = :password";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':email', $email);
+            $stmt->bindValue(':password', $password);
+            $stmt->execute();
+            $result_prof = $stmt->fetch(PDO::FETCH_ASSOC);
+            if(!empty($result_prof)){
+               
+                //$_SESSION['cliente_logado'] = true;
+                $_SESSION['id_profession'] =  $result_prof['id_profession'];
+                header("Location: index.php");
+                $message->setMessage("Bem Vindo!","success","");
+            }else{
+                
+                $message->setMessage("Email e/ou senha incorretos","error","back");
+    
+            }
+        }
     }
-} */
+
+
+
+       
 
 
 

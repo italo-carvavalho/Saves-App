@@ -17,16 +17,18 @@ if(!empty($posts['msg'])){
 
 
 
-if(isset($_SESSION['id_user'])){
-    $id =  $_SESSION['id_user'];
-    $stmt = $conn->query("SELECT * FROM users WHERE id_user = '{$id}'");
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    $type_user = $user['type_user'];
+
+if(isset($_SESSION['id_client'])){
+    $stmt = $conn->query("SELECT * FROM client WHERE id_client = '{$_SESSION['id_client']}'");
+    $user_client = $stmt->fetch(PDO::FETCH_ASSOC);
+    $name_client = $user_cliente['name'];
   
-
+}elseif(isset($_SESSION['id_profession'])){
+    $stmt = $conn->query("SELECT * FROM profession WHERE id_profession = 1");
+    $user_prof = $stmt->fetch(PDO::FETCH_ASSOC);
+    $name_profession = $user_prof['name'];
+    $id_profession = $user_prof['id_profession'];
 }
-
-
 
 ?>
 
@@ -55,16 +57,16 @@ if(isset($_SESSION['id_user'])){
         </div>
 
         <nav class="navbar">
-            <?php if(isset($id) && $type_user == 2){  ?>
+            <?php if($_SESSION['id_client']){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>client_schedule.php">Meus Agendamentos</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>schedule.php">Agendar</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $user['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_client.php"><?= $name_client['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
                <!-- <a href="//$BASE_URLperfil_pro.php"> <img class="guest" type="image/svg+xml" src="//$BASE_URLimages/user.svg"> </a> -->
-            <?php }elseif(isset($id) && $type_user == 1){  ?>
+            <?php }elseif($_SESSION['id_profession'] == $id_profession){  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>professional_schedule.php">Solicitações</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>cadastrar_servico.php">Serviços</a>
-                <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?= $user['name'] ?></a>
+                <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?php echo $name_profession['name'] ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="register">Cadastro</a>
