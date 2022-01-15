@@ -608,7 +608,7 @@ tr:hover td{
     color: #44b478;
 }
 
-td a, input{
+.header-fixed td a, input{
     border: none;
     padding: 7px 20px;
     border-radius: 20px;
