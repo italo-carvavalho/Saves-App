@@ -62,7 +62,7 @@ $message = new Message($BASE_URL);
             if(!empty($result_prof)){
                
                 //$_SESSION['cliente_logado'] = true;
-                $_SESSION['id_profission'] =  $result_prof['id_profession'];
+                $_SESSION['id_profession'] =  $result_prof['id_profession'];
                 header("Location: index.php");
                 $message->setMessage("Bem Vindo!","success","");
             }else{
