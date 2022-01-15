@@ -586,10 +586,10 @@ td img{
     height: 500px;
     overflow: auto;
     margin-top: 30px;
-}
-.header-fixed th{
-    display: initial;
-}
+    display: table;
+    margin-left: 40vh;
+
+}                 
 
 
 .header-fixed thead th{
@@ -611,7 +611,9 @@ tr:nth-child(odd){
 /* tr:hover td{
     color: #44b478;
 } */
-
+.e{
+    height: 4vh;
+}
 .header-fixed td a input{
     border: none;
     padding: 7px 20px;

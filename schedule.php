@@ -33,8 +33,8 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tr>
            <?php foreach($services as $service): ?>
 
-            <tr>
-                <td><?= $service['id_services']  ?></td>
+            <tr class="e">
+                <td><?= $service['id_services']?></td>
                 <td><img src="<?= $service['image'] ?>" alt=""></td>
                 <td><?= $service['name'] ?></td>
                 <td><?= $service['email'] ?></td>
