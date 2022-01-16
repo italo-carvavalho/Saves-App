@@ -7,13 +7,13 @@ $message = new Message($BASE_URL);
 
 $situation = "Em andamento";
 
-$fk_id_user = $_GET['id'];
+$fk_id_profession = $_GET['id'];
 
 try{
-	$sql = "UPDATE schedule SET situation = :situation WHERE fk_id_user = :fk_id_user";
+	$sql = "UPDATE schedule SET situation = :situation WHERE fk_id_profession = :fk_id_profession";
 	$stmt = $conn->prepare($sql);
 	$stmt->bindParam(":situation",$situation);
-    $stmt->bindParam(":fk_id_user",$fk_id_user);
+    $stmt->bindParam(":fk_id_profession",$fk_id_profession);
 	$stmt->execute();
 	$message->setMessage("Solicitação aceita","back");
 
