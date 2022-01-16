@@ -35,7 +35,7 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Serviço</th>
                 <th>Cidade</th>
                 <th>Situação</th>
-                <th>Ações</th>
+                <th colspan="2">Ações</th>
             </tr>
         </thead>
            <?php foreach($schedules as $schedule): ?>
@@ -48,8 +48,11 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $schedule['situation'] ?></td>
                
               
-                
+                <?php if($schedule['situation'] == 'Pendente'){ ?>
                 <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
+                <?php }elseif($schedule['situation'] == 'Em andamento'){   ?>
+                <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Confirmar</a></td> 
+                <?php }  ?>
                 </form>
                 
             </tr>  
