@@ -1,7 +1,7 @@
 <?php 
 
  $id_schedule =  $_GET['id'];
-
+echo $id_schedule;
 
 require_once("connection.php");
 require_once("globals.php");

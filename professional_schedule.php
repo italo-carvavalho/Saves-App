@@ -14,7 +14,7 @@ $id_profession = $_SESSION['id_profession'];
 
 }
 
-$stmt = $conn->query("SELECT sc.fk_id_client, sc.fk_id_profession, sc.fk_id_services, sc.situation,
+$stmt = $conn->query("SELECT sc.id_schedule, sc.fk_id_client, sc.fk_id_profession, sc.fk_id_services, sc.situation,
                      c.id_client, c.name, c.email, c.city, c.phone,
                      p.id_profession, s.id_services, s.name_services
                      FROM schedule AS sc INNER JOIN client AS c
@@ -50,8 +50,8 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $schedule['situation']; ?></td>
                 <td><?php echo $schedule['name_services']; ?></td>
                 
-                <td><a href="update_schedule.php?id=<?= $fk_id_profession ?>">Aceitar</a></td>
-                <td><a href="delete_schedule.php?id=<?= $fk_id_profession ?>">Cancelar</a></td>
+                <td><a href="update_schedule.php?id=<?= $schedule['id_schedule'] ?>">Aceitar</a></td>
+                <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
                 </form>
                 
             </tr>  
