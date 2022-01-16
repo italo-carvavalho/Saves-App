@@ -1,15 +1,28 @@
 <?php 
 require_once("templates/header.php");
 
+$fk_id_profession = $_SESSION['id_profession'];
 
-$stmt = $conn->query("SELECT * FROM services JOIN profession 
-                    ON fk_id_profession = id_profession");
+
+
+$stmt = $conn->query("SELECT s.id_services, s.fk_id_profession , p.id_profession,
+                    p.name , s.name_services, s.description, s.image
+                    FROM services AS s  JOIN profession AS p 
+                    ON fk_id_profession = id_profession
+                    WHERE s.fk_id_profession = $fk_id_profession");
 $servicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-foreach($servicos as $servico){
-   
+$sql = $conn->query("SELECT p.id_profession, p.name FROM profession AS p
+WHERE id_profession = $fk_id_profession");
+$profession = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($profession as $prof) {
+    
 }
 
+foreach ($servicos as $servico) {
+
+}
 
 ?>
   
@@ -26,7 +39,7 @@ foreach($servicos as $servico){
             </ul> -->
         </div>
         <div class="profile-main">
-            <h2 class="profile-name"><?= $servico['name'] ?></h2>
+            <h2 class="profile-name"><?= isset($prof['name']) ? $prof['name'] : ""  ?></h2>
             <p class="profile-position"><?= isset($servico['nome_services']) ? $servico['nome_services'] : ""  ?></p>
             <p class="profile-body"><?= isset($servico['description']) ? $servico['description'] : ""  ?></p>
         </div>
@@ -35,8 +48,8 @@ foreach($servicos as $servico){
   
 </div>
 
-    <a href="cadastrar_servico.php?id=<?= $servico['fk_id_profession'] ?>" class="profile-button1">Editar</a>
-    <a href="deletar_servico.php?id=<?= $servico['fk_id_profession'] ?>"  class="profile-button2">Excluir</a>
+    <a href="cadastrar_servico.php?id=<?= $servicos['fk_id_profession'] ?>" class="profile-button1">Editar</a>
+    <a href="deletar_servico.php?id=<?= $servicos['fk_id_profession'] ?>"  class="profile-button2">Excluir</a>
 
 </main>
 
