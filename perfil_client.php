@@ -15,10 +15,10 @@ $email = $user['email'];
 ?>
 
 
-<div class="container">
+<div class="grid">
 
-<fieldset class="r">
-<img src="images/user2.png"  class="profile-image"alt="Avatar" style="width:30%; margin-top:30px;">
+<fieldset class="card">
+
  <div class="container-client">
    <p>Nome: </br> <?= $name ?></p>
    <p>E-mail: </br> <?= $email ?></p>
