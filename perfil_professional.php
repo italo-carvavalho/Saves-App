@@ -36,7 +36,7 @@ foreach($servicos as $servico){
 </div>
 
     <a href="cadastrar_servico.php?id=<?= $servico['fk_id_profession'] ?>" class="profile-button1">Editar</a>
-    <a href="cadastrar_servico.php?id=<?= $servico['fk_id_profession'] ?>"  class="profile-button2">Excluir</a>
+    <a href="deletar_servico.php?id=<?= $servico['fk_id_profession'] ?>"  class="profile-button2">Excluir</a>
 
 </main>
 
