@@ -23,4 +23,5 @@ try{
 		echo $e->getMessage();
 }
 	
+$message->setMessage("O serviço foi aceito com sucesso","success","back");
 ?>
