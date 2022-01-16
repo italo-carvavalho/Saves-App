@@ -100,7 +100,7 @@ if(isset($id_client)){
     <?php  }  ?>
     
 <!-- modal tela de loguin -->
-<div id="log" class="modal">
+<div id="log" class="modal_login">
 
   <div class="modal-content-log"> 
     
@@ -125,16 +125,15 @@ if(isset($id_client)){
   <div class="input-field">
       <input type="radio" name="radio" value="profissional"/>Profissional
   </div> -->
-  </br>
+
     <button type="submit" class="button-log">Confirmar</button>
 
-  </form>
-  </br>
-    <!-- <div>
-        <a href="cadastro.php" style="text-decoration:none;font-size: large">
-            Cadastro
+  </form></br>
+      <div>
+        <a href="#" style="text-decoration:none; text-align:center;">
+          Esqueci a senha 
         </a>
-  </div> -->
+   </div></br>
     <span>Ou se Conecte Com sua conta</span>      
     <div class="social-fields">
       <div class="social-field facebook" >
@@ -149,15 +148,15 @@ if(isset($id_client)){
               <i class="fab fa-google"></i>
                 Entre com o Google
             </a>
-           </div>
-          </div>
         </div>
-      </div>             
-    </div>             
+      </div>
+    </div>
+  </div>             
+</div>             
   
 
   <!-- modal tela de cadastro -->
-    <div id="cad" class="modal">
+    <div id="cad" class="modal_logup">
     <div class="modal-content-cad"> 
 
     <h2 class="c-cad">Cadastro de Usuário</h2>

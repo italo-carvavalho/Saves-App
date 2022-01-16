@@ -1,6 +1,5 @@
 <?php 
 require_once("templates/header.php");
-require_once("templates/footer.php");
 
 ?>
 
@@ -13,5 +12,7 @@ require_once("templates/footer.php");
   		<h2 id="home-text-2">Encontre empregos facilmente</h2>
 </main>
 
-
+<?php 
+require_once("templates/footer.php");
+?>
 
