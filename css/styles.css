@@ -570,7 +570,30 @@ footer {
     margin-top: 10px;
     margin-right: 56vh;
 }
+.w{
+  
+    margin-left: 50vh;
+}
 
+.e{
+    height: 4vh;
+}
+/* button do agendamento */
+.e button{
+    border-radius: 12%;
+    height: 5.5vh;
+    width: 6vw;
+    background-color: black;
+    color: white;
+    border: 1px solid black ;
+    
+}
+.e button:hover {
+    background-color: rgb(150, 148, 148);
+    color:black;
+    cursor: pointer;
+}
+/* -- */
 
 td img{
     height: 70px;
@@ -581,17 +604,32 @@ td img{
 
 .header-fixed{
     width: 100%;
-    display: flex;
-    justify-content: center;
     height: 500px;
     overflow: auto;
     margin-top: 30px;
     display: table;
-    margin-left: 40vh;
+    margin-left: 35vh;
+}   
 
-}                 
+
+.header-fixed a{
+    width: 5.5vw;
+    height: 6vh;
+    padding: 7.5px 5px;
+    border-radius: 12%;
+    background-color: black;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+}    
+.header-fixed a:hover{
+    background-color:  rgb(150, 148, 148);
+    color: black;
+}          
 
 
+ 
 .header-fixed thead th{
     color: rgb(22, 21, 21);
 }
@@ -611,9 +649,7 @@ tr:nth-child(odd){
 /* tr:hover td{
     color: #44b478;
 } */
-.e{
-    height: 4vh;
-}
+
 .header-fixed td a input{
     border: none;
     padding: 7px 20px;

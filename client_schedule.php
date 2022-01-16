@@ -24,10 +24,12 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php require_once("templates/header.php")  ?>
 
+<h2 style="text-align:center; margin-top:30px;">Agendamentos Realizados</h2>
+
 <div class="header-fixed">
     <table>
         <thead>
-            <tr>
+            <tr >
 				<th>Imagem</th>
                 <th>Nome do Profissional</th>
                 <th>Serviço</th>
