@@ -100,7 +100,7 @@ if(isset($id_client)){
     <?php  }  ?>
     
 <!-- modal tela de loguin -->
-<div id="log" class="modal">
+<div id="log" class="modal_login">
 
   <div class="modal-content-log"> 
     
@@ -157,7 +157,7 @@ if(isset($id_client)){
   
 
   <!-- modal tela de cadastro -->
-    <div id="cad" class="modal">
+    <div id="cad" class="modal_logup">
     <div class="modal-content-cad"> 
 
     <h2 class="c-cad">Cadastro de Usuário</h2>

@@ -10,6 +10,3 @@ button.addEventListener('click', () =>{
 	closeButton.classList.toggle('fa-bars')
 	closeButton.classList.toggle('fa-times')
 })
-
-
-
