@@ -6,15 +6,18 @@ require_once("templates/header.php")
 ?>
 
 <?php
-$fk_id_user = $_SESSION['id_user'];
 
-$stmt = $conn->query("SELECT s.id_services, u.city, u.id_user, u.phone, u.email,
-u.name, s.name_services, sc.date_hour, sc.situation, sc.fk_id_user, sc.fk_id_services 
-		FROM schedule as sc JOIN users as u
-		ON sc.fk_id_user = u.id_user
+
+
+$fk_id_profession = $_SESSION['id_profession'];
+
+$stmt = $conn->query("SELECT u.id_client, s.id_services, sc.situation, 
+       c.name, c.email, c.phone, c.city, s.name_services
+		FROM schedule as sc JOIN client as c
+		ON sc.fk_id_user = u.id_client
 		JOIN services as s
 		ON fk_id_services = id_services
-		WHERE sc.fk_id_user = $fk_id_user");
+		WHERE sc.fk_id_profession = $fk_id_profession");
 $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
