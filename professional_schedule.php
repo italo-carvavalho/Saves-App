@@ -50,7 +50,7 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $schedule['situation']; ?></td>
                 <td><?php echo $schedule['name_services']; ?></td>
                 
-                <td><a href="update_schedule.php?id=<?= $schedule['id_schedule'] ?>">Aceitar</a></td>
+                <td><a href="update_schedule.php?id=<?= $schedule['id_profession'] ?>">Aceitar</a></td>
                 <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
                 </form>
                 
