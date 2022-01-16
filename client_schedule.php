@@ -47,12 +47,17 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $schedule['city'] ?></td>
                 <td><?= $schedule['situation'] ?></td>
                
-              
-                <?php if($schedule['situation'] == 'Pendente'){ ?>
-                <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
-                <?php }elseif($schedule['situation'] == 'Em andamento'){   ?>
-                <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Confirmar</a></td> 
-                <?php }  ?>
+                <?php if ($schedule['situation'] == 'Em andamento') {?>
+                    <td><a href="update_schedule.php?id=<?= $schedule['id_schedule'] ?>">Serviço finalizado</a></td>
+
+                    <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
+
+                <?php }elseif($schedule['situation'] == 'Concluído'){?>
+                    <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Excluir</a></td>
+
+                <?php }else{ ?>
+                    <td><a href="delete_schedule.php?id=<?= $schedule['id_schedule'] ?>">Cancelar</a></td>
+                <?php }?>
                 </form>
                 
             </tr>  

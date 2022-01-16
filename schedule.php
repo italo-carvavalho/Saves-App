@@ -18,7 +18,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <h2 style="text-align:center; margin-top:30px;">Agendar um serviço</h2>
 
 
-<div class="header-fixed">
+  <div class="header-fixed">
     <table>
             <tr>
                 <th>Id</th>
@@ -49,7 +49,7 @@ $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tr>  
             <?php endforeach; ?>
     </table>
-</div>
+  </div>
 
 
 
