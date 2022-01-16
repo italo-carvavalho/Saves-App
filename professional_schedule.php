@@ -6,20 +6,17 @@ require_once("templates/header.php")
 ?>
 
 <?php
-$fk_id_user = $_SESSION['id_user'];
+//$fk_id_profession = $_SESSION['id_profession'];
 
-$stmt = $conn->query("SELECT s.id_services, u.city, u.id_user, u.phone, u.email,
-u.name, s.name_services, sc.date_hour, sc.situation, sc.fk_id_user, sc.fk_id_services 
-		FROM schedule as sc JOIN users as u
-		ON sc.fk_id_user = u.id_user
-		JOIN services as s
-		ON fk_id_services = id_services
-		WHERE sc.fk_id_user = $fk_id_user");
+if (isset($_SESSION['id_profession'])) {
+
+$id_profession = $_SESSION['id_profession'];
+
+}
+
+$stmt = $conn->query("SELECT p.name, p.email, p.phone, p.city, sc.situation FROM profession AS p INNER JOIN schedule AS sc WHERE id_profession = '{$id_profession}'");
 $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-	
 ?>
 
 <div class="header-fixed">
@@ -36,15 +33,15 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
            <?php foreach($schedules as $schedule): ?>
 
             <tr>
-                <td><?= $schedule['name'] ?></td>
-                <td><?= $schedule['email'] ?></td>
-                <td><?= $schedule['phone'] ?></td>
-                <td><?= $schedule['city'] ?></td>
-                <td><?= $schedule['situation'] ?></td>
+                <td><?php echo $schedule['name']; ?></td>
+                <td><?php echo $schedule['email']; ?></td>
+                <td><?php echo $schedule['phone']; ?></td>
+                <td><?php echo $schedule['city']; ?></td>
+                <td><?php echo $schedule['situation']; ?></td>
                
                 
-                <td><a href="update_schedule.php?id=<?= $fk_id_user ?>">Aceitar</a></td>
-                <td><a href="delete_schedule.php?id=<?= $fk_id_user ?>">Cancelar</a></td>
+                <td><a href="update_schedule.php?id=<?= $fk_id_profession ?>">Aceitar</a></td>
+                <td><a href="delete_schedule.php?id=<?= $fk_id_profession ?>">Cancelar</a></td>
                 </form>
                 
             </tr>  
