@@ -125,16 +125,15 @@ if(isset($id_client)){
   <div class="input-field">
       <input type="radio" name="radio" value="profissional"/>Profissional
   </div> -->
-  </br>
+
     <button type="submit" class="button-log">Confirmar</button>
 
-  </form>
-  </br>
-    <!-- <div>
-        <a href="cadastro.php" style="text-decoration:none;font-size: large">
-            Cadastro
+  </form></br>
+      <div>
+        <a href="#" style="text-decoration:none; text-align:center;">
+          Esqueci a senha 
         </a>
-  </div> -->
+   </div></br>
     <span>Ou se Conecte Com sua conta</span>      
     <div class="social-fields">
       <div class="social-field facebook" >
@@ -149,11 +148,11 @@ if(isset($id_client)){
               <i class="fab fa-google"></i>
                 Entre com o Google
             </a>
-           </div>
-          </div>
         </div>
-      </div>             
-    </div>             
+      </div>
+    </div>
+  </div>             
+</div>             
   
 
   <!-- modal tela de cadastro -->
