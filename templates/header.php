@@ -104,9 +104,9 @@ if(isset($id_client)){
 
   <div class="modal-content-log"> 
     
+    <span class="logclose">&times;</span>    
     <h2 class="c-log">Login</h2>
     
-    <span class="logclose">&times;</span>    
     <form action="process_login.php" method="POST"> 
      
     <div class="input-field">
@@ -159,9 +159,9 @@ if(isset($id_client)){
     <div id="cad" class="modal_logup">
     <div class="modal-content-cad"> 
 
+   <span class="cadclose">&times;</span> 
     <h2 class="c-cad">Cadastro de Usuário</h2>
 
-   <span class="cadclose">&times;</span> 
     <form  action="users_process.php" method="POST">
       <input type="hidden" name="type" value="register_professional">
         <div class="input-field">
@@ -176,7 +176,7 @@ if(isset($id_client)){
      
         <div class="input-field">
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" class="validate" style="width: 20em"> 
+        <input type="email" id="email" name="email" class="validate" style="width: 20em;margin: 0;border: 0; padding: 0;"> 
         </div>     
         
         <div class="input-field">
@@ -193,20 +193,20 @@ if(isset($id_client)){
        
         <div class="input-field">
         <label for="password">Senha:</label>
-        <input  name="password" type="password" class="validate" id="password" style="width: 13em">
+        <input  name="password" type="password" class="validate" id="password" style="width: 13em;">
         </div>    
     
         <div class="input-field">
         <label for="password">Confirmar Senha:</label>
-        <input name="confirmPassword"  type="password" class="validate" id="confpassword" style="width: 13em">
+        <input name="confirmPassword"  type="password" class="validate" id="confpassword" style="width: 13em;">
         </div>
         <br>
         
         <div class="input-field">
-        <input type="radio" id="" name="type_user" value="2"> Cliente
+        <input type="radio" id="radio-client" name="type_user" value="2"><p>Cliente</p>
         </div>
         <div class="input-field">
-        <input type="radio" id="" name="type_user" value="1"> Profissional
+        <input type="radio" id="radio-prof" name="type_user" value="1"><p>Profissional</p>
         </div>
         
         
