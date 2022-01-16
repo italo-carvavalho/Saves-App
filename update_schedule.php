@@ -5,23 +5,49 @@ require_once("Model/Message.php");
 
 $message = new Message($BASE_URL);
 
-$fk_id_profesion =  $_SESSION['id_profession'];
+if (isset($_SESSION['id_client'])) {
 
-$situation = "Em andamento";
+$fk_id_client = $_SESSION['id_client'];
+}
 
-$fk_id_profession = $_GET['id'];
+if (isset($_SESSION['id_profession'])) {
+
+$fk_id_profession = $_SESSION['id_profession'];
+
+}
+
+$id_schedule = $_GET['id'];
+
+if(isset($fk_id_client)){
+
+$situation = "Concluído";
 
 try{
-	$sql = "UPDATE schedule SET situation = :situation WHERE fk_id_profession = :fk_id_profession";
+	$sql = "UPDATE schedule SET situation = :situation WHERE id_schedule = :id_schedule";
 	$stmt = $conn->prepare($sql);
 	$stmt->bindParam(":situation",$situation);
-    $stmt->bindParam(":fk_id_profession",$fk_id_profession);
+    $stmt->bindParam(":id_schedule",$id_schedule);
 	$stmt->execute();
-	$message->setMessage("Solicitação aceita","back");
+	$message->setMessage("Serviço conluído com sucesso","success","back");
 
 	}catch(Exception $e){
 		echo $e->getMessage();
 }
+
+}elseif (isset($fk_id_profession)) {
 	
-$message->setMessage("O serviço foi aceito com sucesso","success","back");
+$situation = "Em andamento";
+
+try{
+	$sql = "UPDATE schedule SET situation = :situation WHERE id_schedule = :id_schedule";
+	$stmt = $conn->prepare($sql);
+	$stmt->bindParam(":situation",$situation);
+    $stmt->bindParam(":id_schedule",$id_schedule);
+	$stmt->execute();
+	$message->setMessage("Solicitação aceita", "success","back");
+
+	}catch(Exception $e){
+		echo $e->getMessage();
+}
+}
 ?>
