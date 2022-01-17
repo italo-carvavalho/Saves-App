@@ -83,6 +83,7 @@ if(isset($id_client)){
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?php echo $name_profession; ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
+              <a class="nav-btn" href="<?=$BASE_URL?>sobre.php" id="register">Sobre</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="register">Cadastro</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="login">Entrar</a>
             <?php } ?>
@@ -109,22 +110,24 @@ if(isset($id_client)){
     
     <form action="process_login.php" method="POST"> 
      
-    <div class="input-field">
+    <div class="input-field"> 
     <label for="email">E-mail:</label>
         <input required  id="email" type="email" class="validate" name="email" style="width: 15em">
-    </div></br>
+   </div></br>
     
-    <div class="input-field">
+   <div class="input-field" > 
     <label for="password">Senha:</label>
         <input required type="password" class="validate" id="password" name="password" style="width: 15em">
-    </div>
+   </div>
   </br>   
- <!-- <div class="input-field">
-      <input required type="radio" name="radio" value="cliente"/>Cliente
+ <div class="input-field">
+   <label class="label-radio" for="">Cliente</label>
+      <input required type="radio" name="radio" value="cliente"/>
   </div>
   <div class="input-field">
-      <input type="radio" name="radio" value="profissional"/>Profissional
-  </div> -->
+    <label class="label-radio" for="">Profissional</label>
+      <input type="radio" name="radio" value="profissional"/>
+  </div> 
 
     <button type="submit" class="button-log">Confirmar</button>
 
