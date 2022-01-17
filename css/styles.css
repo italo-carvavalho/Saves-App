@@ -169,12 +169,12 @@ header .navbar .nav-btn:hover {
 
 /* estilo do formulario */
 
-.input-field input[type="text"],
+/* .input-field input[type="text"],
 .input-field input[type="email"],
 .input-field input[type="phone"],
 .input-field input[type="password"]{
     
-}
+} */
 #radio-client{
     height: 2vh;
     box-shadow: 0 0 0 #fff;
@@ -590,7 +590,7 @@ footer {
     
 }
 
-.profile-button1 {
+.profile-button1{
     background-color: #008CBA; 
     border: none;
     color: white;
@@ -604,7 +604,7 @@ footer {
     margin-left: 77vh;
 }
 
-.profile-button2 {
+.profile-button2{
     background-color: #f44336; 
     border: none;
     color: white;
