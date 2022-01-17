@@ -83,7 +83,7 @@ if(isset($id_client)){
                 <a class="nav-btn" href="<?=$BASE_URL?>perfil_professional.php"><?php echo $name_profession; ?></a>
                 <a class="nav-btn" href="<?=$BASE_URL?>logout.php">Sair</a>
             <?php }else{  ?>
-              <a class="nav-btn" href="<?=$BASE_URL?>sobre.php" id="register">Sobre</a>
+              <a class="nav-btn" href="<?=$BASE_URL?>sobre.php">Sobre</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="register">Cadastro</a>
                 <a class="nav-btn" href="<?=$BASE_URL?>#" id="login">Entrar</a>
             <?php } ?>
@@ -120,14 +120,14 @@ if(isset($id_client)){
         <input required type="password" class="validate" id="password" name="password" style="width: 15em">
    </div>
   </br>   
- <div class="input-field">
+ <!--<div class="input-field">
    <label class="label-radio" for="">Cliente</label>
       <input required type="radio" name="radio" value="cliente"/>
   </div>
   <div class="input-field">
     <label class="label-radio" for="">Profissional</label>
       <input type="radio" name="radio" value="profissional"/>
-  </div> 
+  </div> -->
 
     <button type="submit" class="button-log">Confirmar</button>
 
