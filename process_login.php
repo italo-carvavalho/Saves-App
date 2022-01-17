@@ -31,8 +31,12 @@ $message = new Message($BASE_URL);
         $stmt->execute();
         $result_prof = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($email == $result_client['email'])
-        {
+        if(is_null($result_prof['email'])  && is_null($result_client['email'])){
+            $message->setMessage("Email e/ou senha não cadastrados","error","back");
+        }
+
+        if($email == $result_client['email']){
+
             $sql = "SELECT * FROM client WHERE email = :email AND password = :password";
             $stmt = $conn->prepare($sql);
             $stmt->bindValue(':email', $email);
