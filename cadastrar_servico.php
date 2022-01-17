@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
         </div>
            
             <div>
-                <textarea placeholder="Descreva seu serviço" name="description" id="" cols="10" rows="5"><?= isset($services['description']) ? $services['description'] : "" ?></textarea>
+                <textarea placeholder="Descreva seu serviço" name="description" id="" cols="10" rows="5" style="width:32.8vw;"><?= isset($services['description']) ? $services['description'] : "" ?></textarea>
             </div>
 
             <div class="form-group">
