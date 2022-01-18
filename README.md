@@ -22,7 +22,7 @@ Sobre
 
 O "Saves App" foi desenvolvido com a finalidade de ser um facilitador de comunicação
 entre o usuário e o profissional, que lhe presterá o(s) serviço(s). 
-Ou seja, uma plataforma que possibilita aos profissinais exibir seus portilólios
+Ou seja, uma plataforma que possibilita aos profissinais exibir seus portifólios
 e aos clientes filtra-los de acordo à sua conviniência(proximidade, preço, ranking e etc.).
 
 Funcionalidades:
